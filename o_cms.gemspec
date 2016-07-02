@@ -7,11 +7,11 @@ require "o_cms/version"
 Gem::Specification.new do |s|
   s.name        = "o_cms"
   s.version     = OCms::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of OCms."
-  s.description = "TODO: Description of OCms."
+  s.authors     = ["Benjamin Ayres"]
+  s.email       = ["ben@outsidehq.co.uk"]
+  s.homepage    = "http://outsidehq.co.uk"
+  s.summary     = "Simple and adaptable CMS."
+  s.description = "Provide your application with content mangement features and a simple interface you can easily extend."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
