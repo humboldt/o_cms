@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>OCms</title>
-  <%= stylesheet_link_tag    "o_cms/application", media: "all" %>
-  <%= javascript_include_tag "o_cms/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <%= stylesheet_link_tag    "o_cms/application", media: "all" %>
+    <%= javascript_include_tag "o_cms/application" %>
+  </head>
+  <body>
 
-<%= yield %>
+	<div class="container">
+		<%= yield %>
+	</div>
 
-</body>
+  </body>
 </html>
