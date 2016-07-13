@@ -15,36 +15,12 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
-
-# Tell Bundler to load only the gems inside your gemspec. 
-# When you install your own gem on your own machine, this will force your specs to 
-# use your current code, not the version you have installed seperately.
-
-require 'bundler/setup'
-Bundler.setup
-
-# Gems required for testing, these must all also be in the gemspec file
-
-require 'database_cleaner'
-require 'pry-rails' 
-require 'pry-doc' 
-require 'pry-inline' 
-require 'rb-readline' 
-require 'capybara'
-require 'factory_girl_rails'
-require 'rspec-rails'
-require 'selenium-webdriver' 
-
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-
 RSpec.configure do |config|
-
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
-
   config.expect_with :rspec do |expectations|
-
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
     # defined using `chain`, e.g.:
@@ -52,25 +28,20 @@ RSpec.configure do |config|
     #     # => "be bigger than 2 and smaller than 4"
     # ...rather than:
     #     # => "be bigger than 2"
-
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
-
   config.mock_with :rspec do |mocks|
-
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
-
     mocks.verify_partial_doubles = true
   end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
-
 =begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
@@ -122,5 +93,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
 end

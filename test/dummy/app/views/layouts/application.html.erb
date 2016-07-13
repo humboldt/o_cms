@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <% if notice %>
+      <div id="top-alert" class="alert alert-success top-alert" data-alert="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div id="top-alert" class="alert alert-danger top-alert" data-alert="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
 
-<%= yield %>
-
+  <%= yield %>
+  
+  </div>
 </body>
 </html>

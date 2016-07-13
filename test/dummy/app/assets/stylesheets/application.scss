@@ -1,0 +1,109 @@
+@import "bootstrap";
+
+/*
+
+    Devise, Authentication & Session Layout
+
+*/
+
+// Colours
+$bright-white: #ffffff;
+$cool-grey: #f8f8f8;
+$deep-heather: #464646;
+
+// Session
+body#session{
+  padding: 5px;
+  background: $cool-grey;
+  .account-wall {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: $bright-white;
+    border-radius: 4px;
+    h1 {
+      display: block;
+      margin: 25px;
+    }
+    .form-signin {
+      border-top: 2px solid #eee;
+      padding: 0 0 15px 0;
+      margin: 0 auto;
+      .form-signin-heading {
+        margin-bottom: 10px;
+      }
+      .alert{
+        margin-top: 10px;
+      }
+      .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 15px 0 5px;
+        &:focus {
+          z-index: 2;
+        }
+      }
+      .form-group.email {
+        margin-bottom: 0;
+      }
+      .forgotten-password{
+        font-weight: bold;
+        display: block;
+        margin: 25px 0 0;
+        text-align: center;
+      }
+    }
+  }
+
+  // Footer Authentication links
+  ul.helper-links{
+    padding-left: 0;
+    padding: 5px;
+    margin: 25px 0px;
+    li{
+      list-style: none;
+      display: block;
+      margin: 10px 0px;
+      a{
+        border-radius: 4px;
+        display: block;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+        background: darken($cool-grey, 2%);
+        color: lighten($deep-heather, 20%);
+        text-decoration: none;
+        font-weight: normal;
+        &:hover{
+          background: $bright-white;
+        }
+      }
+    }
+  }
+}
+
+// Forgotten password
+.password-recovery{
+  .email{
+    border-radius: 4px !important;
+    margin-bottom: 10px !important;
+  }
+  .password{
+    border-radius: 4px !important;
+  }
+}
+
+// Inline validation helper style
+.help-block{
+  color: #a94442;
+  display: block;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.has-error {
+  input {
+    border: 2px solid #a94442;;
+  }
+}

@@ -12,3 +12,39 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+gem "rails", "~> 4.1.9"
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'email_spec'
+end
+
+group :development, :test do
+  gem 'pry-rails' 
+  gem 'pry-doc' 
+  gem 'pry-inline' 
+  gem 'rb-readline' 
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'dotenv-rails'
+end
+
+gem "pg"
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'rails-assets-tether', '>= 1.1.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'simple_form'
+
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'

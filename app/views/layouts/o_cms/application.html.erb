@@ -9,10 +9,9 @@
     <%= javascript_include_tag "o_cms/application" %>
   </head>
   <body>
-
-	<div class="container">
-		<%= yield %>
-	</div>
-
+    <%= render :partial => 'o_cms/dashboard/header' %>
+    <div class="container"> 
+  		<%= yield %>
+  	</div>
   </body>
 </html>
