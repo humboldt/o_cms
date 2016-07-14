@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
 require "o_cms/version"
-  require 'yaml'
+require 'yaml'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.1.9"
   s.add_dependency "pg"
+  s.add_dependency 'sass-rails', '5.0'
+  s.add_dependency 'compass-rails', '~> 2.0.0'
   s.add_dependency 'bootstrap', '~> 4.0.0.alpha3'
   s.add_dependency 'rails-assets-tether', '>= 1.1.0'
   s.add_dependency 'jquery-rails'

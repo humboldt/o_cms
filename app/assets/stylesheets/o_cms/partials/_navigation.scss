@@ -1,0 +1,57 @@
+/*
+
+    Navigation
+
+*/
+
+header.top {
+  background-color: #459565;
+  margin-bottom: 20px;
+  li {
+    @include media-breakpoint-down(xs){
+      clear: left;
+      display: block;
+      margin-left: 0rem !important;
+      width: 100%;
+    }
+    a{
+      i {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+  .navbar-toggler {
+    color: #fff;
+    font-size: 2.4rem;
+    padding: 0rem 0rem 0.5rem 0rem;
+  }
+}
+.account-nav {
+  @include media-breakpoint-down(sm) {
+    clear: both;
+  }
+  .nav-item {
+    .nav-link {
+      @include media-breakpoint-up(sm) {
+        font-size: 14px;
+        margin-top: 3px;
+      }
+    }
+    .btn-success-outline {
+      @include media-breakpoint-down(xs) {
+        margin: 10px 0 15px;
+      }
+      color: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.5);
+      margin-top: 3px;
+      i {
+        margin: 0rem 0rem 0rem 0.3rem;
+      }
+      &:hover {
+        color: rgba(255, 255, 255, 0.75);
+        border-color: rgba(255, 255, 255, 0.75);
+        background-color: #459565;
+      }
+    }
+  }
+}

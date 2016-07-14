@@ -38,7 +38,9 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem "pg"
+gem 'pg'
+gem 'sass-rails', '5.0'
+gem 'compass-rails', '~> 2.0.0'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'rails-assets-tether', '>= 1.1.0'
 gem 'jquery-rails'

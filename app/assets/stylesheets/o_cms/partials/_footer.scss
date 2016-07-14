@@ -1,0 +1,25 @@
+/*
+
+    Footer
+
+*/
+
+.footer {
+  background-color: $gray-lighter;
+  bottom: 0;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  width: 100%;
+  .text-muted {
+    font-size: 0.9rem;
+    text-align: center;
+    a {
+      color: $gray-light;
+      font-weight: 500;
+      &:visited {
+        color: $gray-light;
+      }
+    }
+  }
+}
