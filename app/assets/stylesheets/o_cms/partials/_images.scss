@@ -1,0 +1,33 @@
+/*
+
+    Images
+
+*/
+
+// Index tiles
+
+ul.images {
+  padding-left: 0;
+  li.image {
+    float: left;
+    list-style: none;
+    a {
+      border: 2px solid $gray-lighter;
+      display: block;
+      margin: 5px;
+      img {
+        display: block;
+        height: 150px;
+        width: 150px;
+      }
+    }
+  }  
+}
+
+// Preview thumb
+
+img.img-preview {
+  border: 2px solid $gray-lighter;
+  margin: 5px;
+  max-width: 600px;
+}
