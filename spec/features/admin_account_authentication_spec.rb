@@ -19,7 +19,6 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
   end
 
   scenario 'cannot be accesed by a default user type' do
-    Rails.application.load_seed 
     visit '/users/sign_up'
     expect(page).to have_css 'h1', text: 'Sign Up'
 

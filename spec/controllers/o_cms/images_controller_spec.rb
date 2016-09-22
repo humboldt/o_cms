@@ -141,17 +141,19 @@ module OCms
       end
 
       describe "POST create" do
+        let(:file) { fixture_file_upload('files/demo-image.jpg', 'image/jpeg') }
+
         it "increases the number of Images by 1" do
-          expect{ post :create, image: {name: RandomData.random_sentence, file: RandomData.random_slug + '.jpg', description: RandomData.random_paragraph} }.to change(Image,:count).by(1)
+          expect{ post :create, image: {name: RandomData.random_sentence, file: file, description: RandomData.random_paragraph} }.to change(Image,:count).by(1)
         end
 
         it "assigns the new image to @image" do
-          post :create, image: {name: RandomData.random_sentence, file: RandomData.random_slug + '.jpg', description: RandomData.random_paragraph}
+          post :create, image: {name: RandomData.random_sentence, file: file, description: RandomData.random_paragraph}
           expect(assigns(:image)).to eq Image.last
         end
 
         it "redirects to the new image" do
-          post :create, image: {name: RandomData.random_sentence, file: RandomData.random_slug + '.jpg', description: RandomData.random_paragraph}
+          post :create, image: {name: RandomData.random_sentence, file: file, description: RandomData.random_paragraph}
           expect(response).to redirect_to Image.last
         end
       end
@@ -171,9 +173,7 @@ module OCms
           get :edit, id: my_image.id
           image_instance = assigns(:image)
 
-          expect(image_instance.id).to eq my_image.id
-          expect(image_instance.name).to eq my_image.name
-          expect(image_instance.file).to eq my_image.file
+          expect(image_instance).to eq my_image
         end
       end
 
@@ -193,7 +193,7 @@ module OCms
 
         it "redirects to the updated image" do
           new_name = RandomData.random_sentence
-          new_file = RandomData.random_slug + '.jpg'
+          new_file = fixture_file_upload('files/demo-image.jpg', 'image/jpeg')
           new_description = RandomData.random_paragraph
 
           put :update, id: my_image.id, image: {name: new_name, file: new_file, description: new_description}

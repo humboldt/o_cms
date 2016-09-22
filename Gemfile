@@ -46,6 +46,7 @@ gem 'rails-assets-tether', '>= 1.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'simple_form'
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 
 gem 'devise'
 gem 'cancancan'

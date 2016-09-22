@@ -7,12 +7,13 @@ end
 roles = Role.all
 
 # Images
-OCms::Image.create(:name => 'Image One', :file => 'img.png', :description => 'Nice Picture')
+file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
+OCms::Image.create(:name => 'Image One', :file => file, :description => 'Nice Picture')
 
 20.times do
   OCms::Image.create!(
     name:         RandomData.random_sentence,
-    file:         RandomData.random_slug + '.jpg',
+    file:         file,
     description:  RandomData.random_paragraph
   )
 end
