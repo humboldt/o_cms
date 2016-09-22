@@ -3,6 +3,11 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
+
+require 'devise'
+require 'rolify'
+require 'database_cleaner'
+require 'factory_girl_rails'
 require "o_cms"
 
 module Dummy
@@ -20,4 +25,3 @@ module Dummy
     # config.i18n.default_locale = :de
   end
 end
-

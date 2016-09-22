@@ -15,16 +15,45 @@ Gem::Specification.new do |s|
   s.description = "Provide your application with content mangement features and a simple interface you can easily extend."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.1.9"
-  s.add_dependency "pg"
+# TODO - WHen moved to spec replace the above with
+  # s.test_files = Dir["test/**/*", "spec/**/*"]
+
+  # backend
+  s.add_dependency 'rails', '>= 4.1.9'
+
+  # frontend
   s.add_dependency 'sass-rails', '5.0'
   s.add_dependency 'compass-rails', '~> 2.0.0'
-  s.add_dependency 'bootstrap', '~> 4.0.0.alpha3'
-  s.add_dependency 'rails-assets-tether', '>= 1.1.0'
-  s.add_dependency 'jquery-rails'
-  s.add_dependency 'turbolinks'
   s.add_dependency 'simple_form'
+  s.add_dependency 'jquery-rails'
+  s.add_dependency 'rails-assets-tether', '>= 1.1.0'
+  s.add_dependency 'turbolinks'
+  s.add_dependency 'bootstrap', '~> 4.0.0.alpha3'
+
+  # development dependencies
+  s.add_development_dependency 'better_errors'
+  s.add_development_dependency 'binding_of_caller'
+  s.add_development_dependency 'quiet_assets'
+
+  # test dependencies
+  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'email_spec'
+  s.add_development_dependency 'pry-rails'
+  s.add_development_dependency 'pry-doc'
+  s.add_development_dependency 'pry-inline'
+  s.add_development_dependency 'rb-readline'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'factory_girl_rails'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'dotenv-rails'
+
+  # dummy app dependencies
+  s.add_development_dependency 'devise'
+  s.add_development_dependency 'cancancan'
+  s.add_development_dependency 'rolify'
+  s.add_development_dependency 'pg'
 end

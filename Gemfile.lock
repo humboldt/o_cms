@@ -5,8 +5,7 @@ PATH
       bootstrap (~> 4.0.0.alpha3)
       compass-rails (~> 2.0.0)
       jquery-rails
-      pg
-      rails (~> 4.1.9)
+      rails (>= 4.1.9)
       rails-assets-tether (>= 1.1.0)
       sass-rails (= 5.0)
       simple_form
@@ -15,35 +14,44 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.1.16)
-      actionpack (= 4.1.16)
-      actionview (= 4.1.16)
+    actionmailer (4.2.7.1)
+      actionpack (= 4.2.7.1)
+      actionview (= 4.2.7.1)
+      activejob (= 4.2.7.1)
       mail (~> 2.5, >= 2.5.4)
-    actionpack (4.1.16)
-      actionview (= 4.1.16)
-      activesupport (= 4.1.16)
-      rack (~> 1.5.2)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+    actionpack (4.2.7.1)
+      actionview (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
+      rack (~> 1.6)
       rack-test (~> 0.6.2)
-    actionview (4.1.16)
-      activesupport (= 4.1.16)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (4.2.7.1)
+      activesupport (= 4.2.7.1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.1.16)
-      activesupport (= 4.1.16)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    activejob (4.2.7.1)
+      activesupport (= 4.2.7.1)
+      globalid (>= 0.3.0)
+    activemodel (4.2.7.1)
+      activesupport (= 4.2.7.1)
       builder (~> 3.1)
-    activerecord (4.1.16)
-      activemodel (= 4.1.16)
-      activesupport (= 4.1.16)
-      arel (~> 5.0.0)
-    activesupport (4.1.16)
-      i18n (~> 0.6, >= 0.6.9)
+    activerecord (4.2.7.1)
+      activemodel (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
+      arel (~> 6.0)
+    activesupport (4.2.7.1)
+      i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.1)
+      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arel (5.0.1.20140414130214)
-    autoprefixer-rails (6.4.1)
+    arel (6.0.3)
+    autoprefixer-rails (6.4.1.1)
       execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -52,7 +60,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap (4.0.0.alpha3.1)
+    bootstrap (4.0.0.alpha4)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
     builder (3.2.2)
@@ -109,15 +117,20 @@ GEM
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     ffi (1.9.14)
+    globalid (0.3.7)
+      activesupport (>= 4.1.0)
     hike (1.2.3)
     htmlentities (4.3.4)
     i18n (0.7.0)
-    jquery-rails (3.1.4)
-      railties (>= 3.0, < 5.0)
+    jquery-rails (4.2.1)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
+    loofah (2.0.3)
+      nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
@@ -147,23 +160,32 @@ GEM
       pry (>= 0.9.10)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rack (1.5.5)
+    rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.1.16)
-      actionmailer (= 4.1.16)
-      actionpack (= 4.1.16)
-      actionview (= 4.1.16)
-      activemodel (= 4.1.16)
-      activerecord (= 4.1.16)
-      activesupport (= 4.1.16)
+    rails (4.2.7.1)
+      actionmailer (= 4.2.7.1)
+      actionpack (= 4.2.7.1)
+      actionview (= 4.2.7.1)
+      activejob (= 4.2.7.1)
+      activemodel (= 4.2.7.1)
+      activerecord (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.16)
-      sprockets-rails (~> 2.0)
+      railties (= 4.2.7.1)
+      sprockets-rails
     rails-assets-tether (1.1.1)
-    railties (4.1.16)
-      actionpack (= 4.1.16)
-      activesupport (= 4.1.16)
+    rails-deprecated_sanitizer (1.0.3)
+      activesupport (>= 4.2.0.alpha)
+    rails-dom-testing (1.0.7)
+      activesupport (>= 4.2.0.beta, < 5.0)
+      nokogiri (~> 1.6.0)
+      rails-deprecated_sanitizer (>= 1.0.1)
+    rails-html-sanitizer (1.0.3)
+      loofah (~> 2.0)
+    railties (4.2.7.1)
+      actionpack (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.2.2)
@@ -171,8 +193,8 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rb-readline (0.5.3)
-    responders (1.1.2)
-      railties (>= 3.2, < 4.2)
+    responders (2.3.0)
+      railties (>= 4.2.0, < 5.1)
     rolify (5.1.0)
     rspec-core (3.5.3)
       rspec-support (~> 3.5.0)
@@ -238,31 +260,23 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap (~> 4.0.0.alpha3)
   cancancan
   capybara
-  compass-rails (~> 2.0.0)
   database_cleaner
   devise
   dotenv-rails
   email_spec
-  factory_girl_rails (~> 4.0)
-  jquery-rails
+  factory_girl_rails
   o_cms!
   pg
   pry-doc
   pry-inline
   pry-rails
   quiet_assets
-  rails (~> 4.1.9)
-  rails-assets-tether (>= 1.1.0)
   rb-readline
   rolify
   rspec-rails
-  sass-rails (= 5.0)
   selenium-webdriver
-  simple_form
-  turbolinks
 
 BUNDLED WITH
    1.12.5
