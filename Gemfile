@@ -27,15 +27,16 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pry-rails' 
-  gem 'pry-doc' 
-  gem 'pry-inline' 
-  gem 'rb-readline' 
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-inline'
+  gem 'rb-readline'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'dotenv-rails'
+  gem 'shoulda'
 end
 
 gem 'pg'
