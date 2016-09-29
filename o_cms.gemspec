@@ -18,9 +18,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-# TODO - WHen moved to spec replace the above with
-  # s.test_files = Dir["test/**/*", "spec/**/*"]
-
   # backend
   s.add_dependency 'rails', '>= 4.1.9'
 
@@ -32,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails-assets-tether', '>= 1.1.0'
   s.add_dependency 'turbolinks'
   s.add_dependency 'bootstrap', '~> 4.0.0.alpha3'
+  s.add_dependency 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 
   # development dependencies
   s.add_development_dependency 'better_errors'
@@ -50,6 +48,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'dotenv-rails'
+  s.add_development_dependency 'shoulda'
 
   # dummy app dependencies
   s.add_development_dependency 'devise'

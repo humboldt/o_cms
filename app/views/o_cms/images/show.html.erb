@@ -1,0 +1,19 @@
+<%= render :partial => 'o_cms/images/navigation' %>
+
+<h2>Image Preview</h2>
+
+<h3><%= @image.name %></h3>
+<%= image_tag @image.file, class:'img-preview' %>
+<p><%= @image.description %></p>
+<p>Image uploaded - <%= @image.created_at.to_s(:short) %></p>
+
+<hr />
+
+<div class="btn-toolbar">
+  <%= link_to edit_image_path(@image), class:'btn btn-info' do %>
+    <i class="fa fa-mode-edit"></i> Edit
+  <% end %>
+  <%= link_to image_path(@image), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-danger clear-right' do %>
+    <i class="fa fa-delete-variant"></i> Delete
+  <% end %>
+</div>

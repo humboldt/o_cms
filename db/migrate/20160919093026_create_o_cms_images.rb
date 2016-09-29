@@ -1,10 +1,9 @@
-# This migration comes from o_cms (originally 20160714154520)
 class CreateOCmsImages < ActiveRecord::Migration
   def change
     create_table :o_cms_images do |t|
-      t.string :title
-      t.string :description
+      t.string :name
       t.string :file
+      t.text :description
 
       t.timestamps
     end

@@ -1,0 +1,13 @@
+<%= render :partial => 'o_cms/images/navigation' %>
+
+<h2>Images</h2>
+
+<ul class="images">
+  <% @images.each do |image| %>
+    <li class="image">
+      <%= link_to image do %>
+        <%= image_tag image.file %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

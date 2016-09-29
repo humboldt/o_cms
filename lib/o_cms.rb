@@ -5,6 +5,8 @@ require 'jquery-rails'
 require 'rails-assets-tether'
 require 'turbolinks'
 require 'bootstrap'
+require 'carrierwave'
+require 'shoulda'
 require "o_cms/engine"
 
 module OCms
