@@ -20,7 +20,7 @@ module OCms
 
       if @post.save
         flash[:notice] = "Post was saved successfully."
-        redirect_to @post
+        redirect_to edit_post_path(@post)
       else
         flash.now[:alert] = "Error creating post. Please try again."
         render :new
@@ -37,7 +37,7 @@ module OCms
 
       if @post.save
         flash[:notice] = "Post was updated successfully."
-        redirect_to @post
+        redirect_to edit_post_path(@post)
       else
         flash.now[:alert] = "Error saving post. Please try again."
         render :edit

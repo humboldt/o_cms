@@ -7,12 +7,6 @@ module OCms
     let(:my_post) { create(:post) }
 
     context "guest" do
-      describe "GET show" do
-        it "returns http redirect" do
-          get :show, id: my_post.id
-          expect(response).to redirect_to(main_app.user_session_path)
-        end
-      end
 
       describe "GET new" do
         it "returns http redirect" do
@@ -62,13 +56,6 @@ module OCms
     context "member user doing CRUD on a post they don't own" do
       login_user
 
-      describe "GET show" do
-        it "returns http success" do
-          get :show, id: my_post.id
-          expect(response).to redirect_to(main_app.root_path)
-        end
-      end
-
       describe "GET new" do
         it "returns http redirect" do
           get :new, id: my_post.id
@@ -117,23 +104,6 @@ module OCms
     context "admin user doing CRUD on a post they own" do
       login_admin
 
-      describe "GET show" do
-        it "returns http success" do
-          get :show, id: my_post.id
-          expect(response).to have_http_status(:success)
-        end
-
-        it "renders the #show view" do
-          get :show, id: my_post.id
-          expect(response).to render_template :show
-        end
-
-        it "assigns my_post to @post" do
-          get :show, id: my_post.id
-          expect(assigns(:post)).to eq(my_post)
-        end
-      end
-
       describe "GET new" do
         it "returns http success" do
           get :new
@@ -158,14 +128,14 @@ module OCms
           expect{ post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Post,:count).by(1)
         end
 
-        it "assigns the new image to @image" do
+        it "assigns the new post to @post" do
           post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
           expect(assigns(:post)).to eq Post.last
         end
 
-        it "redirects to the new image" do
+        it "redirects to the new post" do
           post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
-          expect(response).to redirect_to Post.last
+          expect(response).to redirect_to edit_post_path(Post.last)
         end
       end
 
@@ -189,7 +159,7 @@ module OCms
       end
 
       describe "PUT update" do
-        it "updates image with expected attributes" do
+        it "updates post with expected attributes" do
           new_title = RandomData.random_sentence
           new_slug = RandomData.random_slug
           new_body = RandomData.random_paragraph
@@ -213,7 +183,7 @@ module OCms
           expect(updated_post.meta_keywords).to eq new_meta_keywords
         end
 
-        it "redirects to the updated image" do
+        it "redirects to the updated post" do
           new_title = RandomData.random_sentence
           new_slug = RandomData.random_slug
           new_body = RandomData.random_paragraph
@@ -224,7 +194,7 @@ module OCms
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
           put :update, id: my_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
-          expect(response).to redirect_to my_post
+          expect(response).to redirect_to edit_post_path(my_post)
         end
       end
 

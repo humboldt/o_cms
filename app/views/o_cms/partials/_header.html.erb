@@ -14,7 +14,7 @@
             <a class="nav-link" href="#"><i class="fa fa-page-copy"></i> Pages</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-pin"></i> Blog</a>
+            <a class="nav-link" href="<%= o_cms.posts_path %>"><i class="fa fa-pin"></i> Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= o_cms.images_path %>"><i class="fa fa-image"></i> Library</a>
@@ -24,7 +24,7 @@
           <li class="nav-item">
             <%= link_to '<i class="fa fa-cog"></i>'.html_safe + current_user.email, main_app.edit_user_registration_path, :class => 'nav-link'  %>
           </li>
-          <li class="nav-item">    
+          <li class="nav-item">
             <%= link_to 'Sign Out <i class="fa fa-sign-out"></i>'.html_safe, main_app.destroy_user_session_path, :method => :delete, :class => 'btn btn-success-outline btn-sm' %>
           </li>
         </ul>
