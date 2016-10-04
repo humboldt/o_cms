@@ -50,5 +50,16 @@ module OCms
         expect(post.meta_description).to eq (post.meta_description)
       end
     end
+
+    describe "#assign_published_at" do
+      it "removed the publish at time and date when the status is et to draft" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "draft", published_at: "2016-10-04 16:44:56 UTC")
+        expect(post.published_at).to eq nil
+      end
+      it "assigns a publish at time and date when the status is set to publish" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "published", published_at: "null")
+        expect(post.published_at.to_i).to eq Time.now.to_i
+      end
+    end
   end
 end
