@@ -1,10 +1,21 @@
 require 'random_data'
 
+# Users
+user = User.new(
+  :email                 => "ben@outsidehq.co.uk",
+  :password              => "password",
+  :password_confirmation => "password"
+)
+user.save!
+
 # Roles
 [:admin, :company, :trainer].each do |role|
   Role.find_or_create_by({ name: role })
 end
 roles = Role.all
+
+# Add admin role for demo user
+user.add_role :admin
 
 # Images
 file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
@@ -37,6 +48,7 @@ end
 
 # Confirmation
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Role.count} roles created"
 puts "#{OCms::Image.count} images created"
 puts "#{OCms::Post.count} posts created"

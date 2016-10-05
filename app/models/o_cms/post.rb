@@ -10,9 +10,13 @@ module OCms
     before_validation :create_meta_description
     before_save :assign_published_at
 
-    STATUS = [['Draft', 'draft'],
-              ['Publish', 'published'],
-              ['Schedule', 'scheduled']]
+    DRAFT_STATUS = "draft"
+    PUBLISHED_STATUS = "published"
+    SCHEDULED_STATUS = "scheduled"
+
+    STATUSES = [['Draft', DRAFT_STATUS],
+               ['Publish', PUBLISHED_STATUS],
+               ['Schedule', SCHEDULED_STATUS]]
 
     def create_slug
       self.slug = "#{title.parameterize}" if self.slug.blank? && self.title.present?
@@ -27,10 +31,32 @@ module OCms
     end
 
     def assign_published_at
-      if self.status == "draft"
-        self.published_at = 'null'
-      elsif self.status == "published"
+      if self.status == DRAFT_STATUS
+        self.published_at = nil
+      elsif self.status == PUBLISHED_STATUS
         self.published_at = Time.now
+      end
+    end
+
+    def draft?
+      self.published_at.nil?
+    end
+
+    def published?
+      self.published_at <= Time.now
+    end
+
+    def scheduled?
+      self.published_at > Time.now
+    end
+
+    def status
+      if self.draft?
+        return DRAFT_STATUS
+      elsif self.published?
+        return PUBLISHED_STATUS
+      elsif self.scheduled?
+        return SCHEDULED_STATUS
       end
     end
   end

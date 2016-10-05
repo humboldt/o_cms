@@ -59,7 +59,7 @@ module OCms
     private
 
     def post_params
-      params.require(:post).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :status, :published_at)
+      params.require(:post).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :published_at)
     end
   end
 end

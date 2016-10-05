@@ -22,8 +22,8 @@ module OCms
       end
 
       it "does not amend the post slug if one is already entered" do
-        post = Post.create(title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_sentence)
-        expect(post.slug).to eq (post.slug)
+        post = Post.create(title: RandomData.random_sentence, slug: "first-post-article", body: RandomData.random_sentence)
+        expect(post.slug).to eq "first-post-article"
       end
     end
 
