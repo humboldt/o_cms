@@ -6,28 +6,8 @@
       </button>
       <div class="collapse navbar-toggleable-xs" id="navbar-header">
         <%= link_to 'OCMS', o_cms.root_path, :class => 'navbar-brand' %>
-        <ul class="nav navbar-nav">
-          <li class="nav-item">
-            <%= link_to '<i class="fa fa-home-mdc"></i> Your site'.html_safe, main_app.root_path, :class => 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#"><i class="fa fa-page-copy"></i> Pages</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-pin"></i> Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= o_cms.images_path %>"><i class="fa fa-image"></i> Library</a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav account-nav pull-md-right">
-          <li class="nav-item">
-            <%= link_to '<i class="fa fa-cog"></i>'.html_safe + current_user.email, main_app.edit_user_registration_path, :class => 'nav-link'  %>
-          </li>
-          <li class="nav-item">    
-            <%= link_to 'Sign Out <i class="fa fa-sign-out"></i>'.html_safe, main_app.destroy_user_session_path, :method => :delete, :class => 'btn btn-success-outline btn-sm' %>
-          </li>
-        </ul>
+        <%= render :partial => 'o_cms/partials/primary_navigation' %>
+        <%= render :partial => 'o_cms/partials/user_navigation' %>
       </div>
     </nav>
   </div>
