@@ -6,6 +6,15 @@ require 'random_data'
 end
 roles = Role.all
 
+# Admin User
+user = User.new(
+  :email                 => "admin@outsidehq.co.uk",
+  :password              => "password",
+  :password_confirmation => "password"
+)
+user.save!
+user.add_role :admin
+
 # Images
 file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
 OCms::Image.create(:name => 'Image One', :file => file, :description => 'Nice Picture')
@@ -38,5 +47,6 @@ end
 # Confirmation
 puts "Seed finished"
 puts "#{Role.count} roles created"
+puts "#{User.count} users created"
 puts "#{OCms::Image.count} images created"
 puts "#{OCms::Post.count} posts created"
