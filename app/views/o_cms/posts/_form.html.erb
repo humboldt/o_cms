@@ -54,10 +54,10 @@
                 </div>
               <% end %>
             <% end %>
-            <%#= form_group_tag(post.errors[:status=]) do %>
-              <%#= f.label :status= %>
+            <%= form_group_tag(post.errors[:status=]) do %>
+              <%= f.label :status %>
               <%= f.select(:status, OCms::Post::STATUSES, {include_blank: false}, { :class => 'form-control status-options'}) %>
-            <%# end %>
+            <% end %>
           </div>
           <div class="col-sm-6">
             <%= form_group_tag(post.errors[:published_at]) do %>

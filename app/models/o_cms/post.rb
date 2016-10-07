@@ -34,11 +34,11 @@ module OCms
     end
 
     def published?
-      self.published_at <= Time.now
+      self.published_at.nil? ? false : self.published_at <= Time.current
     end
 
     def scheduled?
-      self.published_at > Time.now
+      self.published_at > Time.current
     end
 
     def status
