@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'turbolinks'
   s.add_dependency 'bootstrap', '~> 4.0.0.alpha3'
   s.add_dependency 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+  s.add_dependency 'trix'
 
   # development dependencies
   s.add_development_dependency 'better_errors'
