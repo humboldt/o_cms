@@ -8,8 +8,6 @@ module OCms
     before_validation :create_slug
     before_validation :create_meta_title
     before_validation :create_meta_description
-    before_save :assign_published_at
-    after_save :scheduled_to_published
 
     DRAFT_STATUS = "draft"
     PUBLISHED_STATUS = "published"
@@ -31,20 +29,6 @@ module OCms
       self.meta_description = "#{body.first(156) + ' ...'}" if self.meta_description.blank? && self.body.present?
     end
 
-    def assign_published_at
-      if self.status == DRAFT_STATUS
-        self.published_at = nil
-      elsif self.status == PUBLISHED_STATUS
-        self.published_at = Time.now
-      end
-    end
-
-    def scheduled_to_published
-      if self.status == SCHEDULED_STATUS && self.published_at < Time.now
-        self.status == PUBLISHED_STATUS
-      end
-    end
-
     def draft?
       self.status == DRAFT_STATUS
     end
@@ -55,6 +39,14 @@ module OCms
 
     def scheduled?
       self.status == SCHEDULED_STATUS
+    end
+
+    def status=(value)
+      if DRAFT_STATUS == value
+        self.published_at = nil
+      elsif PUBLISHED_STATUS == value
+        self.published_at = Time.zone.now unless published?
+      end
     end
   end
 end
