@@ -44,11 +44,11 @@
       <div class="row">
           <div class="col-sm-6">
             <% if @post.present? %>
-              <% if @post.status= 'published' && @post.published_at.present? %>
+              <% if @post.status == 'published' && @post.published_at.present? %>
                 <div class="alert alert-info">
                   <strong>Published on <%= @post.published_at.to_s(:short) %></strong>
                 </div>
-              <% elsif @post.status= 'scheduled' && @post.published_at.present? %>
+              <% elsif @post.status == 'scheduled' && @post.published_at.present? %>
                 <div class="alert alert-info">
                   <strong>Scheduled for <%= @post.published_at.to_s(:short) %></strong>
                 </div>
