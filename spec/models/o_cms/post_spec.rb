@@ -52,13 +52,48 @@ module OCms
     end
 
     describe "#assign_published_at" do
-      it "removed the publish at time and date when the status is et to draft" do
+      it "removed the publish at time and date when the status is set to draft" do
         post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "draft", published_at: "2016-10-04 16:44:56 UTC")
         expect(post.published_at).to eq nil
       end
       it "assigns a publish at time and date when the status is set to publish" do
         post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "published", published_at: "null")
         expect(post.published_at.to_i).to eq Time.now.to_i
+
+        # TODO: Use travel instead of to_i & TIme.now above
+      end
+    end
+
+    describe "#draft?" do
+      it "returns true if the post status is 'draft'" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "draft", published_at: nil)
+        expect(post.draft?).to be_truthy
+      end
+      it "returns false if post status is not 'draft'" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "published", published_at: "2016-10-04 16:44:56 UTC")
+        expect(post.draft?).to be_falsey
+      end
+    end
+
+    describe "#published?" do
+      it "returns true if the post status is 'published'" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "published", published_at: "2016-10-04 16:44:56 UTC")
+        expect(post.published?).to be_truthy
+      end
+      it "returns false if post status is not 'published'" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: "2016-10-04 16:44:56 UTC")
+        expect(post.published?).to be_falsey
+      end
+    end
+
+    describe "#scheduled?" do
+      it "returns true if the post status is 'scheduled'" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "scheduled", published_at: "2016-10-04 16:44:56 UTC")
+        expect(post.scheduled?).to be_truthy
+      end
+      it "returns false if post status is not 'scheduled'" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "draft", published_at: nil)
+        expect(post.scheduled?).to be_falsey
       end
     end
   end
