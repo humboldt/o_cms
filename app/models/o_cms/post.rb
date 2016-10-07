@@ -30,15 +30,25 @@ module OCms
     end
 
     def draft?
-      self.status == DRAFT_STATUS
+      self.published_at.nil?
     end
 
     def published?
-      self.status == PUBLISHED_STATUS
+      self.published_at <= Time.now
     end
 
     def scheduled?
-      self.status == SCHEDULED_STATUS
+      self.published_at > Time.now
+    end
+
+    def status
+      if self.draft?
+        return DRAFT_STATUS
+      elsif self.published?
+        return PUBLISHED_STATUS
+      elsif self.scheduled?
+        return SCHEDULED_STATUS
+      end
     end
 
     def status=(value)
