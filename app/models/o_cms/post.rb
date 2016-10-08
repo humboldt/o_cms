@@ -38,7 +38,7 @@ module OCms
     end
 
     def scheduled?
-      self.published_at > Time.current
+      self.published_at.nil? ? false : self.published_at > Time.current
     end
 
     def status
@@ -51,12 +51,22 @@ module OCms
       end
     end
 
-    def status=(value)
-      if DRAFT_STATUS == value
-        self.published_at = nil
-      elsif PUBLISHED_STATUS == value
-        self.published_at = Time.zone.now unless published?
-      end
+    def assign_attributes(new_attributes)
+      if new_attributes[:status]
+        status = new_attributes[:status]
+        published_at = new_attributes[:published_at]
+
+        if DRAFT_STATUS == status
+          published_at = nil
+        elsif PUBLISHED_STATUS == status && published_at.blank?
+          published_at = Time.current
+        end
+
+        new_attributes.delete(:status)
+        new_attributes[:published_at] = published_at
+       end
+
+      super
     end
   end
 end
