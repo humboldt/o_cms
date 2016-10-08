@@ -4,14 +4,24 @@
 
 ### Authentication
 
-Define which of your users can access the CMS by following the below example.
+In a production application you'll likely want to protect access to the control panel. You can use the constraints feature of routing (in the ```config/routes.rb``` file) to accomplish this:
+
+Allow any authenticated User
 
 ```
-  # config/routes.rb
+# config/routes.rb
+authenticate :user do
+  mount OCms::Engine => '/o_cms'
+end
+```
 
-  authenticate :user, lambda { |user| user.has_role? :admin } do
-    mount OCms::Engine => "/o_cms"
-  end
+Same as above but also ensures that User.has_role? :admin returns true
+
+```
+# config/routes.rb
+authenticate :user, lambda { |user| user.has_role? :admin } do
+  mount OCms::Engine => '/o_cms'
+end
 ```
 
 ## Customisation

@@ -50,7 +50,7 @@ before_action :configure_sign_up_params, only: [:create]
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    o_cms.root_path
+    main_app.root_path
   end
 
   # The path used after account info update

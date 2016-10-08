@@ -18,20 +18,6 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
     expect(page).to have_css 'h1', text: 'Sign In'
   end
 
-  scenario 'cannot be accesed by a default user type' do
-    visit '/users/sign_up'
-    expect(page).to have_css 'h1', text: 'Sign Up'
-
-    fill_in 'Email', with: "user@example.com"
-    fill_in 'Password', with: "password"
-    fill_in 'Password confirmation', with: "password"
-    click_button 'Sign up'
-
-    expect(page).to have_current_path '/'
-    expect(page).to_not have_current_path '/o_cms/'
-    expect(page).to have_css '.alert p', text: 'Sorry your are not authorized to view this area.'
-  end
-
   scenario 'successfully updates account and stays on the edit page afterwards' do
     admin = create(:user, :admin)
 
