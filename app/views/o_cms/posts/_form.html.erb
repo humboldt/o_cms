@@ -1,0 +1,100 @@
+<%= form_for @post do |f| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(post.errors.count, "error") %>.</h4>
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_group_tag(post.errors[:title]) do %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+  <% end %>
+  <%= form_group_tag(post.errors[:slug]) do %>
+    <%= f.label :slug %>
+    <%= f.text_field :slug, class: 'form-control', placeholder: "Enter post slug" %>
+  <% end %>
+  <%= form_group_tag(post.errors[:body]) do %>
+    <%= f.label :body %>
+    <%= f.trix_editor :body, rows: 8, class: 'form-control post_body', placeholder: "Enter post body" %>
+  <% end %>
+  <%= form_group_tag(post.errors[:excerpt]) do %>
+    <%= f.label :excerpt %>
+    <%= f.text_area :excerpt, rows: 8, class: 'form-control', placeholder: "Enter post excerpt" %>
+  <% end %>
+  <%= form_group_tag(post.errors[:featured_image]) do %>
+    <%= f.label :featured_image %>
+    <div class="input-group">
+      <%= f.text_field :featured_image, class: 'form-control' %>
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Select image</button>
+      </span>
+    </div>
+  <% end %>
+
+  <div class="card">
+    <div class="card-header">
+      Publish Options
+    </div>
+    <div class="card-block">
+      <div class="row">
+          <div class="col-sm-6">
+            <% if @post.present? %>
+              <% if @post.status == 'published' && @post.published_at.present? %>
+                <div class="alert alert-info alert-published">
+                  <strong>Published on <%= @post.published_at.to_s(:short) %></strong>
+                </div>
+              <% elsif @post.status == 'scheduled' && @post.published_at.present? %>
+                <div class="alert alert-info alert-scheduled">
+                  <strong>Scheduled for <%= @post.published_at.to_s(:short) %></strong>
+                </div>
+              <% end %>
+            <% end %>
+            <%= form_group_tag(post.errors[:status]) do %>
+              <%= f.label :status %>
+              <%= f.select(:status, OCms::Post::STATUSES, {include_blank: false}, { :class => 'form-control status-options'}) %>
+            <% end %>
+          </div>
+          <div class="col-sm-6">
+            <%= form_group_tag(post.errors[:published_at]) do %>
+            <div class="publish_at_fields">
+              <div class="alert alert-info">
+                Enter the date and time you would like to publish the post, in the format -<br />
+                <strong>YYYY-MM-DD HH:MM:SS</strong>.
+              </div>
+              <%= f.text_field :published_at, class: 'form-control', placeholder: "YYYY-MM-DD HH:MM:SS" %>
+            </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Search Engine Optimisation
+    </div>
+    <div class="card-block">
+      <%= form_group_tag(post.errors[:meta_title]) do %>
+        <%= f.label :meta_title %>
+        <%= f.text_field :meta_title, class: 'form-control', placeholder: "Enter post meta title" %>
+      <% end %>
+      <%= form_group_tag(post.errors[:meta_description]) do %>
+        <%= f.label :meta_description %>
+        <%= f.text_area :meta_description, rows: 8, class: 'form-control', placeholder: "Enter post meta description" %>
+      <% end %>
+      <%= form_group_tag(post.errors[:meta_keywords]) do %>
+        <%= f.label :meta_keywords %>
+        <%= f.text_field :meta_keywords, class: 'form-control', placeholder: "Enter post meta keywords" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end %>

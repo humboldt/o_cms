@@ -2,17 +2,20 @@
 
     Application
 
-*/
+ *= require trix
+ */
 
 // Modules and Variables
 @import "partials/base";
 
 // Partials
-@import 
+@import
         "partials/scaffolding",
         "partials/navigation",
         "partials/footer",
-        "partials/images"
+        "partials/images",
+        "partials/resource_tables",
+        "partials/posts"
 ;
 
 // Third-party

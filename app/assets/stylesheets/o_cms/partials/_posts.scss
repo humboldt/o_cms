@@ -1,0 +1,25 @@
+/*
+
+    Posts
+
+*/
+
+.publish_at_fields {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
+// Status tags
+.tag {
+  &.tag-draft {
+    background-color: $brand-info;
+  }
+  &.tag-published {
+    background-color: $brand-primary;
+  }
+  &.tag-scheduled {
+    background-color: $brand-warning;
+  }
+}

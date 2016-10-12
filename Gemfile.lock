@@ -10,6 +10,7 @@ PATH
       rails-assets-tether (>= 1.1.0)
       sass-rails (= 5.0)
       simple_form
+      trix
       turbolinks
 
 GEM
@@ -52,7 +53,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    autoprefixer-rails (6.5.0.1)
+    autoprefixer-rails (6.5.0.2)
       execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -258,6 +259,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    trix (0.9.9)
+      rails
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -298,4 +301,4 @@ DEPENDENCIES
   shoulda
 
 BUNDLED WITH
-   1.13.1
+   1.13.2
