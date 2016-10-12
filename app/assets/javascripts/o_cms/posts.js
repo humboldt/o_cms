@@ -1,15 +1,12 @@
-// Show the scheduled for option (published_at field & label)
+// Post - Form template
+// Show the published_at field when the scheduled option is selected
 
-$( document ).ready(function() {
+document.addEventListener("turbolinks:load", function() {
   $('.status-options').change(function(event) {
-    if ($('.status-options').val() == 'draft'){
-      $('.publish_at_fields').removeClass('show');
-    }
     if ($('.status-options').val() == 'scheduled'){
       $('.publish_at_fields').addClass('show');
-    }
-    if ($('.status-options').val() == 'published'){
+    } else {
       $('.publish_at_fields').removeClass('show');
     }
   });
-});
+})

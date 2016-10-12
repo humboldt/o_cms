@@ -51,14 +51,44 @@ module OCms
       end
     end
 
-    describe "#assign_published_at" do
-      it "removed the publish at time and date when the status is et to draft" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "draft", published_at: "2016-10-04 16:44:56 UTC")
-        expect(post.published_at).to eq nil
+    describe "#draft?" do
+      it "returns true if the post published at value is nil" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: nil)
+        expect(post.draft?).to be_truthy
       end
-      it "assigns a publish at time and date when the status is set to publish" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, status: "published", published_at: "null")
-        expect(post.published_at.to_i).to eq Time.now.to_i
+      it "returns false if post published at value is present" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        expect(post.draft?).to be_falsey
+      end
+    end
+
+    describe "#published?" do
+      it "returns true if the post published at time date is in the past" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        expect(post.published?).to be_truthy
+      end
+      it "returns false if published at is not present" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: nil)
+        expect(post.published?).to be_falsey
+      end
+      it "returns false if published at is in the future" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        expect(post.published?).to be_falsey
+      end
+    end
+
+    describe "#scheduled?" do
+      it "returns true if the post published at time date is in the future" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        expect(post.scheduled?).to be_truthy
+      end
+      it "returns false if the post published at time date is in the past" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        expect(post.scheduled?).to be_falsey
+      end
+      it "returns false if post status is not present" do
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: nil)
+        expect(post.scheduled?).to be_falsey
       end
     end
   end
