@@ -40,7 +40,20 @@ file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image
     featured_image:   RandomData.random_slug + '.jpg',
     meta_title:       RandomData.random_sentence,
     meta_description: RandomData.random_paragraph,
-    meta_keywords:    RandomData.random_word + ',' + RandomData.random_word
+    meta_keywords:    RandomData.random_word + ', ' + RandomData.random_word
+  )
+end
+
+# Categories
+15.times do
+  OCms::Category.create!(
+    name:             RandomData.random_sentence,
+    slug:             RandomData.random_slug,
+    icon:             RandomData.random_slug,
+    body:             RandomData.random_paragraph,
+    meta_title:       RandomData.random_sentence,
+    meta_description: RandomData.random_paragraph,
+    meta_keywords:    RandomData.random_word + ', ' + RandomData.random_word
   )
 end
 
@@ -50,3 +63,4 @@ puts "#{Role.count} roles created"
 puts "#{User.count} users created"
 puts "#{OCms::Image.count} images created"
 puts "#{OCms::Post.count} posts created"
+puts "#{OCms::Category.count} categories created"
