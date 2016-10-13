@@ -53,7 +53,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    autoprefixer-rails (6.5.0.2)
+    autoprefixer-rails (6.5.1)
       execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -67,7 +67,7 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.2)
     cancancan (1.15.0)
-    capybara (2.9.1)
+    capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -146,12 +146,10 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
     pg (0.19.0)
-    pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -202,17 +200,11 @@ GEM
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rolify (5.1.0)
-    rspec (3.5.0)
-      rspec-core (~> 3.5.0)
-      rspec-expectations (~> 3.5.0)
-      rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.3)
+    rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
-    rspec-instafail (1.0.0)
-      rspec
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
@@ -295,7 +287,6 @@ DEPENDENCIES
   quiet_assets
   rb-readline
   rolify
-  rspec-instafail
   rspec-rails
   selenium-webdriver
   shoulda
