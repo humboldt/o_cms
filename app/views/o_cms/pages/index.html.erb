@@ -1,0 +1,26 @@
+<%= render :partial => 'o_cms/pages/navigation' %>
+
+<h2>Pages</h2>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr>
+          <td><%= page.title %></td>
+          <td>
+            <%= link_to edit_page_path(page), class:'btn btn-info btn-sm' do %>
+              <i class="fa fa-mode-edit"></i> Edit
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

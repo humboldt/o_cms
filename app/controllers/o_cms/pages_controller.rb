@@ -19,7 +19,7 @@ module OCms
       @page = Page.new(page_params)
 
       if @page.save
-        flash[:notice] = "Post was saved successfully."
+        flash[:notice] = "Page was saved successfully."
         redirect_to edit_page_path(@page)
       else
         flash.now[:alert] = "Error creating page. Please try again."
@@ -36,7 +36,7 @@ module OCms
       @page.assign_attributes(page_params)
 
       if @page.save
-        flash[:notice] = "Post was updated successfully."
+        flash[:notice] = "Page was updated successfully."
         redirect_to edit_page_path(@page)
       else
         flash.now[:alert] = "Error saving page. Please try again."
