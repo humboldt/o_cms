@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Title</th>
+        <th>Status</th>
         <th></th>
       </tr>
     </thead>
@@ -14,6 +15,12 @@
       <% @pages.each do |page| %>
         <tr>
           <td><%= page.title %></td>
+          <td>
+            <span class="tag tag-<%= page.status %>">
+              <%= page.status.capitalize %>
+            </span>
+            <%= page.published_at.to_s(:short) if page.published_at.present?  %>
+          </td>
           <td>
             <%= link_to edit_page_path(page), class:'btn btn-info btn-sm' do %>
               <i class="fa fa-mode-edit"></i> Edit

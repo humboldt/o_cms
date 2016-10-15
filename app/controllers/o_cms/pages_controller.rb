@@ -59,7 +59,7 @@ module OCms
     private
 
     def page_params
-      params.require(:page).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords)
+      params.require(:page).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :status, :published_at)
     end
   end
 end

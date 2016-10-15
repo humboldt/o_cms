@@ -38,6 +38,44 @@
 
   <div class="card">
     <div class="card-header">
+      Publish Options
+    </div>
+    <div class="card-block">
+      <div class="row">
+          <div class="col-sm-6">
+            <% if @page.present? %>
+              <% if @page.status == 'published' && @page.published_at.present? %>
+                <div class="alert alert-info alert-published">
+                  <strong>Published on <%= @page.published_at.to_s(:short) %></strong>
+                </div>
+              <% elsif @page.status == 'scheduled' && @page.published_at.present? %>
+                <div class="alert alert-info alert-scheduled">
+                  <strong>Scheduled for <%= @page.published_at.to_s(:short) %></strong>
+                </div>
+              <% end %>
+            <% end %>
+            <%= form_group_tag(page.errors[:status]) do %>
+              <%= f.label :status %>
+              <%= f.select(:status, OCms::Page::STATUSES, {include_blank: false}, { :class => 'form-control status-options'}) %>
+            <% end %>
+          </div>
+          <div class="col-sm-6">
+            <%= form_group_tag(page.errors[:published_at]) do %>
+            <div class="publish_at_fields">
+              <div class="alert alert-info">
+                Enter the date and time you would like to publish the page, in the format -<br />
+                <strong>YYYY-MM-DD HH:MM:SS</strong>.
+              </div>
+              <%= f.text_field :published_at, class: 'form-control', placeholder: "YYYY-MM-DD HH:MM:SS" %>
+            </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
       Search Engine Optimisation
     </div>
     <div class="card-block">
