@@ -52,19 +52,19 @@ module OCms
     end
 
     def assign_attributes(new_attributes)
-    #   if new_attributes[:status]
-         status = new_attributes[:status]
-      #   published_at = new_attributes[:published_at]
-    #
+      if new_attributes[:status]
+        status = new_attributes[:status]
+        published_at = new_attributes[:published_at]
+
         if DRAFT_STATUS == status
           published_at = nil
-        elsif PUBLISHED_STATUS == status# && published_at.blank?
+        elsif PUBLISHED_STATUS == status && published_at.blank?
           published_at = Time.current
         end
 
         new_attributes.delete(:status)
         new_attributes[:published_at] = published_at
-      # end
+      end
 
       super
     end

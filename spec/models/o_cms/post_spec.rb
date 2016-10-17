@@ -57,14 +57,14 @@ module OCms
         expect(post.draft?).to be_truthy
       end
       it "returns false if post published at value is present" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.current - 2.days)
         expect(post.draft?).to be_falsey
       end
     end
 
     describe "#published?" do
       it "returns true if the post published at time date is in the past" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.current - 2.days)
         expect(post.published?).to be_truthy
       end
       it "returns false if published at is not present" do
@@ -72,18 +72,18 @@ module OCms
         expect(post.published?).to be_falsey
       end
       it "returns false if published at is in the future" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.current + 2.days)
         expect(post.published?).to be_falsey
       end
     end
 
     describe "#scheduled?" do
       it "returns true if the post published at time date is in the future" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.current + 2.days)
         expect(post.scheduled?).to be_truthy
       end
       it "returns false if the post published at time date is in the past" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.current - 2.days)
         expect(post.scheduled?).to be_falsey
       end
       it "returns false if post status is not present" do
@@ -97,7 +97,14 @@ module OCms
         post = Post.new(published_at: nil)
         expect(post.status).to eq "draft"
       end
-      # published & scheduled
+      it "returns published" do
+        post = Post.new(published_at: Time.current )
+        expect(post.status).to eq "published"
+      end
+      it "returns scheduled" do
+        post = Post.new(published_at: Time.current + 2.days)
+        expect(post.status).to eq "scheduled"
+      end
     end
 
     describe "#assign_attributes" do
@@ -108,19 +115,34 @@ module OCms
 
         expect(post.published_at).to be_nil
       end
+
       it "sets published_at to current time when published" do
         post = create(:post, published_at: nil)
-                freeze_time
-        post.assign_attributes(status: 'published')
 
+        freeze_time
+        post.assign_attributes(status: 'published')
 
         expect(post.published_at).to eq Time.current
       end
 
-      # it "updating non-publish options, does not change status or published_at"
+      it "does not change status or published_at when updating non-publish options" do
+        freeze_time
+        post = create(:post, published_at: Time.current - 2.days)
 
-      # scheduled - published_at set for the future
+        post.update(title: 'New title rocks')
 
+        expect(post.published_at).to eq Time.current - 2.days
+        expect(post.status).to eq "published"
+        expect(post.title).to eq 'New title rocks'
+      end
+
+      it "does not change status or published_at when post is scheduled" do
+        freeze_time
+        post = create(:post, published_at: Time.current + 2.days)
+
+        expect(post.published_at).to eq Time.current + 2.days
+        expect(post.status).to eq "scheduled"
+      end
     end
   end
 end
