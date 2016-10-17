@@ -2,13 +2,20 @@
   <li class="nav-item">
     <%= link_to '<i class="fa fa-home-mdc"></i> Your site'.html_safe, main_app.root_path, :class => 'nav-link' %>
   </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="#"><i class="fa fa-page-copy"></i> Pages</a>
+  <li class="nav-item <%= 'active' if params[:controller] == 'o_cms/pages' %>">
+    <%= link_to o_cms.pages_path, class: 'nav-link' do %>
+      <i class="fa fa-page-copy"></i> Pages
+    <% end %>
   </li>
+  <li class="nav-item <%= 'active' if params[:controller] == 'o_cms/posts' %>">
+    <%= link_to o_cms.posts_path, class: 'nav-link' do %>
+      <i class="fa fa-pin"></i> Blog</a>
+      <% end %>
+    </li>
   <li class="nav-item">
-    <a class="nav-link" href="<%= o_cms.posts_path %>"><i class="fa fa-pin"></i> Blog</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<%= o_cms.images_path %>"><i class="fa fa-image"></i> Library</a>
+    <li class="nav-item <%= 'active' if params[:controller] == 'o_cms/images' %>">
+      <%= link_to o_cms.images_path, class: 'nav-link' do %>
+      <i class="fa fa-image"></i> Library</a>
+    <% end %>
   </li>
 </ul>

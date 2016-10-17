@@ -5,7 +5,7 @@ class CreateOCmsImages < ActiveRecord::Migration
       t.string :file
       t.text :description
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
