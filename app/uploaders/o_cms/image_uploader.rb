@@ -1,6 +1,6 @@
 module OCms
   class ImageUploader < CarrierWave::Uploader::Base
-    
+
     # Include RMagick or MiniMagick support:
     # include CarrierWave::RMagick
     # include CarrierWave::MiniMagick
@@ -34,6 +34,13 @@ module OCms
     # version :thumb do
     #   process resize_to_fit: [50, 50]
     # end
+
+    # loops through image_sizes_hash
+    OCms.config.image_sizes.each_pair do |image_type, dimensions|
+      version image_type do
+        process :resize_to_fill => [dimensions[1] # complete hash seperation
+      end
+    end
 
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:

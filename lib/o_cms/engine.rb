@@ -7,5 +7,11 @@ module OCms
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.helper false
     end
+
+    config.image_sizes = {
+      medium: { width: 100, height: 200 },
+      thumb: { width: 100, height: 200 },
+      featured_image: { width: 100, height: 200 }
+    }
   end
 end
