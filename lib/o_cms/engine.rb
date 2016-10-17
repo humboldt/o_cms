@@ -8,6 +8,7 @@ module OCms
       g.helper false
     end
 
+    # OCms::Engine.image_sizes
     config.image_sizes = {
       medium: { width: 100, height: 200 },
       thumb: { width: 100, height: 200 },
@@ -15,3 +16,7 @@ module OCms
     }
   end
 end
+
+
+# OCms::Engine.config.image_sizes.each_pair { |image_type, dimensions| p image_type }
+# OCms::Engine.config.image_sizes.each_pair { |image_type, dimensions| p "Type #{image_type} - #{dimensions[:width]} x #{dimensions[:height]}" }

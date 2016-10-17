@@ -6,6 +6,7 @@ PATH
       carrierwave (>= 1.0.0.beta, < 2.0)
       compass-rails (~> 2.0.0)
       jquery-rails
+      mini_magick
       rails (>= 4.1.9)
       rails-assets-tether (>= 1.1.0)
       sass-rails (= 5.0)
@@ -143,6 +144,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)

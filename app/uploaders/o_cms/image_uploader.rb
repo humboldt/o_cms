@@ -3,7 +3,7 @@ module OCms
 
     # Include RMagick or MiniMagick support:
     # include CarrierWave::RMagick
-    # include CarrierWave::MiniMagick
+    include CarrierWave::MiniMagick
 
     # Choose what kind of storage to use for this uploader:
     storage :file
@@ -35,10 +35,10 @@ module OCms
     #   process resize_to_fit: [50, 50]
     # end
 
-    # loops through image_sizes_hash
-    OCms.config.image_sizes.each_pair do |image_type, dimensions|
+    # loops through image_sizes hash
+    OCms::Engine.config.image_sizes.each_pair do |image_type, dimensions|
       version image_type do
-        process :resize_to_fill => [dimensions[1] # complete hash seperation
+        process :resize_to_fill => [dimensions[:width], dimensions[:height]]
       end
     end
 
