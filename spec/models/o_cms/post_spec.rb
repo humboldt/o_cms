@@ -91,5 +91,36 @@ module OCms
         expect(post.scheduled?).to be_falsey
       end
     end
+
+    describe "#status" do
+      it "returns draft" do
+        post = Post.new(published_at: nil)
+        expect(post.status).to eq "draft"
+      end
+      # published & scheduled
+    end
+
+    describe "#assign_attributes" do
+      it "sets published_at to nil when draft" do
+        post = create(:post, published_at: Time.current)
+
+        post.assign_attributes(status: 'draft')
+
+        expect(post.published_at).to be_nil
+      end
+      it "sets published_at to current time when published" do
+        post = create(:post, published_at: nil)
+                freeze_time
+        post.assign_attributes(status: 'published')
+
+
+        expect(post.published_at).to eq Time.current
+      end
+
+      # it "updating non-publish options, does not change status or published_at"
+
+      # scheduled - published_at set for the future
+
+    end
   end
 end
