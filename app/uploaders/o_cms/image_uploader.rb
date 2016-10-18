@@ -32,15 +32,19 @@ module OCms
 
     # Create different versions of your uploaded files:
     # version :thumb do
-    #   process resize_to_fit: [50, 50]
+    #   process :resize_to_fill => [50, 50]
     # end
 
-    # loops through image_sizes hash
-    OCms::Engine.config.image_sizes.each_pair do |image_type, dimensions|
-      version image_type do
-        process :resize_to_fill => [dimensions[:width], dimensions[:height]]
-      end
+    version :medium do
+      process :resize_to_fit => [100, 200]
     end
+
+    # loops through image_sizes hash
+    # OCms::Engine.config.image_sizes.each_pair do |image_type, dimensions|
+    #   version image_type do
+    #     process :resize_to_fill => [dimensions[:width], dimensions[:height]]
+    #   end
+    # end
 
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:
