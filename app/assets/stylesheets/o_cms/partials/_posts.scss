@@ -23,3 +23,10 @@
     background-color: $brand-warning;
   }
 }
+
+.checkbox-group {
+  span {
+    clear: left;
+    display: block;
+  }
+}

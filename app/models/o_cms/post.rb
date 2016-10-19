@@ -2,6 +2,9 @@ module OCms
   class Post < ActiveRecord::Base
     default_scope { order('created_at DESC') }
 
+    has_many :post_category
+    has_many :categories, :through => :post_category
+
     validates :title, length: { minimum: 8 }, presence: true
     validates :body, length: { minimum: 15 }, presence: true
 

@@ -13,6 +13,7 @@ module OCms
 
     def new
       @post = Post.new
+      @categories = Category.all
     end
 
     def create
@@ -29,6 +30,7 @@ module OCms
 
     def edit
       @post = Post.find(params[:id])
+      @categories = Category.all
     end
 
     def update
@@ -59,7 +61,7 @@ module OCms
     private
 
     def post_params
-      params.require(:post).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :status, :published_at)
+      params.require(:post).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :status, :published_at, :category_ids => [])
     end
   end
 end

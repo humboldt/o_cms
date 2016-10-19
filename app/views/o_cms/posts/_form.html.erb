@@ -38,6 +38,28 @@
 
   <div class="card">
     <div class="card-header">
+      Categories
+    </div>
+    <div class="card-block">
+      <% if @categories.present? %>
+          <div class="form-group checkbox-group">
+            <%= f.label "Select the categories you would like to associate with your post.", :class => 'control-label' %>
+              <% @categories.each do |category| %>
+                <span>
+                  <%= check_box_tag 'post[category_ids][]',
+                      category.id,
+                      @post.categories.include?(category),
+                      id: 'post_category_ids_' + category.id.to_s %>
+                  <%= label_tag 'post_category_ids_' + category.id.to_s, category.name %>
+                </span>
+              <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
       Publish Options
     </div>
     <div class="card-block">
