@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Admin creates posts of each status", type: :feature, js: true do
+RSpec.feature "Admin creates posts of each status type,", type: :feature, js: true do
 
   scenario 'successfully creates a draft post' do
     admin = create(:user, :admin)
@@ -73,7 +73,7 @@ RSpec.feature "Admin creates posts of each status", type: :feature, js: true do
     fill_in 'Title', with: "Nufenen (2,478m) - A long day in the mountains"
     find(".post_body").set("Nufenen (the second highest paved pass in Switzerland) is a beast: it climbs 1,108m in less than eight miles. While this makes an average of 8.5 per cent, there are several long sections above ten per cent.")
     find('#post_status').find(:xpath, 'option[3]').select_option
-    fill_in 'post_published_at', :with => Time.now + 2.days
+    fill_in 'post_published_at', :with => 2.days.from_now
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was saved successfully.'
@@ -84,14 +84,14 @@ RSpec.feature "Admin creates posts of each status", type: :feature, js: true do
     expect(page).to have_css '.tag-scheduled', text: 'Scheduled'
 
     # Travel until one second before publish time
-    travel_to(Time.now + 2.days - 1.second) do
+    travel_to(2.days.from_now - 1.second) do
       visit '/o_cms/posts'
       expect(page).to have_text 'Nufenen (2,478m) - A long day in the mountains'
       expect(page).to have_css '.tag-scheduled', text: 'Scheduled'
     end
 
     # Travel until one second after published time
-    travel_to(Time.now + 2.days + 1.second) do
+    travel_to(2.days.from_now + 1.second) do
       visit '/o_cms/posts'
       expect(page).to have_text 'Nufenen (2,478m) - A long day in the mountains'
       expect(page).to have_css '.tag-published', text: 'Published'

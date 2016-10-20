@@ -59,14 +59,14 @@ module OCms
         expect(post.draft?).to be_truthy
       end
       it "returns false if post published at value is present" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.ago)
         expect(post.draft?).to be_falsey
       end
     end
 
     describe "#published?" do
       it "returns true if the post published at time date is in the past" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.ago)
         expect(post.published?).to be_truthy
       end
       it "returns false if published at is not present" do
@@ -74,23 +74,78 @@ module OCms
         expect(post.published?).to be_falsey
       end
       it "returns false if published at is in the future" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.from_now)
         expect(post.published?).to be_falsey
       end
     end
 
     describe "#scheduled?" do
       it "returns true if the post published at time date is in the future" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.from_now)
         expect(post.scheduled?).to be_truthy
       end
       it "returns false if the post published at time date is in the past" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.ago)
         expect(post.scheduled?).to be_falsey
       end
       it "returns false if post status is not present" do
         post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: nil)
         expect(post.scheduled?).to be_falsey
+      end
+    end
+
+    describe "#status" do
+      it "returns draft" do
+        post = Post.new(published_at: nil)
+        expect(post.status).to eq "draft"
+      end
+      it "returns published" do
+        post = Post.new(published_at: Time.current )
+        expect(post.status).to eq "published"
+      end
+      it "returns scheduled" do
+        post = Post.new(published_at: 2.days.from_now)
+        expect(post.status).to eq "scheduled"
+      end
+    end
+
+    describe "#assign_attributes" do
+      it "sets published_at to nil when draft" do
+        post = create(:post, published_at: Time.current)
+
+        post.assign_attributes(status: 'draft')
+
+        expect(post.published_at).to be_nil
+      end
+
+      it "sets published_at to current time when published" do
+        post = create(:post, published_at: nil)
+
+        freeze_time
+        post.assign_attributes(status: 'published')
+
+        expect(post.published_at).to eq Time.current
+      end
+
+      it "does not change status or published_at when updating non-publish options" do
+        freeze_time
+        post = create(:post, published_at: 2.days.ago)
+
+        post.assign_attributes(title: 'Choosing a frameset for your first adventure bike')
+
+        expect(post.published_at).to eq 2.days.ago
+        expect(post.status).to eq "published"
+        expect(post.title).to eq 'Choosing a frameset for your first adventure bike'
+      end
+
+      it "does not change status or published_at when post is scheduled" do
+        freeze_time
+        post = create(:post, published_at: 1.hour.ago)
+
+        post.assign_attributes(status: 'scheduled', published_at: 2.weeks.from_now)
+
+        expect(post.published_at).to eq 2.weeks.from_now
+        expect(post.status).to eq "scheduled"
       end
     end
   end

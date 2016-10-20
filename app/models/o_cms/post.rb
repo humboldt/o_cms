@@ -67,7 +67,7 @@ module OCms
 
         new_attributes.delete(:status)
         new_attributes[:published_at] = published_at
-       end
+      end
 
       super
     end
