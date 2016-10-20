@@ -57,6 +57,22 @@ end
   )
 end
 
+# Pages
+file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
+
+50.times do
+  OCms::Page.create!(
+    title:            RandomData.random_sentence,
+    slug:             RandomData.random_slug,
+    body:             RandomData.random_paragraph,
+    excerpt:          RandomData.random_paragraph,
+    featured_image:   RandomData.random_slug + '.jpg',
+    meta_title:       RandomData.random_sentence,
+    meta_description: RandomData.random_paragraph,
+    meta_keywords:    RandomData.random_word + ',' + RandomData.random_word
+  )
+end
+
 # Confirmation
 puts "Seed finished"
 puts "#{Role.count} roles created"
@@ -64,3 +80,4 @@ puts "#{User.count} users created"
 puts "#{OCms::Image.count} images created"
 puts "#{OCms::Post.count} posts created"
 puts "#{OCms::Category.count} categories created"
+puts "#{OCms::Page.count} pages created"

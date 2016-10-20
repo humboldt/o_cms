@@ -1,4 +1,4 @@
-// Post - Form template
+// Publish Options
 // Show the published_at field when the scheduled option is selected
 
 document.addEventListener("turbolinks:load", function() {

@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(version: 20161019114048) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "o_cms_pages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "body"
+    t.text     "excerpt"
+    t.string   "featured_image"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.datetime "published_at"
+  end
+
   create_table "o_cms_post_categories", id: false, force: :cascade do |t|
     t.integer "post_id"
     t.integer "category_id"

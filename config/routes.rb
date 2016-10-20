@@ -4,4 +4,5 @@ OCms::Engine.routes.draw do
   resources :images
   resources :posts
   resources :categories
+  resources :pages
 end
