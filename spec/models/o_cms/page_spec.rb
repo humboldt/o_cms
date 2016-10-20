@@ -57,14 +57,14 @@ module OCms
         expect(page.draft?).to be_truthy
       end
       it "returns false if page published at value is present" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.ago)
         expect(page.draft?).to be_falsey
       end
     end
 
     describe "#published?" do
       it "returns true if the page published at time date is in the past" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.ago)
         expect(page.published?).to be_truthy
       end
       it "returns false if published at is not present" do
@@ -72,23 +72,78 @@ module OCms
         expect(page.published?).to be_falsey
       end
       it "returns false if published at is in the future" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.from_now)
         expect(page.published?).to be_falsey
       end
     end
 
     describe "#scheduled?" do
       it "returns true if the page published at time date is in the future" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now + 2.days)
+        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.from_now)
         expect(page.scheduled?).to be_truthy
       end
       it "returns false if the page published at time date is in the past" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: Time.now - 2.days)
+        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: 2.days.ago)
         expect(page.scheduled?).to be_falsey
       end
       it "returns false if page status is not present" do
         page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, published_at: nil)
         expect(page.scheduled?).to be_falsey
+      end
+    end
+
+    describe "#status" do
+      it "returns draft" do
+        page = Page.new(published_at: nil)
+        expect(page.status).to eq "draft"
+      end
+      it "returns published" do
+        page = Page.new(published_at: Time.current )
+        expect(page.status).to eq "published"
+      end
+      it "returns scheduled" do
+        page = Page.new(published_at: 2.days.from_now)
+        expect(page.status).to eq "scheduled"
+      end
+    end
+
+    describe "#assign_attributes" do
+      it "sets published_at to nil when draft" do
+        page = create(:page, published_at: Time.current)
+
+        page.assign_attributes(status: 'draft')
+
+        expect(page.published_at).to be_nil
+      end
+
+      it "sets published_at to current time when published" do
+        page = create(:page, published_at: nil)
+
+        freeze_time
+        page.assign_attributes(status: 'published')
+
+        expect(page.published_at).to eq Time.current
+      end
+
+      it "does not change status or published_at when updating non-publish options" do
+        freeze_time
+        page = create(:page, published_at: 2.days.ago)
+
+        page.assign_attributes(title: 'Choosing a frameset for your first adventure bike')
+
+        expect(page.published_at).to eq 2.days.ago
+        expect(page.status).to eq "published"
+        expect(page.title).to eq 'Choosing a frameset for your first adventure bike'
+      end
+
+      it "does not change status or published_at when page is scheduled" do
+        freeze_time
+        page = create(:page, published_at: 1.hour.ago)
+
+        page.assign_attributes(status: 'scheduled', published_at: 2.weeks.from_now)
+
+        expect(page.published_at).to eq 2.weeks.from_now
+        expect(page.status).to eq "scheduled"
       end
     end
   end
