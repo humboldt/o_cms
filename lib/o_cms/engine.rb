@@ -8,15 +8,12 @@ module OCms
       g.helper false
     end
 
-    # OCms::Engine.image_sizes
     config.image_sizes = {
-      medium: { width: 100, height: 200 },
-      thumb: { width: 100, height: 200 },
-      featured_image: { width: 100, height: 200 }
+      thumb: { resize: "resize_to_fill", width: 50, height: 50 },
+      medium: { resize: "resize_to_fit", width: 200, height: 200 },
+      large: { resize: "resize_to_fit", width: 300, height: 350 },
+      featured_image: { resize: "resize_to_fit", width: 400, height: 400 },
+      special_image: { resize: "resize_to_fill", width: 600, height: 600 }
     }
   end
 end
-
-
-# OCms::Engine.config.image_sizes.each_pair { |image_type, dimensions| p image_type }
-# OCms::Engine.config.image_sizes.each_pair { |image_type, dimensions| p "Type #{image_type} - #{dimensions[:width]} x #{dimensions[:height]}" }

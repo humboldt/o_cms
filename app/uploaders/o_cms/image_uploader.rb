@@ -30,27 +30,17 @@ module OCms
     #   # do something
     # end
 
-    # Create different versions of your uploaded files:
-    # version :thumb do
-    #   process :resize_to_fill => [50, 50]
-    # end
-
-    version :medium do
-      process :resize_to_fit => [100, 200]
+    # Create different versions of the uploaded files using the images sizes config
+    OCms::Engine.config.image_sizes.each_pair do |image_type, dimensions|
+      version image_type do
+        process dimensions[:resize].to_sym => [dimensions[:width], dimensions[:height]]
+      end
     end
 
-    # loops through image_sizes hash
-    # OCms::Engine.config.image_sizes.each_pair do |image_type, dimensions|
-    #   version image_type do
-    #     process :resize_to_fill => [dimensions[:width], dimensions[:height]]
-    #   end
-    # end
-
-    # Add a white list of extensions which are allowed to be uploaded.
-    # For images you might use something like this:
-    # def extension_whitelist
-    #   %w(jpg jpeg gif png)
-    # end
+    # Extensions which are allowed to be uploaded.
+    def extension_whitelist
+      %w(jpg jpeg gif png)
+    end
 
     # Override the filename of the uploaded files:
     # Avoid using model.id or version_name here, see uploader/store.rb for details.

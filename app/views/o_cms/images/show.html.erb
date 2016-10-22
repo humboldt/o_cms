@@ -16,7 +16,15 @@
   <%= link_to image_path(@image), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-danger clear-right' do %>
     <i class="fa fa-delete-variant"></i> Delete
   <% end %>
+
 </div>
 
+<hr />
 
-<%#= image_tag @image.file.thumb %>
+<h3><%= @image.file.versions.count %> versions</h3>
+
+<% @image.file.versions.each do |version| %>
+  <hr />
+  <h4>Version - <%= version.first %></h4>
+  <%= image_tag version.last %>
+<% end %>
