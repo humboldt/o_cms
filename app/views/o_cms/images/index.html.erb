@@ -6,7 +6,7 @@
   <% @images.each do |image| %>
     <li class="image">
       <%= link_to image do %>
-        <%= image_tag image.file %>
+        <%= image_tag image.file.admin_thumb %>
       <% end %>
     </li>
   <% end %>

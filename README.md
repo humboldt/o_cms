@@ -11,7 +11,7 @@ You can customise the Primary and User navigation by creating these partials in 
 
 ### Image sizes
 
-You can override the default image sizes by adding the below hash to your local initializer. Make sure you keep the thumb option in place for the admin preview.
+You can override the default image sizes by adding the below hash to your local initializer. 
 
 ```
 # initilizers/o_cms_config.rb

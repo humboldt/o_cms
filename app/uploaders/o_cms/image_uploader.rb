@@ -30,6 +30,11 @@ module OCms
     #   # do something
     # end
 
+    # Admin thumb size used in the library index
+    version :admin_thumb do
+      process :resize_to_fill => [125, 125]
+    end
+
     # Create different versions of the uploaded files using the images sizes config
     OCms::Engine.config.image_sizes.each_pair do |image_type, dimensions|
       version image_type do
