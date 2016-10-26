@@ -16,4 +16,25 @@
   <%= link_to image_path(@image), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-danger clear-right' do %>
     <i class="fa fa-delete-variant"></i> Delete
   <% end %>
+
+</div>
+
+<hr />
+
+<p>
+  <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Versions
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-block">
+    <h3>Image Versions</h3>
+    <% @image.file.versions.each do |version| %>
+      <% unless version.first == :admin_thumb %>
+        <hr />
+        <h4><%= version.first.to_s.titlecase %></h4>
+        <%= image_tag version.last %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -8,3 +8,19 @@ You can customise the Primary and User navigation by creating these partials in 
 
 * ``` /views/o_cms/partials/_primary_navigation.html.erb ```
 * ``` /views/o_cms/partials/_user_navigation.html.erb ```
+
+### Image sizes
+
+You can override the default image sizes by adding the below hash to your local initializer. 
+
+```
+# initilizers/o_cms_config.rb
+
+OCms::Engine.config.image_sizes = {
+  thumb: { resize: "resize_to_fill", width: 50, height: 50 },
+  medium: { resize: "resize_to_fit", width: 200, height: 200 },
+  large: { resize: "resize_to_fit", width: 300, height: 300 },
+  featured_image: { resize: "resize_to_fit", width: 400, height: 400 },
+  special_image: { resize: "resize_to_fill", width: 600, height: 600 }
+}
+```

@@ -28,9 +28,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails'
   s.add_dependency 'rails-assets-tether', '>= 1.1.0'
   s.add_dependency 'turbolinks'
-  s.add_dependency 'bootstrap', '~> 4.0.0.alpha3'
+  s.add_dependency 'bootstrap', '4.0.0.alpha4'
   s.add_dependency 'carrierwave', '>= 1.0.0.beta', '< 2.0'
   s.add_dependency 'trix'
+  s.add_dependency "mini_magick"
 
   # development dependencies
   s.add_development_dependency 'better_errors'
