@@ -1,0 +1,11 @@
+<div class="modal-body image-picker">
+  <div class="alert alert-info">
+    Select the image you would like to add.
+  </div>
+
+  <% images.each do |image| %>
+    <%= link_to image_path(image), remote: true do %>
+      <%= image_tag image.file.admin_thumb, class: 'library-thumb' %>
+    <% end %>
+  <% end %>
+</div>

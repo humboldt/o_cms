@@ -5,15 +5,25 @@ module OCms
 
     def index
       @images = Image.all
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def show
       @image = Image.find(params[:id])
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def new
       @image = Image.new
-    end 
+    end
 
     def create
       @image = Image.new(image_params)
@@ -57,7 +67,7 @@ module OCms
     end
 
     private
- 
+
     def image_params
       params.require(:image).permit(:name, :file, :description)
     end

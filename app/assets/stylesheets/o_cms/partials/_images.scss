@@ -4,8 +4,7 @@
 
 */
 
-// Index tiles
-
+// Library image list
 ul.images {
   padding-left: 0;
   li.image {
@@ -22,10 +21,48 @@ ul.images {
   }
 }
 
-// Preview thumb
-
-img.img-preview {
+// Library primary show
+img.preview {
   border: 2px solid $gray-lighter;
   margin: 5px;
   max-width: 600px;
+}
+
+// Library modal picker
+.image-picker {
+  overflow: hidden;
+  img {
+    cursor: pointer;
+    float: left;
+  	margin: 2px;
+  }
+  &.hide {
+    display: none;
+  }
+}
+
+// Library modal options
+.image-options {
+  display: block;
+  h3{
+    display: inline-block;
+    line-height: 32px;
+    margin: 0;
+  }
+  hr{
+    clear: both;
+  }
+  .preview-frame {
+    text-align: center;
+    img{
+      border: 1px solid #ccc;
+      margin: 10px auto;
+      padding: 1px;
+    }
+  }
+  .link_url {
+    &.hide {
+      display: none;
+    }
+  }
 }
