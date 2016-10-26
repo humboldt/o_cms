@@ -225,7 +225,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    selenium-webdriver (3.0.0)
+    selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
@@ -288,7 +288,7 @@ DEPENDENCIES
   rb-readline
   rolify
   rspec-rails
-  selenium-webdriver
+  selenium-webdriver (= 2.53.4)
   shoulda
 
 BUNDLED WITH
