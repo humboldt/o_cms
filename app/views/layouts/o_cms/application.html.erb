@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <%= stylesheet_link_tag    "o_cms/application", media: "all" %>
-    <%= javascript_include_tag "o_cms/application" %>
+    <%= stylesheet_link_tag    'o_cms/application', media: 'all' %>
+    <%= javascript_include_tag 'o_cms/application' %>
     <script src="https://use.fortawesome.com/c7e3010e.js"></script>
   </head>
   <body>
     <%= render :partial => 'o_cms/partials/header' %>
-    <div class="container"> 
+    <div class="container">
       <%= render :partial => 'o_cms/partials/alerts' %>
   		<%= yield %>
   	</div>

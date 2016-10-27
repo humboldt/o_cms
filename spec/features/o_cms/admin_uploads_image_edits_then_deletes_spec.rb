@@ -22,7 +22,7 @@ RSpec.feature "User uploads an image", type: :feature, js: true do
   scenario 'successfully uploads an image' do
     file = File.absolute_path('./spec/fixtures/files/demo-image.jpg')
     admin = create(:user, :admin)
-    
+
     login admin
     visit '/o_cms/images'
     click_link 'Add Image'
@@ -38,7 +38,7 @@ RSpec.feature "User uploads an image", type: :feature, js: true do
     expect(page).to have_css '.alert', text: 'mage was saved successfully.'
     expect(page).to have_css 'h2', text: 'Image Preview'
     expect(page).to have_css 'h3', text: 'Morning View'
-    expect(page).to have_css 'img.img-preview'
+    expect(page).to have_css 'img.preview'
     expect(page).to have_css 'p', text: 'Picture from my first morning in the alps'
     expect(OCms::Image.count).to eq(1)
   end

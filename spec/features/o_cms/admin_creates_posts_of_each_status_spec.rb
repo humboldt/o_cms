@@ -7,7 +7,7 @@ RSpec.feature "Admin creates posts of each status type,", type: :feature, js: tr
     login admin
 
     click_link 'Blog'
-    expect(page).to have_current_path '/o_cms/posts'
+    expect(page).to have_current_path(o_cms.posts_path)
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
 
@@ -60,7 +60,7 @@ RSpec.feature "Admin creates posts of each status type,", type: :feature, js: tr
     login admin
 
     click_link 'Blog'
-    expect(page).to have_current_path '/o_cms/posts'
+    expect(page).to have_current_path(o_cms.posts_path)
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
 

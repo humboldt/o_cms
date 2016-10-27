@@ -1,5 +1,8 @@
 // Add hide class to the picker
 $('.image-picker').addClass('hide')
 
+// Clear previous instances of the image options view
+$('.image-options').remove();
+
 // Insert div with partial inside, render the insert template inside - leaving the existing div in place
 $('#images').append("<%= escape_javascript(render partial: 'o_cms/images/modal_insert', locals: { image: @image }) %>");
