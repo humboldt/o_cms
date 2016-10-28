@@ -41,6 +41,19 @@ img.preview {
   }
 }
 
+// Featured modal picker
+.featured-image-picker {
+  overflow: hidden;
+  img {
+    cursor: pointer;
+    float: left;
+  	margin: 2px;
+  }
+  &.hide {
+    display: none;
+  }
+}
+
 // Library modal options
 .image-options {
   display: block;
