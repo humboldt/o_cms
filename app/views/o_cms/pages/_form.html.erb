@@ -1,3 +1,5 @@
+<%= render :partial => 'o_cms/images/modal' %>
+
 <%= form_for @page do |f| %>
   <% if page.errors.any? %>
     <div class="alert alert-danger">
@@ -12,19 +14,27 @@
 
   <%= form_group_tag(page.errors[:title]) do %>
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', placeholder: "Enter page title" %>
+    <%= f.text_field :title, class: 'form-control form-control-lg', placeholder: "Enter page title" %>
   <% end %>
+
+  <!-- <div class="form-group row">
+      <label class="col-sm-1 col-form-label">Email</label>
+      <div class="col-sm-8">
+        <input type="email" class="form-control" placeholder="you@example.com">
+      </div>
+    </div> -->
+
   <%= form_group_tag(page.errors[:slug]) do %>
     <%= f.label :slug %>
     <%= f.text_field :slug, class: 'form-control', placeholder: "Enter page slug" %>
   <% end %>
   <%= form_group_tag(page.errors[:body]) do %>
     <%= f.label :body %>
-    <%= f.trix_editor :body, rows: 8, class: 'form-control page_body', placeholder: "Enter page body" %>
+    <%= f.trix_editor :body, class: 'form-control page_body', placeholder: "Enter page body" %>
   <% end %>
   <%= form_group_tag(page.errors[:excerpt]) do %>
     <%= f.label :excerpt %>
-    <%= f.text_area :excerpt, rows: 8, class: 'form-control', placeholder: "Enter page excerpt" %>
+    <%= f.text_area :excerpt, rows: 3, class: 'form-control', placeholder: "Enter page excerpt" %>
   <% end %>
   <%= form_group_tag(page.errors[:featured_image]) do %>
     <%= f.label :featured_image %>
@@ -85,7 +95,7 @@
       <% end %>
       <%= form_group_tag(page.errors[:meta_description]) do %>
         <%= f.label :meta_description %>
-        <%= f.text_area :meta_description, rows: 8, class: 'form-control', placeholder: "Enter page meta description" %>
+        <%= f.text_area :meta_description, rows: 4, class: 'form-control', placeholder: "Enter page meta description" %>
       <% end %>
       <%= form_group_tag(page.errors[:meta_keywords]) do %>
         <%= f.label :meta_keywords %>

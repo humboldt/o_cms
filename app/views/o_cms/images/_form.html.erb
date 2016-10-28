@@ -12,7 +12,7 @@
 
   <%= form_group_tag(image.errors[:name]) do %>
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "Enter image name" %>
+    <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: "Enter image name" %>
   <% end %>
   <%= form_group_tag(image.errors[:file]) do %>
     <%= f.label :file %>
@@ -20,7 +20,7 @@
   <% end %>
   <%= form_group_tag(image.errors[:description]) do %>
     <%= f.label :description %>
-    <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter image description" %>
+    <%= f.text_area :description, rows: 3, class: 'form-control', placeholder: "Enter image description" %>
   <% end %>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>

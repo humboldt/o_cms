@@ -1,3 +1,5 @@
+<%= render :partial => 'o_cms/images/modal' %>
+
 <%= form_for @category do |f| %>
   <% if category.errors.any? %>
     <div class="alert alert-danger">
@@ -12,7 +14,7 @@
 
   <%= form_group_tag(category.errors[:name]) do %>
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "Enter category name" %>
+    <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: "Enter category name" %>
   <% end %>
   <%= form_group_tag(category.errors[:slug]) do %>
     <%= f.label :slug %>
@@ -24,7 +26,7 @@
   <% end %>
   <%= form_group_tag(category.errors[:body]) do %>
     <%= f.label :body %>
-    <%= f.trix_editor :body, rows: 8, class: 'form-control category_body', placeholder: "Enter category body" %>
+    <%= f.trix_editor :body, class: 'form-control category_body', placeholder: "Enter category body" %>
   <% end %>
 
   <div class="card">
@@ -38,7 +40,7 @@
       <% end %>
       <%= form_group_tag(category.errors[:meta_description]) do %>
         <%= f.label :meta_description %>
-        <%= f.text_area :meta_description, rows: 8, class: 'form-control', placeholder: "Enter category meta description" %>
+        <%= f.text_area :meta_description, rows: 4, class: 'form-control', placeholder: "Enter category meta description" %>
       <% end %>
       <%= form_group_tag(category.errors[:meta_keywords]) do %>
         <%= f.label :meta_keywords %>

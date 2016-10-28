@@ -11,7 +11,7 @@ You can customise the Primary and User navigation by creating these partials in 
 
 ### Image sizes
 
-You can override the default image sizes by adding the below hash to your local initializer. 
+You can override the default image sizes by adding the below hash to your local initializer.
 
 ```
 # initilizers/o_cms_config.rb
@@ -24,3 +24,13 @@ OCms::Engine.config.image_sizes = {
   special_image: { resize: "resize_to_fill", width: 600, height: 600 }
 }
 ```
+
+### Guidelines
+
+Each of the pages in the site has a guidelines section, describing to your user what is expected in each form field.
+You can easily override these guidelines, if you feel the language is tool simplistic or complicated for your users, or if you want to put something else in the sidebars.
+
+* ``` /views/o_cms/pages/_guidelines.html.erb ```
+* ``` /views/o_cms/images/_guidelines.html.erb ```
+* ``` /views/o_cms/posts/_guidelines.html.erb ```
+* ``` /views/o_cms/categories/_guidelines.html.erb ```

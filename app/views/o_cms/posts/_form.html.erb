@@ -14,7 +14,7 @@
 
   <%= form_group_tag(post.errors[:title]) do %>
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+    <%= f.text_field :title, class: 'form-control form-control-lg', placeholder: "Enter post title" %>
   <% end %>
   <%= form_group_tag(post.errors[:slug]) do %>
     <%= f.label :slug %>
@@ -22,11 +22,11 @@
   <% end %>
   <%= form_group_tag(post.errors[:body]) do %>
     <%= f.label :body %>
-    <%= f.trix_editor :body, rows: 8, class: 'form-control post_body', placeholder: "Enter post body" %>
+    <%= f.trix_editor :body, class: 'form-control post_body', placeholder: "Enter post body" %>
   <% end %>
   <%= form_group_tag(post.errors[:excerpt]) do %>
     <%= f.label :excerpt %>
-    <%= f.text_area :excerpt, rows: 8, class: 'form-control', placeholder: "Enter post excerpt" %>
+    <%= f.text_area :excerpt, rows: 3, class: 'form-control', placeholder: "Enter post excerpt" %>
   <% end %>
   <%= form_group_tag(post.errors[:featured_image]) do %>
     <%= f.label :featured_image %>
@@ -109,7 +109,7 @@
       <% end %>
       <%= form_group_tag(post.errors[:meta_description]) do %>
         <%= f.label :meta_description %>
-        <%= f.text_area :meta_description, rows: 8, class: 'form-control', placeholder: "Enter post meta description" %>
+        <%= f.text_area :meta_description, rows: 4, class: 'form-control', placeholder: "Enter post meta description" %>
       <% end %>
       <%= form_group_tag(post.errors[:meta_keywords]) do %>
         <%= f.label :meta_keywords %>
