@@ -80,8 +80,8 @@ RSpec.feature "Admin managed featured image in a post,", type: :feature, js: tru
   scenario 'successfully edits a post with a featured image' do
     admin = create(:user, :admin)
     my_image = create(:image)
-    replacement_image = create(:image_two)
     my_post = create(:post, featured_image: my_image.file.featured)
+    replacement_image = create(:forest_image)
 
     login admin
     visit '/o_cms/posts'
