@@ -106,7 +106,6 @@ RSpec.feature "Admin adds image to body field", type: :feature, js: true do
 
     expect(page).to have_css 'h2', text: 'New Post'
     expect(page).to have_current_path '/o_cms/posts/new'
-
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
 
@@ -126,7 +125,6 @@ RSpec.feature "Admin adds image to body field", type: :feature, js: true do
     expect(page).to have_css 'h3', text: 'Add your image'
     expect(page).to have_css '.preview-frame img'
     expect(page).to have_xpath("//img[@src=\"#{my_image.file.admin_thumb}\"]")
-
     expect(page).to have_field('Alt Text', with: my_image.name.titlecase )
 
     expect(page).to have_field('Alignment')
