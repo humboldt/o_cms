@@ -1,4 +1,4 @@
-// Create image html and insert into the content area
+// Add featured image path into the featured field
 
 $(document)
   .off('click.ocms-featured-image') // remove any previous handler

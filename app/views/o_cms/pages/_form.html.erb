@@ -37,7 +37,9 @@
     <div class="card-block">
       <div class="row">
         <div class="col-sm-12">
-          <%= image_tag @page.featured_image, id: 'featured_preview' if @page.featured_image.present? %>
+          <% if @page.featured_image.present? %>
+            <img src="<%= @page.featured_image %>" alt="Featured Image" id="featured_preview" />
+          <% end %>
           <%= form_group_tag(page.errors[:featured_image]) do %>
             <%= f.label :featured_image %>
             <div class="input-group">
