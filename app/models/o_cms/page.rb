@@ -24,7 +24,8 @@ module OCms
     end
 
     def create_meta_description
-      self.meta_description = "#{body.first(156) + ' ...'}" if self.meta_description.blank? && self.body.present?
+      sanitized_body = ActionView::Base.full_sanitizer.sanitize(self.body)
+      self.meta_description = "#{sanitized_body.first(156) + ' ...'}" if self.meta_description.blank? && self.body.present?
     end
 
     def draft?

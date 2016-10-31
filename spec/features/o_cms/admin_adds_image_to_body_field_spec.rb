@@ -188,6 +188,8 @@ RSpec.feature "Admin adds image to body field", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
+
+    expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{my_image.file.thumb}\"]") }
     expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
 

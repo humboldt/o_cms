@@ -43,8 +43,8 @@ module OCms
 
     describe "#create_meta_description" do
       it "creates the post meta description from the post body content" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_paragraph)
-        expect(post.meta_description).to eq (post.body.first(156) + ' ...')
+        post = Post.create(title: RandomData.random_sentence, body: "<div><figure class=\"attachment attachment-content\" data-trix-attachment=\"{&quot;content&quot;:&quot;<img style=\\&quot;margin: 0 auto; display: block;\\&quot; src=\\&quot;/uploads/o_cms/image/file/35/medium_czibgxph6asx.jpg\\&quot; alt=\\&quot;New Resize\\&quot; />&quot;}\" data-trix-content-type=\"undefined\"><img style=\"margin: 0 auto; display: block;\" src=\"/uploads/o_cms/image/file/35/medium_czibgxph6asx.jpg\" alt=\"New Resize\"><figcaption class=\"caption\"></figcaption></figure><br><br>You have spent months dreaming and planning your bike journey. You've poured over maps and shopped for gear. <br><figure class=\"attachment attachment-content\" data-trix-attachment=\"{&quot;content&quot;:&quot;<a href=\\&quot;/uploads/o_cms/image/file/36/medium_74l818xu6asx.jpg\\&quot;><img style=\\&quot;float: right; margin: 0px 0px 10px 10px;\\&quot; src=\\&quot;/uploads/o_cms/image/file/36/medium_74l818xu6asx.jpg\\&quot; alt=\\&quot;Brbrbrbryay\\&quot; /></a>&quot;}\" data-trix-content-type=\"undefined\"><a href=\"/uploads/o_cms/image/file/36/medium_74l818xu6asx.jpg\"><img style=\"float: right; margin: 0px 0px 10px 10px;\" src=\"/uploads/o_cms/image/file/36/medium_74l818xu6asx.jpg\" alt=\"Brbrbrbryay\"></a><figcaption class=\"caption\"></figcaption></figure>You've trained well hopefully you have. There is a frantic joy/dread to those final hours before you set out on a journey.")
+        expect(post.meta_description).to eq ("You have spent months dreaming and planning your bike journey. You've poured over maps and shopped for gear. You've trained well hopefully you have. There i ...")
       end
 
       it "does not amend the post meta description if one is already entered" do

@@ -41,8 +41,8 @@ module OCms
 
     describe "#create_meta_description" do
       it "creates the page meta description from the page body content" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_paragraph)
-        expect(page.meta_description).to eq (page.body.first(156) + ' ...')
+        page = Page.create(title: RandomData.random_sentence, body: "<div><figure class=\"attachment attachment-content\" data-trix-attachment=\"{&quot;content&quot;:&quot;<img style=\\&quot;margin: 0 auto; display: block;\\&quot; src=\\&quot;/uploads/o_cms/image/file/25/large_t3ud5h6ke9sx.jpg\\&quot; alt=\\&quot;Four Versions?\\&quot; />&quot;}\" data-trix-content-type=\"undefined\"><img style=\"margin: 0 auto; display: block;\" src=\"/uploads/o_cms/image/file/25/large_t3ud5h6ke9sx.jpg\" alt=\"Four Versions?\"><figcaption class=\"caption\"></figcaption></figure><br>Bicycling across America is less about athleticism and more about <figure class=\"attachment attachment-content\" data-trix-attachment=\"{&quot;content&quot;:&quot;<img style=\\&quot;float: right; margin: 0px 0px 10px 10px;\\&quot; src=\\&quot;/uploads/o_cms/image/file/39/thumb_czibgxph6asx.jpg\\&quot; alt=\\&quot;Fill Htumb?\\&quot; />&quot;}\" data-trix-content-type=\"undefined\"><img style=\"float: right; margin: 0px 0px 10px 10px;\" src=\"/uploads/o_cms/image/file/39/thumb_czibgxph6asx.jpg\" alt=\"Fill Htumb?\"><figcaption class=\"caption\"></figcaption></figure>spirit and perseverance, the capacity to roll with the bumps along the way. Having successfully done it says something about a person’s character; the accomplishment makes for a strong bullet point on a resume.</div>")
+        expect(page.meta_description).to eq ("Bicycling across America is less about athleticism and more about spirit and perseverance, the capacity to roll with the bumps along the way. Having success ...")
       end
 
       it "does not amend the page meta description if one is already entered" do
