@@ -1,4 +1,5 @@
 <%= render :partial => 'o_cms/images/modal' %>
+<%= render :partial => 'o_cms/images/featured_modal' %>
 
 <%= form_for @post do |f| %>
   <% if post.errors.any? %>
@@ -28,15 +29,30 @@
     <%= f.label :excerpt %>
     <%= f.text_area :excerpt, rows: 3, class: 'form-control', placeholder: "Enter post excerpt" %>
   <% end %>
-  <%= form_group_tag(post.errors[:featured_image]) do %>
-    <%= f.label :featured_image %>
-    <div class="input-group">
-      <%= f.text_field :featured_image, class: 'form-control' %>
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Select image</button>
-      </span>
+
+  <div class="card featured-card">
+    <div class="card-header">
+      Featured Image
     </div>
-  <% end %>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-sm-12">
+          <% if @post.featured_image.present? %>
+            <img src="<%= @post.featured_image %>" alt="Featured Image" id="featured_preview" />
+          <% end %>
+          <%= form_group_tag(post.errors[:featured_image]) do %>
+            <%= f.label :featured_image %>
+            <div class="input-group">
+              <%= f.text_field :featured_image, class: 'featured-image form-control' %>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-secondary featured-image" data-toggle="modal" data-target="#featuredModal" title="featured"><i class="fa fa-image"></i> Select Image</button>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="card">
     <div class="card-header">

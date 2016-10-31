@@ -1,0 +1,9 @@
+<div class="modal-body featured-image-picker">
+  <div class="alert alert-info">
+    Select the image you would like to use.
+  </div>
+
+  <% images.each do |image| %>
+    <%= image_tag image.file.admin_thumb, id: 'featured_image', alt: image.name %>
+  <% end %>
+</div>
