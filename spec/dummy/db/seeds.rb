@@ -73,6 +73,15 @@ file = Rack::Test::UploadedFile.new("./../fixtures/files/mountains.jpg", 'image/
   )
 end
 
+# Galleries
+10.times do
+  OCms::Gallery.create!(
+    name:         RandomData.random_sentence,
+    description:  RandomData.random_paragraph
+  )
+end
+galleries = OCms::Gallery.all
+
 # Confirmation
 puts "Seed finished"
 puts "#{Role.count} roles created"
@@ -81,3 +90,4 @@ puts "#{OCms::Image.count} images created"
 puts "#{OCms::Post.count} posts created"
 puts "#{OCms::Category.count} categories created"
 puts "#{OCms::Page.count} pages created"
+puts "#{OCms::Gallery.count} galleries created"

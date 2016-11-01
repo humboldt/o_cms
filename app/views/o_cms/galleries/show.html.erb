@@ -1,0 +1,21 @@
+<%= render :partial => 'o_cms/galleries/navigation' %>
+
+<h2>Gallery Preview</h2>
+
+<h3><%= @gallery.name %></h3>
+
+<!-- Gallery Preview -->
+
+<p><%= @gallery.description %></p>
+<p>Gallery uploaded - <%= @gallery.created_at.to_s(:short) %></p>
+
+<hr />
+
+<div class="btn-toolbar">
+  <%= link_to edit_gallery_path(@gallery), class:'btn btn-info' do %>
+    <i class="fa fa-mode-edit"></i> Edit
+  <% end %>
+  <%= link_to gallery_path(@gallery), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-danger clear-right' do %>
+    <i class="fa fa-delete-variant"></i> Delete
+  <% end %>
+</div>

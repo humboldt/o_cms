@@ -1,0 +1,26 @@
+<%= render :partial => 'o_cms/galleries/navigation' %>
+
+<h2>Galleries</h2>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @galleries.each do |gallery| %>
+        <tr>
+          <td><%= gallery.name %></td>
+          <td>
+            <%= link_to edit_gallery_path(gallery), class:'btn btn-info btn-sm' do %>
+              <i class="fa fa-mode-edit"></i> Edit
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
