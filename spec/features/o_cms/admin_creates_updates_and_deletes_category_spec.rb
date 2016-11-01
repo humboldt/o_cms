@@ -7,9 +7,9 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
     login admin
     click_link 'Blog'
 
-    expect(page).to have_current_path '/o_cms/posts'
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
+    expect(page).to have_current_path '/o_cms/posts'
 
     click_link 'Categories'
 
@@ -23,7 +23,7 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
 
     login admin
     visit '/o_cms/categories'
-    
+
     expect(page).to have_css 'h1', text: 'Categories'
     expect(page).to have_css 'h2', text: 'Categories'
 
@@ -47,7 +47,7 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
 
   scenario 'successfully edits a category' do
     admin = create(:user, :admin)
-    my_category = create(:category)
+    category = create(:category)
 
     login admin
     visit '/o_cms/categories'
@@ -56,7 +56,7 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
 
     click_link 'Edit'
     expect(page).to have_css 'h2', text: 'Edit Category'
-    expect(page).to have_field('Name', with: my_category.name)
+    expect(page).to have_field('Name', with: category.name)
     fill_in 'Name', with: "Adventure Cycling Events Calendar"
     click_button 'Save'
 
@@ -70,7 +70,7 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
 
   scenario 'successfully deletes a category' do
     admin = create(:user, :admin)
-    my_category = create(:category)
+    category = create(:category)
 
     login admin
     visit '/o_cms/categories'
@@ -80,7 +80,7 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
     click_link 'Edit'
 
     expect(page).to have_css 'h2', text: 'Edit Category'
-    expect(page).to have_field('Name', with: my_category.name)
+    expect(page).to have_field('Name', with: category.name)
 
     click_link 'Delete'
 
@@ -89,6 +89,6 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
     alert.accept
 
     expect(page).to have_current_path '/o_cms/categories'
-    expect(page).to have_css '.alert', text: my_category.name + '" was deleted successfully.'
+    expect(page).to have_css '.alert', text: category.name + '" was deleted successfully.'
   end
 end

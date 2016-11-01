@@ -7,9 +7,9 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     login admin
     click_link 'Pages'
 
-    expect(page).to have_current_path '/o_cms/pages'
     expect(page).to have_css 'h1', text: 'Pages'
     expect(page).to have_css 'h2', text: 'Pages'
+    expect(page).to have_current_path '/o_cms/pages'
   end
 
   scenario 'successfully creates a page' do
@@ -23,8 +23,8 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
 
     click_link 'Add Page'
 
-    expect(page).to have_current_path '/o_cms/pages/new'
     expect(page).to have_css 'h2', text: 'New Page'
+    expect(page).to have_current_path '/o_cms/pages/new'
 
     fill_in 'Title', with: "About Adventure Cycling Daily"
     find(".page_body").set("Our goal is to deliver a daily source of adventure cycling news and events to keep you planning for your next trip. Our mission is to inspire and empower people to travel by bicycle.")
@@ -38,13 +38,12 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     expect(page).to have_field('Slug', with: 'about-adventure-cycling-daily')
     expect(page).to have_css '.page_body div', text: 'Our goal is to deliver a daily source of adventure cycling news and events to keep you planning for your next trip. Our mission is to inspire and empower people to travel by bicycle.'
     expect(page).to have_field('Excerpt', with: 'Inspiring and empowering people to travel by bicycle.')
-
     expect(page).to have_css '.alert', text: 'Page was saved successfully.'
   end
 
   scenario 'successfully edits a page' do
     admin = create(:user, :admin)
-    my_page = create(:page)
+    page_to_update = create(:page)
 
     login admin
     visit '/o_cms/pages'
@@ -54,7 +53,7 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     click_link 'Edit'
 
     expect(page).to have_css 'h2', text: 'Edit Page'
-    expect(page).to have_field('Title', with: my_page.title)
+    expect(page).to have_field('Title', with: page_to_update.title)
 
     fill_in 'Title', with: "Epic Tours - Expore the world by bike"
     find(".page_body").set("Bicycling across a continent is less about athleticism and more about spirit and perseverance, the capacity to roll with the bumps along the way. Having successfully done it says something about a person’s character.")
@@ -77,7 +76,7 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
 
   scenario 'successfully deletes a page' do
     admin = create(:user, :admin)
-    my_page = create(:page)
+    page_to_delete = create(:page)
 
     login admin
     visit '/o_cms/pages'
@@ -87,7 +86,7 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     click_link 'Edit'
 
     expect(page).to have_css 'h2', text: 'Edit Page'
-    expect(page).to have_field('Title', with: my_page.title)
+    expect(page).to have_field('Title', with: page_to_delete.title)
 
     click_link 'Delete'
 
@@ -95,7 +94,7 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     alert = wait.until { page.driver.browser.switch_to.alert }
     alert.accept
 
+    expect(page).to have_css '.alert', text: page_to_delete.title + '" was deleted successfully.'
     expect(page).to have_current_path '/o_cms/pages'
-    expect(page).to have_css '.alert', text: my_page.title + '" was deleted successfully.'
   end
 end

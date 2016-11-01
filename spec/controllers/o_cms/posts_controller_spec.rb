@@ -4,27 +4,27 @@ module OCms
   RSpec.describe PostsController, type: :controller do
 
     routes { OCms::Engine.routes }
-    let(:my_post) { create(:post) }
+    let(:new_post) { create(:post) }
 
     context "guest" do
 
       describe "GET new" do
         it "returns http redirect" do
-          get :new, id: my_post.id
+          get :new, id: new_post.id
           expect(response).to redirect_to(main_app.user_session_path)
         end
       end
 
       describe "POST create" do
         it "returns http redirect" do
-          post :create, id: my_post.id, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: RandomData.random_slug + '.jpg', meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word }
+          post :create, id: new_post.id, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: RandomData.random_slug + '.jpg', meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word }
           expect(response).to redirect_to(main_app.user_session_path)
         end
       end
 
       describe "GET edit" do
         it "returns http redirect" do
-          get :edit, id: my_post.id
+          get :edit, id: new_post.id
           expect(response).to redirect_to(main_app.user_session_path)
         end
       end
@@ -40,14 +40,14 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
-          put :update, id: my_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords}
+          put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords}
           expect(response).to redirect_to(main_app.user_session_path)
         end
       end
 
       describe "DELETE destroy" do
         it "returns http redirect" do
-          delete :destroy, id: my_post.id
+          delete :destroy, id: new_post.id
           expect(response).to redirect_to(main_app.user_session_path)
         end
       end
@@ -58,21 +58,21 @@ module OCms
 
       describe "GET new" do
         it "returns http redirect" do
-          get :new, id: my_post.id
+          get :new, id: new_post.id
           expect(response).to redirect_to(main_app.root_path)
         end
       end
 
       describe "POST create" do
         it "returns http redirect" do
-          post :create, id: my_post.id, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: RandomData.random_slug + '.jpg', meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word }
+          post :create, id: new_post.id, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: RandomData.random_slug + '.jpg', meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word }
           expect(response).to redirect_to(main_app.root_path)
         end
       end
 
       describe "GET edit" do
         it "returns http redirect" do
-          get :edit, id: my_post.id
+          get :edit, id: new_post.id
           expect(response).to redirect_to(main_app.root_path)
         end
       end
@@ -88,14 +88,14 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
-          put :update, id: my_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords}
+          put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords}
           expect(response).to redirect_to(main_app.root_path)
         end
       end
 
       describe "DELETE destroy" do
         it "returns http redirect" do
-          delete :destroy, id: my_post.id
+          delete :destroy, id: new_post.id
           expect(response).to redirect_to(main_app.root_path)
         end
       end
@@ -122,7 +122,7 @@ module OCms
       end
 
       describe "POST create" do
-        let(:file) { fixture_file_upload('files/demo-image.jpg', 'image/jpeg') }
+        let(:file) { fixture_file_upload('files/mountains.jpg', 'image/jpeg') }
 
         it "increases the number of Posts by 1" do
           expect{ post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Post,:count).by(1)
@@ -141,20 +141,20 @@ module OCms
 
       describe "GET edit" do
         it "returns http success" do
-          get :edit, id: my_post.id
+          get :edit, id: new_post.id
           expect(response).to have_http_status(:success)
         end
 
         it "renders the #edit view" do
-          get :edit, id: my_post.id
+          get :edit, id: new_post.id
           expect(response).to render_template :edit
         end
 
         it "assigns post to be updated to @post" do
-          get :edit, id: my_post.id
+          get :edit, id: new_post.id
           post_instance = assigns(:post)
 
-          expect(post_instance).to eq my_post
+          expect(post_instance).to eq new_post
         end
       end
 
@@ -169,10 +169,10 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
-          put :update, id: my_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
+          put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
 
           updated_post = assigns(:post)
-          expect(updated_post.id).to eq my_post.id
+          expect(updated_post.id).to eq new_post.id
           expect(updated_post.title).to eq new_title
           expect(updated_post.slug).to eq new_slug
           expect(updated_post.body).to eq new_body
@@ -193,20 +193,20 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
-          put :update, id: my_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
-          expect(response).to redirect_to edit_post_path(my_post)
+          put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
+          expect(response).to redirect_to edit_post_path(new_post)
         end
       end
 
       describe "DELETE destroy" do
         it "deletes the post" do
-          delete :destroy, id: my_post.id
-          count = Post.where({id: my_post.id}).size
+          delete :destroy, id: new_post.id
+          count = Post.where({id: new_post.id}).size
           expect(count).to eq 0
         end
 
         it "redirects to posts index" do
-          delete :destroy, id: my_post.id
+          delete :destroy, id: new_post.id
           expect(response).to redirect_to posts_path
         end
       end

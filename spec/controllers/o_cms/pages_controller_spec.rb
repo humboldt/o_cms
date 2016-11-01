@@ -2,9 +2,8 @@ require 'rails_helper'
 
 module OCms
   RSpec.describe PagesController, type: :controller do
-
     routes { OCms::Engine.routes }
-    let(:my_page) { create(:page) }
+    let(:page) { create(:page) }
 
     context "user doing CRUD on a page" do
       login_admin
@@ -27,7 +26,7 @@ module OCms
       end
 
       describe "POST create" do
-        let(:file) { fixture_file_upload('files/demo-image.jpg', 'image/jpeg') }
+        let(:file) { fixture_file_upload('files/mountains.jpg', 'image/jpeg') }
 
         it "increases the number of Pages by 1" do
           expect{ post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word } }.to change(Page,:count).by(1)
@@ -46,20 +45,20 @@ module OCms
 
       describe "GET edit" do
         it "returns http success" do
-          get :edit, id: my_page.id
+          get :edit, id: page.id
           expect(response).to have_http_status(:success)
         end
 
         it "renders the #edit view" do
-          get :edit, id: my_page.id
+          get :edit, id: page.id
           expect(response).to render_template :edit
         end
 
         it "assigns page to be updated to @page" do
-          get :edit, id: my_page.id
+          get :edit, id: page.id
           page_instance = assigns(:page)
 
-          expect(page_instance).to eq my_page
+          expect(page_instance).to eq page
         end
       end
 
@@ -74,10 +73,10 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
-          put :update, id: my_page.id, page: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
+          put :update, id: page.id, page: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
 
           updated_page = assigns(:page)
-          expect(updated_page.id).to eq my_page.id
+          expect(updated_page.id).to eq page.id
           expect(updated_page.title).to eq new_title
           expect(updated_page.slug).to eq new_slug
           expect(updated_page.body).to eq new_body
@@ -98,20 +97,20 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
-          put :update, id: my_page.id, page: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
-          expect(response).to redirect_to edit_page_path(my_page)
+          put :update, id: page.id, page: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
+          expect(response).to redirect_to edit_page_path(page)
         end
       end
-      
+
       describe "DELETE destroy" do
         it "deletes the page" do
-          delete :destroy, id: my_page.id
-          count = Page.where({id: my_page.id}).size
+          delete :destroy, id: page.id
+          count = Page.where({id: page.id}).size
           expect(count).to eq 0
         end
 
         it "redirects to pages index" do
-          delete :destroy, id: my_page.id
+          delete :destroy, id: page.id
           expect(response).to redirect_to pages_path
         end
       end

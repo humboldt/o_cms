@@ -16,7 +16,7 @@ user.save!
 user.add_role :admin
 
 # Images
-file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
+file = Rack::Test::UploadedFile.new("./../fixtures/files/mountains.jpg", 'image/jpeg', false)
 OCms::Image.create(:name => 'Image One', :file => file, :description => 'Nice Picture')
 
 20.times do
@@ -29,7 +29,7 @@ end
 images = OCms::Image.all
 
 # Posts
-file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
+file = Rack::Test::UploadedFile.new("./../fixtures/files/mountains.jpg", 'image/jpeg', false)
 
 50.times do
   OCms::Post.create!(
@@ -58,7 +58,7 @@ end
 end
 
 # Pages
-file = Rack::Test::UploadedFile.new("./../fixtures/files/demo-image.jpg", 'image/jpeg', false)
+file = Rack::Test::UploadedFile.new("./../fixtures/files/mountains.jpg", 'image/jpeg', false)
 
 50.times do
   OCms::Page.create!(

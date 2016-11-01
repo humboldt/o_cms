@@ -1,28 +1,30 @@
 require 'rails_helper'
 
 RSpec.feature "Admin creates posts of each status type,", type: :feature, js: true do
-
   scenario 'successfully creates a draft post' do
     admin = create(:user, :admin)
     login admin
 
     click_link 'Blog'
-    expect(page).to have_current_path(o_cms.posts_path)
+
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
+    expect(page).to have_current_path(o_cms.posts_path)
 
     click_link 'Add Post'
-    expect(page).to have_current_path '/o_cms/posts/new'
+
     expect(page).to have_css 'h2', text: 'New Post'
+    expect(page).to have_current_path '/o_cms/posts/new'
 
     fill_in 'Title', with: "Tremola (2,091m) - Paris-Roubaix of the Alps"
-
     find(".post_body").set("It was little surprise to see the south side of Gotthard Pass, also called the Tremola, top the vote. The 7.3-mile climb has an average gradient of eight per cent and the top five kilometres are cobbled.")
+
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was saved successfully.'
 
     visit '/o_cms/posts'
+
     expect(page).to have_text 'Tremola (2,091m) - Paris-Roubaix of the Alps'
     expect(page).to have_css '.tag-draft', text: 'Draft'
   end
@@ -32,13 +34,15 @@ RSpec.feature "Admin creates posts of each status type,", type: :feature, js: tr
     login admin
 
     click_link 'Blog'
-    expect(page).to have_current_path '/o_cms/posts'
+
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
+    expect(page).to have_current_path '/o_cms/posts'
 
     click_link 'Add Post'
-    expect(page).to have_current_path '/o_cms/posts/new'
+
     expect(page).to have_css 'h2', text: 'New Post'
+    expect(page).to have_current_path '/o_cms/posts/new'
 
     freeze_time
 
@@ -51,6 +55,7 @@ RSpec.feature "Admin creates posts of each status type,", type: :feature, js: tr
     expect(page).to have_css '.alert-published', text: 'Published on'
 
     visit '/o_cms/posts'
+
     expect(page).to have_text 'Furka Pass (2,436m) - Pure switchback glory'
     expect(page).to have_css '.tag-published', text: 'Published'
   end
@@ -60,13 +65,14 @@ RSpec.feature "Admin creates posts of each status type,", type: :feature, js: tr
     login admin
 
     click_link 'Blog'
-    expect(page).to have_current_path(o_cms.posts_path)
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
+    expect(page).to have_current_path(o_cms.posts_path)
 
     click_link 'Add Post'
-    expect(page).to have_current_path '/o_cms/posts/new'
+
     expect(page).to have_css 'h2', text: 'New Post'
+    expect(page).to have_current_path '/o_cms/posts/new'
 
     freeze_time
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 module OCms
   RSpec.describe CategoriesController, type: :controller do
     routes { OCms::Engine.routes }
-    let(:my_category) { create(:category) }
+    let(:category) { create(:category) }
 
     context "admin user doing CRUD on a category" do
       login_admin
@@ -43,20 +43,20 @@ module OCms
 
       describe "GET edit" do
         it "returns http success" do
-          get :edit, id: my_category.id
+          get :edit, id: category.id
           expect(response).to have_http_status(:success)
         end
 
         it "renders the #edit view" do
-          get :edit, id: my_category.id
+          get :edit, id: category.id
           expect(response).to render_template :edit
         end
 
         it "assigns category to be updated to @category" do
-          get :edit, id: my_category.id
+          get :edit, id: category.id
           category_instance = assigns(:category)
 
-          expect(category_instance).to eq my_category
+          expect(category_instance).to eq category
         end
       end
 
@@ -70,10 +70,10 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ', ' + RandomData.random_word
 
-          put :update, id: my_category.id, category: {name: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
+          put :update, id: category.id, category: {name: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
 
           updated_category = assigns(:category)
-          expect(updated_category.id).to eq my_category.id
+          expect(updated_category.id).to eq category.id
           expect(updated_category.name).to eq new_name
           expect(updated_category.slug).to eq new_slug
           expect(updated_category.icon).to eq new_icon
@@ -92,20 +92,20 @@ module OCms
           new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ', ' + RandomData.random_word
 
-          put :update, id: my_category.id, category: {title: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
-          expect(response).to redirect_to edit_category_path(my_category)
+          put :update, id: category.id, category: {title: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
+          expect(response).to redirect_to edit_category_path(category)
         end
       end
 
       describe "DELETE destroy" do
         it "deletes the category" do
-          delete :destroy, id: my_category.id
-          count = Post.where({id: my_category.id}).size
+          delete :destroy, id: category.id
+          count = Post.where({id: category.id}).size
           expect(count).to eq 0
         end
 
         it "redirects to categorys index" do
-          delete :destroy, id: my_category.id
+          delete :destroy, id: category.id
           expect(response).to redirect_to categories_path
         end
       end

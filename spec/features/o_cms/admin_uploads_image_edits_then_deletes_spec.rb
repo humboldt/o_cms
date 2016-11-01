@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User uploads an image", type: :feature, js: true do
-
+RSpec.feature "User uploads an image,", type: :feature, js: true do
   scenario 'successfully signs into the dashboard' do
     admin = create(:user, :admin)
 
@@ -14,21 +13,21 @@ RSpec.feature "User uploads an image", type: :feature, js: true do
     login admin
     click_link 'Library'
 
-    expect(page).to have_current_path '/o_cms/images'
     expect(page).to have_css 'h1', text: 'Library'
     expect(page).to have_css 'h2', text: 'Images'
+    expect(page).to have_current_path '/o_cms/images'
   end
 
   scenario 'successfully uploads an image' do
-    file = File.absolute_path('./spec/fixtures/files/demo-image.jpg')
+    file = File.absolute_path('./spec/fixtures/files/mountains.jpg')
     admin = create(:user, :admin)
 
     login admin
     visit '/o_cms/images'
     click_link 'Add Image'
 
-    expect(page).to have_current_path '/o_cms/images/new'
     expect(page).to have_css 'h2', text: 'New Image'
+    expect(page).to have_current_path '/o_cms/images/new'
 
     fill_in 'Name', with: "Morning View"
     attach_file('image_file', file)

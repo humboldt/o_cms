@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.feature "Admin creates pages of each status", type: :feature, js: true do
+RSpec.feature "Admin creates pages of each status,", type: :feature, js: true do
   scenario 'successfully creates a draft page' do
     admin = create(:user, :admin)
     login admin
 
     click_link 'Pages'
 
-    expect(page).to have_current_path '/o_cms/pages'
     expect(page).to have_css 'h1', text: 'Pages'
     expect(page).to have_css 'h2', text: 'Pages'
+    expect(page).to have_current_path '/o_cms/pages'
 
     click_link 'Add Page'
 
-    expect(page).to have_current_path '/o_cms/pages/new'
     expect(page).to have_css 'h2', text: 'New Page'
+    expect(page).to have_current_path '/o_cms/pages/new'
 
     fill_in 'Title', with: "Adventure Cycling Maps"
     find(".page_body").set("The Adventure Cycling Route Network features rural and low-traffic bicycling routes through some of the most scenic and historically significant terrain in the world.")
@@ -34,14 +34,14 @@ RSpec.feature "Admin creates pages of each status", type: :feature, js: true do
 
     click_link 'Pages'
 
-    expect(page).to have_current_path '/o_cms/pages'
     expect(page).to have_css 'h1', text: 'Pages'
     expect(page).to have_css 'h2', text: 'Pages'
+    expect(page).to have_current_path '/o_cms/pages'
 
     click_link 'Add Page'
 
-    expect(page).to have_current_path '/o_cms/pages/new'
     expect(page).to have_css 'h2', text: 'New Page'
+    expect(page).to have_current_path '/o_cms/pages/new'
 
     freeze_time
 
@@ -65,14 +65,14 @@ RSpec.feature "Admin creates pages of each status", type: :feature, js: true do
 
     click_link 'Pages'
 
-    expect(page).to have_current_path '/o_cms/pages'
     expect(page).to have_css 'h1', text: 'Pages'
     expect(page).to have_css 'h2', text: 'Pages'
+    expect(page).to have_current_path '/o_cms/pages'
 
     click_link 'Add Page'
 
-    expect(page).to have_current_path '/o_cms/pages/new'
     expect(page).to have_css 'h2', text: 'New Page'
+    expect(page).to have_current_path '/o_cms/pages/new'
 
     freeze_time
 

@@ -7,9 +7,9 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
     login admin
     click_link 'Blog'
 
-    expect(page).to have_current_path (o_cms.posts_path)
     expect(page).to have_css 'h1', text: 'Blog'
     expect(page).to have_css 'h2', text: 'Posts'
+    expect(page).to have_current_path (o_cms.posts_path)
   end
 
   scenario 'successfully creates a post' do
@@ -43,7 +43,7 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
 
   scenario 'successfully edits a post' do
     admin = create(:user, :admin)
-    my_post = create(:post)
+    post_to_update = create(:post)
 
     login admin
     visit '/o_cms/posts'
@@ -53,7 +53,7 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
     click_link 'Edit'
 
     expect(page).to have_css 'h2', text: 'Edit Post'
-    expect(page).to have_field('Title', with: my_post.title)
+    expect(page).to have_field('Title', with: post_to_update.title)
 
     fill_in 'Title', with: "Adventure Cycling what to pack"
     find(".post_body").set("You have spent months dreaming and planning your bike journey. You have poured over maps and shopped for gear. You have been training hard and saving up. There is a frantic joy/dread to those final hours before you set out on a journey. Life never seems so hectic as those last couple of days before a big bike trip. What did you forget? Is that bike box overweight? Are you bringing too much stuff?")
@@ -73,7 +73,7 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
 
   scenario 'successfully deletes a post' do
     admin = create(:user, :admin)
-    my_post = create(:post)
+    post_to_delete = create(:post)
 
     login admin
     visit '/o_cms/posts'
@@ -83,7 +83,7 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
     click_link 'Edit'
 
     expect(page).to have_css 'h2', text: 'Edit Post'
-    expect(page).to have_field('Title', with: my_post.title)
+    expect(page).to have_field('Title', with: post_to_delete.title)
 
     click_link 'Delete'
 
@@ -92,6 +92,6 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
     alert.accept
 
     expect(page).to have_current_path '/o_cms/posts'
-    expect(page).to have_css '.alert', text: my_post.title + '" was deleted successfully.'
+    expect(page).to have_css '.alert', text: post_to_delete.title + '" was deleted successfully.'
   end
 end
