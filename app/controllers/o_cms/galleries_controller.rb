@@ -13,6 +13,7 @@ module OCms
 
     def new
       @gallery = Gallery.new
+      @images = Image.all
     end
 
     def create
@@ -29,6 +30,7 @@ module OCms
 
     def edit
       @gallery = Gallery.find(params[:id])
+      @images = Image.all
     end
 
     def update
@@ -59,7 +61,7 @@ module OCms
     private
 
     def gallery_params
-      params.require(:gallery).permit(:name, :description)
+      params.require(:gallery).permit(:name, :description, :image_ids => [])
     end
   end
 end

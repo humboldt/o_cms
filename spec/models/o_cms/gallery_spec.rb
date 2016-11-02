@@ -4,6 +4,7 @@ module OCms
   RSpec.describe Gallery, type: :model do
     let(:gallery) { create(:gallery) }
 
+    it { is_expected.to have_many(:images) }
     it { is_expected.to validate_presence_of(:name)}
     it { is_expected.to validate_length_of(:name).is_at_least(5) }
 

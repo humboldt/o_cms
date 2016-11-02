@@ -1,0 +1,35 @@
+/*
+
+    Gallery
+
+*/
+
+.gallery-options{
+  display: block;
+  span{
+    border: 3px solid #eee;
+    margin: 2px 0px;
+    position: relative;
+    display: inline-block;
+    input{
+      // display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    label{
+      display: none;
+    }
+    img.gallery-image-option{
+      width: 100px;
+      height: 100px;
+      opacity: 0.5;
+    }
+    &.selected{
+      border: 3px solid $brand-primary;
+      img.gallery-image-option{
+        opacity: 1;
+      }
+    }
+  }
+}

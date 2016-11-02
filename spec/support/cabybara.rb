@@ -1,6 +1,8 @@
 require 'capybara/rails'
 require 'capybara/rspec'
 
+Capybara.default_max_wait_time = 3
+
 # Set Chrome as the local test browser
 unless ENV['CI']
   Capybara.register_driver :chrome do |app|
