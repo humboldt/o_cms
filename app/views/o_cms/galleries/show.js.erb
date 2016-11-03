@@ -1,0 +1,8 @@
+// Add hide class to the picker
+$('.gallery-picker').addClass('hide')
+
+// Clear previous instances of the gallery options view
+$('.gallery-options').remove();
+
+// Insert div with partial inside, render the insert template inside - leaving the existing div in place
+$('#galleries').append("<%= escape_javascript(render partial: 'o_cms/galleries/modal_insert', locals: { gallery: @gallery }) %>");

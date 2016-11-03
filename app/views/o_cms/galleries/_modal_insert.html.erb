@@ -1,0 +1,29 @@
+<div class="modal-body gallery-options">
+  <h3>Add your gallery</h3>
+  <hr />
+  <div class="well">
+    <div class="row">
+      <div class="col-md-12">
+        <h4><%= @gallery.name %></h4>
+        <p><%= @gallery.description %></p>
+        <hr />
+        <% @gallery.images.each do |image| %>
+          <%= image_tag image.file.admin_thumb %>
+        <% end %>
+        <div id="gallery_markup">
+          <ul class="gallery gallery-<%= @gallery.id %>">
+            <% @gallery.images.each do |image| %>
+              <li>
+                <a href="<%= image.file.large %>">
+                  <%= image_tag image.file.thumb, alt: image.name %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <hr />
+        <button id="gallery_insert" class="btn btn-primary">Insert</button>
+      </div>
+    </div>
+  </div>
+</div>

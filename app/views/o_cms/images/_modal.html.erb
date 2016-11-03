@@ -12,10 +12,16 @@
           <li class="nav-item">
             <a class="nav-link active image-nav-link" data-toggle="tab" href="#images" role="tab">Images</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link gallery-nav-link" data-toggle="tab" href="#galleries" role="tab">Galleries</a>
+          </li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="images" role="tabpanel">
             <%= render :partial => 'o_cms/images/modal_index', locals: { images: OCms::Image.all }   %>
+          </div>
+          <div class="tab-pane" id="galleries" role="tabpanel">
+            <%= render :partial => 'o_cms/galleries/modal_index', locals: { galleries: OCms::Gallery.all }   %>
           </div>
         </div>
       </div>
