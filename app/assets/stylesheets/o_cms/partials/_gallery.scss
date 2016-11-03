@@ -4,6 +4,19 @@
 
 */
 
+// Library modal picker
+.gallery-picker {
+  overflow: hidden;
+  img {
+    cursor: pointer;
+    float: left;
+  	margin: 2px;
+  }
+  &.hide {
+    display: none;
+  }
+}
+
 .gallery-options{
   display: block;
   span{
@@ -16,6 +29,13 @@
       position: absolute;
       bottom: 0;
       right: 0;
+
+      &:checked {
+        ~ .gallery-image-option {
+          border: 3px solid $brand-primary;
+          opacity: 1;
+        }
+      }
     }
     label{
       display: none;
@@ -24,12 +44,6 @@
       width: 100px;
       height: 100px;
       opacity: 0.5;
-    }
-    &.selected{
-      border: 3px solid $brand-primary;
-      img.gallery-image-option{
-        opacity: 1;
-      }
     }
   }
 }

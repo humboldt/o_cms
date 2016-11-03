@@ -22,17 +22,18 @@
     <div class="card-block">
       <% if @images.present? %>
         <div class="form-group checkbox-group">
-          <%= f.label "Select the categories you would like to associate with your gallery.", :class => 'control-label' %>
+          <%= f.label "Select the image you would like to add to your gallery.", :class => 'control-label' %>
           <div class="gallery-options">
             <% @images.each do |image| %>
-              <span>
-                <%= check_box_tag 'gallery[image_ids][]',
-                    image.id,
-                    @gallery.images.include?(image),
-                    id: 'gallery_image_ids_' + image.id.to_s %>
-                <%= label_tag 'gallery_image_ids_' + image.id.to_s, image.name %>
-                <%= image_tag image.file.admin_thumb, :class => 'gallery-image-option', alt: image.name %>
-              </span>
+              <%= label_tag 'gallery_image_ids_' + image.id.to_s do %>
+                <span>
+                  <%= check_box_tag 'gallery[image_ids][]',
+                      image.id,
+                      @gallery.images.include?(image),
+                      id: 'gallery_image_ids_' + image.id.to_s %>
+                  <%= image_tag image.file.admin_thumb, :class => 'gallery-image-option', alt: image.name %>
+                </span>
+              <% end %>
             <% end %>
           </div>
         </div>

@@ -17,7 +17,7 @@ RSpec.feature "Admin manages galleries,", type: :feature, js: true do
     expect(page).to have_current_path '/o_cms/galleries'
   end
 
-  scenario 'successfully creates a page' do
+  scenario 'successfully creates a gallery' do
     admin = create(:user, :admin)
     image = create(:image)
     second_image = create(:forest_image)
@@ -32,30 +32,29 @@ RSpec.feature "Admin manages galleries,", type: :feature, js: true do
 
     expect(page).to have_css 'h2', text: 'New Gallery'
     expect(page).to have_current_path '/o_cms/galleries/new'
-    expect(page).to within(:css, '.gallery-options') { have_xpath(".//img[@src=\"#{image.file.admin_thumb}\"]") }
-    expect(page).to within(:css, '.gallery-options') { have_xpath(".//img[@src=\"#{second_image.file.admin_thumb}\"]") }
 
     fill_in 'Name', with: "Coast to coast, four day adventure"
     fill_in 'Description', with: "We were not blessed with the best weather but take a look at our trip photos."
     find("img[alt='#{image.name}']").click
-
-    expect(page).to within(:css, 'span.selected') { have_xpath(".//img[@src=\"#{image.file.admin_thumb}\"]") }
+    find("img[alt='#{second_image.name}']").click
+    expect(page.has_checked_field?('image_gallery_ids_#{image.id}'))
+    expect(page.has_checked_field?('image_gallery_ids_#{second_image.id}'))
 
     click_button 'Save'
 
     expect(page).to have_css 'h2', text: 'Edit Gallery'
     expect(page).to have_field('Name', with: 'Coast to coast, four day adventure')
     expect(page).to have_field('Description', with: 'We were not blessed with the best weather but take a look at our trip photos.')
-    expect(page).to within(:css, 'span.selected') { have_xpath(".//img[@src=\"#{image.file.admin_thumb}\"]") }
-
+    expect(page.has_checked_field?('image_gallery_ids_#{image.id}'))
+    expect(page.has_checked_field?('image_gallery_ids_#{second_image.id}'))
     expect(page).to have_css '.alert', text: 'Gallery was saved successfully.'
   end
 
   scenario 'successfully edits a gallery' do
     admin = create(:user, :admin)
-    image = create(:image)
-    second_image = create(:forest_image)
-    gallery = create(:gallery)
+    image = build(:image)
+    second_image = build(:forest_image)
+    gallery = create(:gallery_with_images)
 
     login admin
     visit '/o_cms/galleries'
@@ -67,25 +66,14 @@ RSpec.feature "Admin manages galleries,", type: :feature, js: true do
 
     expect(page).to have_css 'h2', text: 'Edit Gallery'
     expect(page).to have_field('Name', with: gallery.name)
+    expect(page.has_checked_field?('image_gallery_ids_#{image.id}'))
+    expect(page.has_checked_field?('image_gallery_ids_#{second_image.id}'))
 
     fill_in 'Name', with: "Pictures from our recent cycling trip"
     fill_in 'Description', with: "With only basic supplies you can have alot of fun on a bike."
     find("img[alt='#{image.name}']").click
-
-    expect(page).to within(:css, 'span.selected') { have_xpath(".//img[@src=\"#{image.file.admin_thumb}\"]") }
-
-    click_button 'Save'
-
-    expect(page).to have_css '.alert', text: 'Gallery was updated successfully.'
-    expect(page).to have_css 'h2', text: 'Edit Gallery'
-    expect(page).to have_field('Name', with: 'Pictures from our recent cycling trip')
-    expect(page).to have_field('Description', with: 'With only basic supplies you can have alot of fun on a bike.')
-    expect(page).to within(:css, 'span.selected') { have_xpath(".//img[@src=\"#{image.file.admin_thumb}\"]") }
-
-    find("img[alt='#{image.name}']").click
-    find("img[alt='#{second_image.name}']").click
-
-    expect(page).to within(:css, 'span.selected') { have_xpath(".//img[@src=\"#{second_image.file.admin_thumb}\"]") }
+    expect(page.has_unchecked_field?('image_gallery_ids_#{image.id}'))
+    expect(page.has_checked_field?('image_gallery_ids_#{second_image.id}'))
 
     click_button 'Save'
 
@@ -93,7 +81,8 @@ RSpec.feature "Admin manages galleries,", type: :feature, js: true do
     expect(page).to have_css 'h2', text: 'Edit Gallery'
     expect(page).to have_field('Name', with: 'Pictures from our recent cycling trip')
     expect(page).to have_field('Description', with: 'With only basic supplies you can have alot of fun on a bike.')
-    expect(page).to within(:css, 'span.selected') { have_xpath(".//img[@src=\"#{second_image.file.admin_thumb}\"]") }
+    expect(page.has_unchecked_field?('image_gallery_ids_#{image.id}'))
+    expect(page.has_checked_field?('image_gallery_ids_#{second_image.id}'))
 
     visit '/o_cms/galleries'
 
@@ -102,7 +91,9 @@ RSpec.feature "Admin manages galleries,", type: :feature, js: true do
 
   scenario 'successfully deletes a gallery' do
     admin = create(:user, :admin)
-    gallery = create(:gallery)
+    image = create(:image)
+    second_image = create(:forest_image)
+    gallery = create(:gallery_with_images)
 
     login admin
     visit '/o_cms/galleries'
