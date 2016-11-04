@@ -10,6 +10,7 @@
         <% @gallery.images.each do |image| %>
           <%= image_tag image.file.admin_thumb %>
         <% end %>
+
         <div id="gallery_markup">
           <ul class="gallery gallery-<%= @gallery.id %>">
             <% @gallery.images.each do |image| %>
@@ -21,6 +22,7 @@
             <% end %>
           </ul>
         </div>
+
         <hr />
         <button id="gallery_insert" class="btn btn-primary">Insert</button>
       </div>
