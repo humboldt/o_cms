@@ -4,9 +4,9 @@ RSpec.feature "Admin adds gallery to body field,", type: :feature, js: true do
   scenario 'browses library modal for gallery' do
     admin = create(:user, :admin)
     post = create(:post)
-    image = build(:image)
-    second_image = build(:forest_image)
     gallery = create(:gallery_with_images)
+    image = gallery.images.first
+    second_image = gallery.images.second
 
     login admin
     visit '/o_cms/posts'
