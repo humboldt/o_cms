@@ -4,19 +4,7 @@
 
 */
 
-// Library modal picker
-.gallery-picker {
-  overflow: hidden;
-  img {
-    cursor: pointer;
-    float: left;
-  	margin: 2px;
-  }
-  &.hide {
-    display: none;
-  }
-}
-
+// Gallery form image selection
 .gallery-options{
   display: block;
   span{
@@ -25,11 +13,9 @@
     position: relative;
     display: inline-block;
     input{
-      // display: none;
       position: absolute;
       bottom: 0;
       right: 0;
-
       &:checked {
         ~ .gallery-image-option {
           border: 3px solid $brand-primary;
@@ -45,5 +31,34 @@
       height: 100px;
       opacity: 0.5;
     }
+  }
+}
+
+// Library modal picker
+.gallery-picker {
+  overflow: hidden;
+  img {
+    cursor: pointer;
+    float: left;
+  	margin: 2px;
+  }
+  &.hide {
+    display: none;
+  }
+}
+
+#gallery_markup {
+  display: none;
+}
+
+// Trix editor gallery style
+ul.gallery {
+  display: block;
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  li {
+    float: left;
+    padding: 2px;
   }
 }
