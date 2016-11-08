@@ -1,5 +1,10 @@
 module OCms
   class Page < ActiveRecord::Base
+    default_scope { order('title ASC') }
+
+    has_many :subpages, class_name: OCms::Page, foreign_key: 'parent_id'
+    belongs_to :parent, class_name: OCms::Page, foreign_key: 'parent_id'
+
     validates :title, length: { minimum: 8 }, presence: true
     validates :body, length: { minimum: 15 }, presence: true
 
@@ -14,6 +19,9 @@ module OCms
     STATUSES = [['Draft', DRAFT_STATUS],
                ['Publish', PUBLISHED_STATUS],
                ['Schedule', SCHEDULED_STATUS]]
+
+    scope :page_parents, -> { where(parent_id: nil) }
+    scope :all_except, ->(page) { where.not(id: page) }
 
     def create_slug
       self.slug = "#{title.parameterize}" if self.slug.blank? && self.title.present?
@@ -66,6 +74,10 @@ module OCms
        end
 
       super
+    end
+
+    def remove_subpage_relationships
+      self.subpages.clear
     end
   end
 end

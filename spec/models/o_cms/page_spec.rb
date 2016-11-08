@@ -2,8 +2,10 @@ require 'rails_helper'
 
 module OCms
   RSpec.describe Page, type: :model do
-    let(:page) { create(:page) }
+    let(:page) { create(:page, parent_id: 1, order: 5) }
 
+    it { is_expected.to belong_to(:parent) }
+    it { is_expected.to have_many(:subpages) }
     it { is_expected.to validate_presence_of(:title)}
     it { is_expected.to validate_presence_of(:body)}
     it { is_expected.to validate_length_of(:title).is_at_least(8) }
@@ -11,7 +13,7 @@ module OCms
 
     describe "attributes" do
       it "has a title, slug, body, excerpt, featured_image, meta_title, meta_description and meta_keywords attribute" do
-        expect(page).to have_attributes(title: page.title, slug: page.slug, body: page.body, excerpt: page.excerpt, featured_image: page.featured_image, meta_title: page.meta_title, meta_description: page.meta_description, meta_keywords: page.meta_keywords)
+        expect(page).to have_attributes(title: page.title, slug: page.slug, body: page.body, excerpt: page.excerpt, featured_image: page.featured_image, meta_title: page.meta_title, meta_description: page.meta_description, meta_keywords: page.meta_keywords, parent_id: page.parent_id, order: page.order)
       end
     end
 
@@ -144,6 +146,42 @@ module OCms
 
         expect(page.published_at).to eq 2.weeks.from_now
         expect(page.status).to eq "scheduled"
+      end
+    end
+
+    describe "scopes" do
+      before do
+        @parent_page = Page.create!(title: RandomData.random_sentence, body: RandomData.random_sentence)
+        @subpage = @parent_page.subpages.create!(title: RandomData.random_sentence, body: RandomData.random_sentence)
+      end
+
+      describe "page_parents," do
+        it "returns the parent page only" do
+          expect(Page.page_parents.count).to eq(1)
+          expect(Page.page_parents).to include(@parent_page)
+        end
+
+        it "does not return the subpage" do
+          expect(Page.page_parents.count).to_not eq(2)
+          expect(Page.page_parents).to_not include(@subpage)
+        end
+      end
+
+      describe "all_except," do
+        it "returns all pages except the specified page" do
+          expect(Page.all_except(page)).to_not include(page)
+        end
+      end
+    end
+
+    describe "#remove_subpage_relationships" do
+      it "removes the subpage parent_id value" do
+        page = Page.create!(title: 'Join us on our next trip', body: RandomData.random_sentence)
+        subpage = page.subpages.create!(title: 'Our headquarters, where to find us', body: RandomData.random_sentence)
+
+        page.remove_subpage_relationships
+
+        expect(Page.where(title: 'Our headquarters, where to find us').first.parent_id).to be_falsey
       end
     end
   end

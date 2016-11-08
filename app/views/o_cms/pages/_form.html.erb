@@ -56,6 +56,29 @@
 
   <div class="card">
     <div class="card-header">
+      Parent
+    </div>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= f.collection_select(:parent_id, @pages, :id, :title, {:prompt => 'Choose a parent', include_blank: true}, { :class => 'form-control' })  %>
+          </div>
+          <%= form_group_tag(page.errors[:order]) do %>
+            <div class="row">
+              <%= f.label :order, class: 'col-xs-2 col-form-label' %>
+              <div class="col-xs-10">
+                <%= f.text_field :order, class: 'form-control', placeholder: 'Page order' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
       Publish Options
     </div>
     <div class="card-block">

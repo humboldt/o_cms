@@ -4,7 +4,7 @@ module OCms
   class PagesController < ApplicationController
 
     def index
-      @pages  = Page.all
+      @pages = Page.page_parents
     end
 
     def show
@@ -13,6 +13,7 @@ module OCms
 
     def new
       @page = Page.new
+      @pages = Page.all_except(@page)
     end
 
     def create
@@ -29,6 +30,7 @@ module OCms
 
     def edit
       @page = Page.find(params[:id])
+      @pages = Page.all_except(@page)
     end
 
     def update
@@ -50,6 +52,7 @@ module OCms
       if @page.destroy
         flash[:notice] = "\"#{@page.title}\" was deleted successfully."
         redirect_to action: :index
+        @page.remove_subpage_relationships
       else
         flash.now[:alert] = "There was an error deleting the page."
         render :show
@@ -59,7 +62,7 @@ module OCms
     private
 
     def page_params
-      params.require(:page).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :status, :published_at)
+      params.require(:page).permit(:title, :slug, :body, :excerpt, :featured_image, :meta_title, :meta_description, :meta_keywords, :status, :published_at, :parent_id, :order)
     end
   end
 end

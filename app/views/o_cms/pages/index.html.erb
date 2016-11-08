@@ -13,20 +13,13 @@
     </thead>
     <tbody>
       <% @pages.each do |page| %>
-        <tr>
-          <td><%= page.title %></td>
-          <td>
-            <span class="tag tag-<%= page.status %>">
-              <%= page.status.capitalize %>
-            </span>
-            <%= page.published_at.to_s(:short) if page.published_at.present?  %>
-          </td>
-          <td>
-            <%= link_to edit_page_path(page), class:'btn btn-info btn-sm' do %>
-              <i class="fa fa-mode-edit"></i> Edit
-            <% end %>
-          </td>
-        </tr>
+        <%= render :partial => 'page_row', locals: { page: page, type: 'page' } %>
+        <% page.subpages.each do |page| %>
+          <%= render :partial => 'page_row', locals: { page: page, type: 'subpage' } %>
+          <% page.subpages.each do |page| %>
+            <%= render :partial => 'page_row', locals: { page: page, type: 'subsubpage' } %>
+          <% end %>
+        <% end %>
       <% end %>
     </tbody>
   </table>
