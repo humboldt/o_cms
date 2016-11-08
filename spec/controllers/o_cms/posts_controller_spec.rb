@@ -2,106 +2,10 @@ require 'rails_helper'
 
 module OCms
   RSpec.describe PostsController, type: :controller do
-
     routes { OCms::Engine.routes }
     let(:new_post) { create(:post) }
 
-    context "guest" do
-
-      describe "GET new" do
-        it "returns http redirect" do
-          get :new, id: new_post.id
-          expect(response).to redirect_to(main_app.user_session_path)
-        end
-      end
-
-      describe "POST create" do
-        it "returns http redirect" do
-          post :create, id: new_post.id, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: RandomData.random_slug + '.jpg', meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word }
-          expect(response).to redirect_to(main_app.user_session_path)
-        end
-      end
-
-      describe "GET edit" do
-        it "returns http redirect" do
-          get :edit, id: new_post.id
-          expect(response).to redirect_to(main_app.user_session_path)
-        end
-      end
-
-      describe "PUT update" do
-        it "returns http redirect" do
-          new_title = RandomData.random_sentence
-          new_slug = RandomData.random_slug
-          new_body = RandomData.random_paragraph
-          new_excerpt = RandomData.random_paragraph
-          new_featured_image = RandomData.random_slug + '.jpg'
-          new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
-          new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
-
-          put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords}
-          expect(response).to redirect_to(main_app.user_session_path)
-        end
-      end
-
-      describe "DELETE destroy" do
-        it "returns http redirect" do
-          delete :destroy, id: new_post.id
-          expect(response).to redirect_to(main_app.user_session_path)
-        end
-      end
-    end
-
-    context "member user doing CRUD on a post they don't own" do
-      login_user
-
-      describe "GET new" do
-        it "returns http redirect" do
-          get :new, id: new_post.id
-          expect(response).to redirect_to(main_app.root_path)
-        end
-      end
-
-      describe "POST create" do
-        it "returns http redirect" do
-          post :create, id: new_post.id, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: RandomData.random_slug + '.jpg', meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word }
-          expect(response).to redirect_to(main_app.root_path)
-        end
-      end
-
-      describe "GET edit" do
-        it "returns http redirect" do
-          get :edit, id: new_post.id
-          expect(response).to redirect_to(main_app.root_path)
-        end
-      end
-
-      describe "PUT update" do
-        it "returns http redirect" do
-          new_title = RandomData.random_sentence
-          new_slug = RandomData.random_slug
-          new_body = RandomData.random_paragraph
-          new_excerpt = RandomData.random_paragraph
-          new_featured_image = RandomData.random_slug + '.jpg'
-          new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
-          new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
-
-          put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords}
-          expect(response).to redirect_to(main_app.root_path)
-        end
-      end
-
-      describe "DELETE destroy" do
-        it "returns http redirect" do
-          delete :destroy, id: new_post.id
-          expect(response).to redirect_to(main_app.root_path)
-        end
-      end
-    end
-
-    context "admin user doing CRUD on a post they own" do
+    context "admin doing CRUD on a post" do
       login_admin
 
       describe "GET new" do

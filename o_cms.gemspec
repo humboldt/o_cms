@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '>= 4.1.9'
 
   # frontend
-  s.add_dependency 'sass-rails', '5.0'
-  s.add_dependency 'compass-rails', '~> 2.0.0'
+  s.add_dependency 'sass-rails'
+  s.add_dependency 'compass-rails'
   s.add_dependency 'simple_form'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'rails-assets-tether', '>= 1.1.0'
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'selenium-webdriver', '2.53.4'
   s.add_development_dependency 'dotenv-rails'
-  s.add_development_dependency 'shoulda'
+  s.add_development_dependency 'shoulda-matchers'
 
   # dummy app dependencies
   s.add_development_dependency 'devise'
