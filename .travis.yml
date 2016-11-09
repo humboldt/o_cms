@@ -12,6 +12,9 @@ script:
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
   - bundle exec rspec
+gemfile:
+  - gemfiles/4.1.gemfile
+  - gemfiles/4.2.gemfile
 cache: bundler
 services:
   - postgresql
