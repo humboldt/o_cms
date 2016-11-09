@@ -70,7 +70,7 @@ module OCms
           new_excerpt = RandomData.random_paragraph
           new_featured_image = RandomData.random_slug + '.jpg'
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
+          new_meta_description = RandomData.random_sentence
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
           put :update, id: page.id, page: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
@@ -94,7 +94,7 @@ module OCms
           new_excerpt = RandomData.random_paragraph
           new_featured_image = RandomData.random_slug + '.jpg'
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
+          new_meta_description = RandomData.random_sentence
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
           put :update, id: page.id, page: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
