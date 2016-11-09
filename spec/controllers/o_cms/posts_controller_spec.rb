@@ -26,19 +26,19 @@ module OCms
       end
 
       describe "POST create" do
-        let(:file) { fixture_file_upload('files/mountains.jpg', 'image/jpeg') }
+        let(:image) { create(:image) }
 
         it "increases the number of Posts by 1" do
-          expect{ post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Post,:count).by(1)
+          expect{ post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured.to_s, meta_title: RandomData.random_sentence, meta_description: RandomData.random_sentence, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Post,:count).by(1)
         end
 
         it "assigns the new post to @post" do
-          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
+          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured.to_s, meta_title: RandomData.random_sentence, meta_description: RandomData.random_sentence, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
           expect(assigns(:post)).to eq Post.last
         end
 
         it "redirects to the new post" do
-          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
+          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured.to_s, meta_title: RandomData.random_sentence, meta_description: RandomData.random_sentence, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
           expect(response).to redirect_to edit_post_path(Post.last)
         end
       end
@@ -70,7 +70,7 @@ module OCms
           new_excerpt = RandomData.random_paragraph
           new_featured_image = RandomData.random_slug + '.jpg'
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
+          new_meta_description = RandomData.random_sentence
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
           put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
@@ -94,7 +94,7 @@ module OCms
           new_excerpt = RandomData.random_paragraph
           new_featured_image = RandomData.random_slug + '.jpg'
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
+          new_meta_description = RandomData.random_sentence
           new_meta_keywords = RandomData.random_word + ',' + RandomData.random_word
 
           put :update, id: new_post.id, post: {title: new_title, slug: new_slug, body: new_body, excerpt: new_excerpt, featured_image: new_featured_image, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }

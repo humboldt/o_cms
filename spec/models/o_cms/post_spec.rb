@@ -48,7 +48,7 @@ module OCms
       end
 
       it "does not amend the post meta description if one is already entered" do
-        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, meta_description: RandomData.random_paragraph)
+        post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence, meta_description: RandomData.random_sentence)
         expect(post.meta_description).to eq (post.meta_description)
       end
     end

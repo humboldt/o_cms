@@ -47,7 +47,7 @@ module OCms
       end
 
       it "does not amend the category meta description if one is already entered" do
-        category = Category.create(name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_description: RandomData.random_paragraph)
+        category = Category.create(name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_description: RandomData.random_sentence)
         expect(category.meta_description).to eq (category.meta_description)
       end
     end

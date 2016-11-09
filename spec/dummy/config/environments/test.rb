@@ -40,6 +40,8 @@ Rails.application.configure do
   # Mailer test
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  # Active Record suppresses errors raised within `after_rollback`/`after_commit`
-  config.active_record.raise_in_transactional_callbacks = true
+  if (Rails::VERSION::MAJOR >= 5) || (Rails::VERSION::MAJOR == 4 && Rails::VERSION::MINOR >= 2)
+    # Active Record suppresses errors raised within `after_rollback`/`after_commit`
+    config.active_record.raise_in_transactional_callbacks = true
+  end
 end
