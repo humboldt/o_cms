@@ -48,7 +48,7 @@ module OCms
       end
 
       it "does not amend the page meta description if one is already entered" do
-        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, meta_description: RandomData.random_paragraph)
+        page = Page.create(title: RandomData.random_sentence, body: RandomData.random_sentence, meta_description: RandomData.random_sentence)
         expect(page.meta_description).to eq (page.meta_description)
       end
     end
@@ -177,7 +177,7 @@ module OCms
     describe "#remove_subpage_relationships" do
       it "removes the subpage parent_id value" do
         page = Page.create!(title: 'Join us on our next trip', body: RandomData.random_paragraph)
-        subpage = page.subpages.create!(title: 'Our headquarters, where to find us', body: RandomData.random_sentence)
+        subpage = page.subpages.create!(title: 'Our headquarters, where to find us', body: RandomData.random_paragraph)
 
         page.remove_subpage_relationships
 

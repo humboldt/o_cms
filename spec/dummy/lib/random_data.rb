@@ -15,7 +15,7 @@ module RandomData
       sentences << random_sentence
     end
 
-    sentences.join(" ").first(250)
+    sentences.join(" ")
   end
 
   def self.random_sentence

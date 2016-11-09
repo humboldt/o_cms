@@ -27,16 +27,16 @@ module OCms
 
       describe "POST create" do
         it "increases the number of Categories by 1" do
-          expect{ post :create, category: {name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ', ' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Category,:count).by(1)
+          expect{ post :create, category: {name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_title: RandomData.random_sentence, meta_description: RandomData.random_sentence, meta_keywords: RandomData.random_word + ', ' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Category,:count).by(1)
         end
 
         it "assigns the new category to @category" do
-          post :create, category: {name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ', ' + RandomData.random_word + ',' + RandomData.random_word }
+          post :create, category: {name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_title: RandomData.random_sentence, meta_description: RandomData.random_sentence, meta_keywords: RandomData.random_word + ', ' + RandomData.random_word + ',' + RandomData.random_word }
           expect(assigns(:category)).to eq Category.last
         end
 
         it "redirects to the new category" do
-          post :create, category: {name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ', ' + RandomData.random_word + ',' + RandomData.random_word }
+          post :create, category: {name: RandomData.random_sentence, slug: RandomData.random_slug, icon: RandomData.random_slug, body: RandomData.random_paragraph, meta_title: RandomData.random_sentence, meta_description: RandomData.random_sentence, meta_keywords: RandomData.random_word + ', ' + RandomData.random_word + ',' + RandomData.random_word }
           expect(response).to redirect_to edit_category_path(Category.last)
         end
       end
@@ -67,7 +67,7 @@ module OCms
           new_icon = RandomData.random_slug
           new_body = RandomData.random_paragraph
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
+          new_meta_description = RandomData.random_sentence
           new_meta_keywords = RandomData.random_word + ', ' + RandomData.random_word
 
           put :update, id: category.id, category: {name: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
@@ -89,7 +89,7 @@ module OCms
           new_icon = RandomData.random_slug
           new_body = RandomData.random_paragraph
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_paragraph
+          new_meta_description = RandomData.random_sentence
           new_meta_keywords = RandomData.random_word + ', ' + RandomData.random_word
 
           put :update, id: category.id, category: {title: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
