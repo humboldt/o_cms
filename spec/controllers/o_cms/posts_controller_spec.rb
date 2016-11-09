@@ -26,19 +26,19 @@ module OCms
       end
 
       describe "POST create" do
-        let(:file) { fixture_file_upload('files/mountains.jpg', 'image/jpeg') }
+        let(:image) { create(:image) }
 
         it "increases the number of Posts by 1" do
-          expect{ post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Post,:count).by(1)
+          expect{ post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word } }.to change(Post,:count).by(1)
         end
 
         it "assigns the new post to @post" do
-          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
+          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
           expect(assigns(:post)).to eq Post.last
         end
 
         it "redirects to the new post" do
-          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: file, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
+          post :create, post: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ',' + RandomData.random_word }
           expect(response).to redirect_to edit_post_path(Post.last)
         end
       end
