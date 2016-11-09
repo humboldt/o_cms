@@ -29,16 +29,18 @@ module OCms
         let(:image) { create(:image) }
 
         it "increases the number of Pages by 1" do
-          expect{ post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word } }.to change(Page,:count).by(1)
+          expect{ post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured.to_s, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word } }.to change(Page,:count).by(1)
         end
 
         it "assigns the new page to @page" do
-          post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word }
+          post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured.to_s, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word }
           expect(assigns(:page)).to eq Page.last
         end
 
+        # Erroring - Vlaue too long for character
         it "redirects to the new page" do
-          post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word }
+          post :create, page: {title: RandomData.random_sentence, slug: RandomData.random_slug, body: RandomData.random_paragraph, excerpt: RandomData.random_paragraph, featured_image: image.file.featured.to_s, meta_title: RandomData.random_sentence, meta_description: RandomData.random_paragraph, meta_keywords: RandomData.random_word + ',' + RandomData.random_word + ', ' + RandomData.random_word }
+
           expect(response).to redirect_to edit_page_path(Page.last)
         end
       end
