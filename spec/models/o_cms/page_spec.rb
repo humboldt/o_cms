@@ -151,8 +151,8 @@ module OCms
 
     describe "scopes" do
       before do
-        @parent_page = Page.create!(title: RandomData.random_sentence, body: RandomData.random_sentence)
-        @subpage = @parent_page.subpages.create!(title: RandomData.random_sentence, body: RandomData.random_sentence)
+        @parent_page = Page.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)
+        @subpage = @parent_page.subpages.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)
       end
 
       describe "page_parents," do
@@ -176,7 +176,7 @@ module OCms
 
     describe "#remove_subpage_relationships" do
       it "removes the subpage parent_id value" do
-        page = Page.create!(title: 'Join us on our next trip', body: RandomData.random_sentence)
+        page = Page.create!(title: 'Join us on our next trip', body: RandomData.random_paragraph)
         subpage = page.subpages.create!(title: 'Our headquarters, where to find us', body: RandomData.random_sentence)
 
         page.remove_subpage_relationships
