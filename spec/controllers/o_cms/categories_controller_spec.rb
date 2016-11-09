@@ -67,7 +67,7 @@ module OCms
           new_icon = RandomData.random_slug
           new_body = RandomData.random_paragraph
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_sentence
+          new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ', ' + RandomData.random_word
 
           put :update, id: category.id, category: {name: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
@@ -89,7 +89,7 @@ module OCms
           new_icon = RandomData.random_slug
           new_body = RandomData.random_paragraph
           new_meta_title = RandomData.random_sentence
-          new_meta_description = RandomData.random_sentence
+          new_meta_description = RandomData.random_paragraph
           new_meta_keywords = RandomData.random_word + ', ' + RandomData.random_word
 
           put :update, id: category.id, category: {title: new_name, slug: new_slug, icon: new_icon, body: new_body, meta_title: new_meta_title, meta_description: new_meta_description, meta_keywords: new_meta_keywords }
