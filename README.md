@@ -1,12 +1,8 @@
 # Outside CMS
 
-[![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms)
+[![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms) [![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed) [![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
 
-[![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed)
-
-[![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
-
-## Open source, easy to extend content management system for Rails
+Open source, easy to extend content management system for Rails
 
 ### Why Outside CMS?
 
@@ -15,35 +11,47 @@
 * Built be easy to adapt, extend and customisable to suit any project
 * Define your own authorisation around the CMS
 * Designed to be easy to use for your end users
-* Supports Rails 4.2 + & Rails 5
+* Supports Rails 4.1.16 to 5.0
 * Uses the powerful [Trix Editor](https://github.com/basecamp/trix)
 
 ------
-![Outside CMS](https://s3.amazonaws.com/outside-cms/sample-three.gif)
+
+![Outside CMS](https://s3.amazonaws.com/outside-cms/outside-demo.gif)
 
 ------
 
 ## Installation
 
-Add Outside CMS to your gem file
+Add Outside CMS to your gem file:
 ```rb
-gem 'outside-cms'
+gem 'outside_cms'
 ```
 
-### Install migrations
-
-```sg
-rake o_cms:install:migrations
-```
+Install the migrations:
 ```sh
 rake db:migrate
 ```
+(**Note**: do not run ```rake o_cms:install:migrations```. The Outside CMS's migrations live inside the gem and do not get copied into your application.)
+
+Define a root for your application:
+```rb
+root to: "public#index"
+```
+Without this the primary navigation link 'Your Site' will error.
 
 ### Authentication
 
 Add Outside CMS to your ```routes.rb``` and define authorised users
 
-#### Setup for devise
+#### No Authentication
+In development you may want to use the CMS without defining any authentication.
+```rb
+# config/routes.rb
+mount OCms::Engine => '/o_cms'
+```
+By default Outside CMS is configured to use Devise and includes the user email, with edit user and sign out link in the user navigation. If you are using the CMS without devise authentication override the ``` /views/o_cms/partials/_user_navigation.html.erb ``` partial with no content to prevent errors.
+
+#### Devise
 In a production application you'll likely want to protect access to the control panel.
 
 To allow any authenticated User

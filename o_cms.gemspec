@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   # backend
-  s.add_dependency "rails", ">= 4.1.9"
+  s.add_dependency "rails", ">= 4.1.16"
 
   # frontend
   s.add_dependency "sass-rails"
