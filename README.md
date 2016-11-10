@@ -1,4 +1,10 @@
-# Outside CMS [![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms)
+# Outside CMS
+
+[![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms)
+
+[![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed)
+
+[![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
 
 ## Open source, easy to extend content management system for Rails
 
@@ -8,7 +14,7 @@
 * Focus on building your unique application features
 * Built be easy to adapt, extend and customisable to suit any project
 * Define your own authorisation around the CMS
-* Desingned to be easy to use for your end users
+* Designed to be easy to use for your end users
 * Supports Rails 4.2 + & Rails 5
 * Uses the powerful [Trix Editor](https://github.com/basecamp/trix)
 
