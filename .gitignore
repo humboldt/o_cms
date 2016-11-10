@@ -17,3 +17,4 @@ test/dummy/.sass-cache
 test/dummy/.cache
 
 vendor/bundle
+coverage
