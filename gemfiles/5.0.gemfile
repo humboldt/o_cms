@@ -14,5 +14,6 @@ gem 'actionpack', '=5.0.0.1'
 gem 'activemodel', '=5.0.0.1'
 gem 'activesupport', '=5.0.0.1'
 gem 'railties', '=5.0.0.1'
+gem 'coffee-rails', '~> 4.2'
 
 gem 'rails', git: 'https://github.com/rails/rails', branch: '5-0-stable'

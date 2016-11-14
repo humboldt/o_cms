@@ -112,6 +112,13 @@ GEM
     codeclimate-test-reporter (1.0.3)
       simplecov
     coderay (1.1.1)
+    coffee-rails (4.2.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.2.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -294,6 +301,7 @@ DEPENDENCIES
   cancancan
   capybara
   codeclimate-test-reporter
+  coffee-rails (~> 4.2)
   database_cleaner
   devise
   dotenv-rails
