@@ -4,7 +4,7 @@ module RandomData
     last_name = random_word.capitalize
     "#{first_name} #{last_name}"
   end
- 
+
   def self.random_email
     "#{random_word}@#{random_word}.#{random_word}"
   end
@@ -14,7 +14,7 @@ module RandomData
     rand(4..6).times do
       sentences << random_sentence
     end
-    
+
     sentences.join(" ")
   end
 

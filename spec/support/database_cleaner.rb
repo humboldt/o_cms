@@ -1,5 +1,6 @@
-RSpec.configure do |config|
+require 'database_cleaner'
 
+RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
@@ -16,7 +17,7 @@ RSpec.configure do |config|
       MSG
     end
     DatabaseCleaner.clean_with(:truncation)
-  end  
+  end
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction

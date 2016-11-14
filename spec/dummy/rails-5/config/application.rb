@@ -1,10 +1,11 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'devise'
-require 'rolify'
 
 Bundler.require(*Rails.groups)
+
+require 'devise'
+require 'rolify'
 require "o_cms"
 
 module Dummy
