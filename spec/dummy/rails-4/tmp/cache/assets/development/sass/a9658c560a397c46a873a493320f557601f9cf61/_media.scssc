@@ -1,336 +1,0 @@
-{:versionI"3.4.22 (Selective Steve):EF:shaI"-a45acb1b71b9e0ae1fd6c0b3ec0ed4e42d7eacd8;F:contents"òo:Sass::Tree::RootNode:@children[u:Sass::Tree::IfNode^[o:!Sass::Script::Tree::Variable:
-@nameI"enable-flex:ET:@underscored_nameI"enable_flex;T:@css_variable_warning0:
-@linei:@source_rangeo:Sass::Source::Range	:@start_poso:Sass::Source::Position;
-i:@offseti
-:@end_poso;;
-i;i:
-@fileI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_media.scss;T:@importero:Sprockets::SassImporter	:@imported_filenames[@I"}/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/_bootstrap.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_custom.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_variables.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_mixins.scss;TI"ê/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_breakpoints.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_hover.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_image.scss;TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_tag.scss;TI"ë/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_reset-filter.scss;TI"ã/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_resize.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_screen-reader.scss;TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_size.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_tab-focus.scss;TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_reset-text.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-emphasis.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-hide.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-truncate.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_alert.scss;TI"å/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_buttons.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_cards.scss;TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_pagination.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_lists.scss;TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_list-group.scss;TI"ê/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_nav-divider.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_forms.scss;TI"ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_progress.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_table-row.scss;TI"ó/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_background-variant.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_border-radius.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_gradients.scss;TI"ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_clearfix.scss;TI"ì/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_grid-framework.scss;TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_grid.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_pulls.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_normalize.scss;TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_print.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_reboot.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_type.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_images.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_code.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_grid.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_tables.scss;TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_forms.scss;TI"Ö/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_buttons.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_animation.scss;TI"Ü/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_dropdown.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_button-group.scss;TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_input-group.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_custom-forms.scss;TI"Å/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_nav.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_navbar.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_card.scss;TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_breadcrumb.scss;TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_pagination.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_tags.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_jumbotron.scss;TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_alert.scss;TI"Ü/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_progress.scss;T@:
-@rootI"r/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets;F:@real_rootI"r/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets;F:@same_name_warningso:Set:
-@hash{ :@filename@:@options{ u:Sass::Tree::IfNodeÊ0[00[
-o:Sass::Tree::RuleNode:
-@rule[I".media,
-  .media-body:ET:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;
-[o:#Sass::Selector::SimpleSequence;
-[o:Sass::Selector::Class:
-@nameI"
-media;T:
-@linei:@filename0:@subject0:@sourceso:Set:
-@hash{ :@source_rangeo:Sass::Source::Range	:@start_poso:Sass::Source::Position;i:@offseti:@end_poso;;i;i:
-@file0:@importer0;i;0;io;;
-[I"
-;To;;
-[o;;I"media-body;T;i;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i;0;i;i;0:@selector_source_rangeo;	;o;;i;i;o;;i;i;I"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_media.scss;T;o:Sprockets::SassImporter	:@imported_filenames[@I"}/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/_bootstrap.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_custom.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_variables.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_mixins.scss;TI"ê/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_breakpoints.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_hover.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_image.scss;TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_tag.scss;TI"ë/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_reset-filter.scss;TI"ã/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_resize.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_screen-reader.scss;TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_size.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_tab-focus.scss;TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_reset-text.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-emphasis.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-hide.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-truncate.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_alert.scss;TI"å/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_buttons.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_cards.scss;TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_pagination.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_lists.scss;TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_list-group.scss;TI"ê/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_nav-divider.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_forms.scss;TI"ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_progress.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_table-row.scss;TI"ó/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_background-variant.scss;TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_border-radius.scss;TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_gradients.scss;TI"ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_clearfix.scss;TI"ì/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_grid-framework.scss;TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_grid.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_pulls.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_normalize.scss;TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_print.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_reboot.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_type.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_images.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_code.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_grid.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_tables.scss;TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_forms.scss;TI"Ö/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_buttons.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_animation.scss;TI"Ü/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_dropdown.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_button-group.scss;TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_input-group.scss;TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_custom-forms.scss;TI"Å/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_nav.scss;TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_navbar.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_card.scss;TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_breadcrumb.scss;TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_pagination.scss;TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_tags.scss;TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_jumbotron.scss;TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_alert.scss;TI"Ü/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_progress.scss;T@&:
-@rootI"r/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets;F:@real_rootI"r/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets;F:@same_name_warningso;;{ :
-@tabsi :@children[o:Sass::Tree::PropNode;[I"overflow;T:@valueo: Sass::Script::Tree::Literal;&o: Sass::Script::Value::String	;&I"hidden;T:@options{ :
-@type:identifier:"@deprecated_interp_equivalent0;i;o;	;o;;i;i;o;;i;i;@&;@';#i :@prop_syntax:new;$[ ;0;)@n;i;o;	;o;;i;i
-;o;;i;i;@&;@':@name_source_rangeo;	;@t;o;;i;i;@&;@':@value_source_rangeo;	;o;;i;i;@u;@&;@';0;)@n;i;o;	;@$;o;;i;i;@&;@':@has_childrenTo; ;[I".media-body;T;o;	;
-[o;;
-[o;;
-[o;;I"media-body;T;i;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i;0;i;i;0;o;	;o;;i;i;o;;i;i;@&;@';#i ;$[o;%;[I"
-width;T;&o;';&o;(	;&I"10000px;T;)@n;*;+;,0;i;o;	;o;;i;i;o;;i;i;@&;@';#i ;-;.;$[ ;0;)@n;i;o;	;o;;i;i
-;o;;i;i;@&;@';/o;	;@ñ;o;;i;i;@&;@';0o;	;o;;i;i;@ó;@&;@';0;)@n;i;o;	;@à;o;;i;i;@&;@';1To; ;[I"/.media-left,
-  .media-right,
-  .media-body;T;o;	;
-[o;;
-[o;;
-[o;;I"media-left;T;i;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i;0;io;;
-[I"
-;To;;
-[o;;I"media-right;T;i;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i;0;io;;
-[I"
-;To;;
-[o;;I"media-body;T;i;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i;0;i;i;0;o;	;o;;i;i;o;;i;i;@&;@';#i ;$[o;%;[I"display;T;&o;';&o;(	;&I"table-cell;T;)@n;*;+;,0;i;o;	;o;;i;i;o;;i;i;@&;@';#i ;-;.;$[ ;0;)@n;i;o;	;o;;i;i
-;o;;i;i;@&;@';/o;	;@’;o;;i;i;@&;@';0o;	;o;;i;i;@÷;@&;@'o;%;[I"vertical-align;T;&o;';&o;(	;&I"top;T;)@n;*;+;,0;i;o;	;o;;i;i;o;;i;i;@&;@';#i ;-;.;$[ ;0;)@n;i;o;	;o;;i;i
-;o;;i;i;@&;@';/o;	;@Ê;o;;i;i;@&;@';0o;	;o;;i;i;@Á;@&;@';0;)@n;i;o;	;@«;o;;i;i;@&;@';1To; ;[I".media-middle;T;o;	;
-[o;;
-[o;;
-[o;;I"media-middle;T;i!;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i!;0;i!;i!;0;o;	;o;;i!;i;o;;i!;i;@&;@';#i ;$[o;%;[I"vertical-align;T;&o;';&o;(	;&I"middle;T;)@n;*;+;,0;i";o;	;o;;i";i;o;;i";i ;@&;@';#i ;-;.;$[ ;0;)@n;i";o;	;o;;i";i
-;o;;i";i ;@&;@';/o;	;@;o;;i";i;@&;@';0o;	;o;;i";i;@;@&;@';0;)@n;i!;o;	;@ˇ;o;;i!;i;@&;@';1To; ;[I".media-bottom;T;o;	;
-[o;;
-[o;;
-[o;;I"media-bottom;T;i$;0;0;o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i$;0;i$;i$;0;o;	;o;;i$;i;o;;i$;i;@&;@';#i ;$[o;%;[I"vertical-align;T;&o;';&o;(	;&I"bottom;T;)@n;*;+;,0;i%;o;	;o;;i%;i;o;;i%;i ;@&;@';#i ;-;.;$[ ;0;)@n;i%;o;	;o;;i%;i
-;o;;i%;i ;@&;@';/o;	;@4;o;;i%;i;@&;@';0o;	;o;;i%;i;@5;@&;@';0;)@n;i$;o;	;@&;o;;i$;i;@&;@';1T[	o:Sass::Tree::RuleNode:
-@rule[I".media;T:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;![o:#Sass::Selector::SimpleSequence;![o:Sass::Selector::Class;I"
-media;T;
-i;0:@subject0:@sourceso;;{ ;o;	;o;;
-i;i;o;;
-i;i;0;0;
-i;0;
-i;
-i;0:@selector_source_rangeo;	;o;;
-i;i;o;;
-i;i;@;@:
-@tabsi :@children[o:Sass::Tree::PropNode;[I"display;T:@valueo: Sass::Script::Tree::Literal;+o: Sass::Script::Value::String	;+I"	flex;T;@M:
-@type:identifier:"@deprecated_interp_equivalent0;
-i;o;	;o;;
-i;i;o;;
-i;i;@;@;(i :@prop_syntax:new;)[ ;0;@M;
-i;o;	;o;;
-i;i
-;o;;
-i;i;@;@:@name_source_rangeo;	;@o;o;;
-i;i;@;@:@value_source_rangeo;	;o;;
-i;i;@p;@;@;0;@M;
-i;o;	;@a;o;;
-i;i;@;@:@has_childrenTo;;[I".media-body;T;o; ;![o;";![o;#;![o;$;I"media-body;T;
-i
-;0;%0;&o;;{ ;o;	;o;;
-i;i;o;;
-i;i;0;0;
-i
-;0;
-i
-;
-i
-;0;'o;	;o;;
-i
-;i;o;;
-i
-;i;@;@;(i ;)[o;*;[I"	flex;T;+o;,;+o;-	;+I"1;T;@M;.;/;00;
-i;o;	;o;;
-i;i;o;;
-i;i;@;@;(i ;1;2;)[ ;0;@M;
-i;o;	;o;;
-i;i
-;o;;
-i;i;@;@;3o;	;@ë;o;;
-i;i;@;@;4o;	;o;;
-i;i;@í;@;@;0;@M;
-i
-;o;	;@É;o;;
-i
-;i;@;@;5To;;[I".media-middle;T;o; ;![o;";![o;#;![o;$;I"media-middle;T;
-i;0;%0;&o;;{ ;o;	;o;;
-i;i;o;;
-i;i;0;0;
-i;0;
-i;
-i;0;'o;	;o;;
-i;i;o;;
-i;i;@;@;(i ;)[o;*;[I"align-self;T;+o;,;+o;-	;+I"center;T;@M;.;/;00;
-i;o;	;o;;
-i;i;o;;
-i;i;@;@;(i ;1;2;)[ ;0;@M;
-i;o;	;o;;
-i;i
-;o;;
-i;i;@;@;3o;	;@∏;o;;
-i;i;@;@;4o;	;o;;
-i;i;@π;@;@;0;@M;
-i;o;	;@™;o;;
-i;i;@;@;5To;;[I".media-bottom;T;o; ;![o;";![o;#;![o;$;I"media-bottom;T;
-i;0;%0;&o;;{ ;o;	;o;;
-i;i;o;;
-i;i;0;0;
-i;0;
-i;
-i;0;'o;	;o;;
-i;i;o;;
-i;i;@;@;(i ;)[o;*;[I"align-self;T;+o;,;+o;-	;+I"flex-end;T;@M;.;/;00;
-i;o;	;o;;
-i;i;o;;
-i;i;@;@;(i ;1;2;)[ ;0;@M;
-i;o;	;o;;
-i;i
-;o;;
-i;i;@;@;3o;	;@ﬂ;o;;
-i;i;@;@;4o;	;o;;
-i;i;@‡;@;@;0;@M;
-i;o;	;@—;o;;
-i;i;@;@;5To:Sass::Tree::CommentNode:@value[I"4/*
- * Images/elements as the media anchor
- * */:ET:
-@type:silent;[ :@filename0:@options{ :
-@linei*:@source_rangeo:Sass::Source::Range	:@start_poso:Sass::Source::Position;i*:@offseti:@end_poso;;i,;i:
-@fileI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_media.scss;
-T:@importero:Sprockets::SassImporter	:@imported_filenames[@I"}/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/_bootstrap.scss;
-TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_custom.scss;
-TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_variables.scss;
-TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_mixins.scss;
-TI"ê/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_breakpoints.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_hover.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_image.scss;
-TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_tag.scss;
-TI"ë/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_reset-filter.scss;
-TI"ã/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_resize.scss;
-TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_screen-reader.scss;
-TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_size.scss;
-TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_tab-focus.scss;
-TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_reset-text.scss;
-TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-emphasis.scss;
-TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-hide.scss;
-TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_text-truncate.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_alert.scss;
-TI"å/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_buttons.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_cards.scss;
-TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_pagination.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_lists.scss;
-TI"è/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_list-group.scss;
-TI"ê/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_nav-divider.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_forms.scss;
-TI"ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_progress.scss;
-TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_table-row.scss;
-TI"ó/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_background-variant.scss;
-TI"í/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_border-radius.scss;
-TI"é/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_gradients.scss;
-TI"ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_clearfix.scss;
-TI"ì/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_grid-framework.scss;
-TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_grid.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/mixins/_pulls.scss;
-TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_normalize.scss;
-TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_print.scss;
-TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_reboot.scss;
-TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_type.scss;
-TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_images.scss;
-TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_code.scss;
-TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_grid.scss;
-TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_tables.scss;
-TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_forms.scss;
-TI"Ö/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_buttons.scss;
-TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_animation.scss;
-TI"Ü/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_dropdown.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_button-group.scss;
-TI"â/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_input-group.scss;
-TI"ä/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_custom-forms.scss;
-TI"Å/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_nav.scss;
-TI"Ñ/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_navbar.scss;
-TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_card.scss;
-TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_breadcrumb.scss;
-TI"à/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_pagination.scss;
-TI"Ç/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_tags.scss;
-TI"á/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_jumbotron.scss;
-TI"É/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_alert.scss;
-TI"Ü/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets/bootstrap/_progress.scss;
-T@:
-@rootI"r/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets;
-F:@real_rootI"r/Users/benjaminayres/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/bootstrap-4.0.0.alpha4/assets/stylesheets;
-F:@same_name_warningso:Set:
-@hash{ o:Sass::Tree::RuleNode:
-@rule[I".media-object;
-T:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;#[o:#Sass::Selector::SimpleSequence;#[o:Sass::Selector::Class:
-@nameI"media-object;
-T;i.;0:@subject0:@sourceso;;{ ;o;	;o;;i;i;o;;i;i;0;0;i.;0;i.;i.;0:@selector_source_rangeo;	;o;;i.;i;o;;i.;i;@;@:
-@tabsi ;[o:Sass::Tree::PropNode;'[I"display;
-T;	o: Sass::Script::Tree::Literal;	o: Sass::Script::Value::String	;	I"
-block;
-T;@;:identifier:"@deprecated_interp_equivalent0;i/;o;	;o;;i/;i;o;;i/;i;@;@;+i :@prop_syntax:new;[ ;0;@;i/;o;	;o;;i/;i;o;;i/;i;@;@:@name_source_rangeo;	;@p;o;;i/;i;@;@:@value_source_rangeo;	;o;;i/;i;@q;@;@o;;	[I"O/* Fix collapse in webkit from max-width: 100% and display: table-cell. */;
-T;;;[ ;0;@;i1;o;	;o;;i1;i;o;;i1;iO;@;@o;; [I"&.img-thumbnail;
-T;!o;";#[o;$;#[o;%;#[o:Sass::Selector::Parent:@suffix0;i2;0o;&;'I"img-thumbnail;
-T;i2;0;(0;)o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i2;0;i2;i2;0;*o;	;o;;i2;i;o;;i2;i;@;@;+i ;[o;,;'[I"max-width;
-T;	o;-;	o;.	;	I"	none;
-T;@;;/;00;i3;o;	;o;;i3;i;o;;i3;i;@;@;+i ;1;2;[ ;0;@;i3;o;	;o;;i3;i
-;o;;i3;i;@;@;3o;	;@ò;o;;i3;i;@;@;4o;	;o;;i3;i;@ô;@;@;0;@;i2;o;	;@ä;o;;i2;i;@;@:@has_childrenT;0;@;i.;o;	;@b;o;;i.;i;@;@;7To;;	[I"/*
- * Alignment
- * */;
-T;;;[ ;0;@;i8;o;	;o;;i8;i;o;;i:;i;@;@o;; [I".media-right;
-T;!o;";#[o;$;#[o;%;#[o;&;'I"media-right;
-T;i<;0;(0;)o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i<;0;i<;i<;0;*o;	;o;;i<;i;o;;i<;i;@;@;+i ;[o;,;'[I"padding-left;
-T;	o:!Sass::Script::Tree::Variable;'I"media-alignment-padding-x;
-T:@underscored_nameI"media_alignment_padding_x;
-T:@css_variable_warning0;i=;o;	;o;;i=;i;o;;i=;i0;@;@;@;@;+i ;1;2;[ ;0;@;i=;o;	;o;;i=;i;o;;i=;i0;@;@;3o;	;@»;o;;i=;i;@;@;4o;	;o;;i=;i;@…;@;@;0;@;i<;o;	;@∫;o;;i<;i;@;@;7To;; [I".media-left;
-T;!o;";#[o;$;#[o;%;#[o;&;'I"media-left;
-T;i@;0;(0;)o;;{ ;o;	;o;;i;i;o;;i;i;0;0;i@;0;i@;i@;0;*o;	;o;;i@;i;o;;i@;i;@;@;+i ;[o;,;'[I"padding-right;
-T;	o;8;'I"media-alignment-padding-x;
-T;9I"media_alignment_padding_x;
-T;:0;iA;o;	;o;;iA;i;o;;iA;i1;@;@;@;@;+i ;1;2;[ ;0;@;iA;o;	;o;;iA;i;o;;iA;i1;@;@;3o;	;@Ô;o;;iA;i;@;@;4o;	;o;;iA;i;@;@;@;0;@;i@;o;	;@·;o;;i@;i;@;@;7To;;	[I"/*
- * Headings
- * */;
-T;;;[ ;0;@;iE;o;	;o;;iE;i;o;;iG;i;@;@o;; [I".media-heading;
-T;!o;";#[o;$;#[o;%;#[o;&;'I"media-heading;
-T;iI;0;(0;)o;;{ ;o;	;o;;i;i;o;;i;i;0;0;iI;0;iI;iI;0;*o;	;o;;iI;i;o;;iI;i;@;@;+i ;[o;,;'[I"margin-top;
-T;	o;-;	o;.	;	I"0;
-T;@;;/;00;iJ;o;	;o;;iJ;i;o;;iJ;i;@;@;+i ;1;2;[ ;0;@;iJ;o;	;o;;iJ;i;o;;iJ;i;@;@;3o;	;@;o;;iJ;i;@;@;4o;	;o;;iJ;i;@;@;@o;,;'[I"margin-bottom;
-T;	o;8;'I" media-heading-margin-bottom;
-T;9I" media_heading_margin_bottom;
-T;:0;iK;o;	;o;;iK;i;o;;iK;i3;@;@;@;@;+i ;1;2;[ ;0;@;iK;o;	;o;;iK;i;o;;iK;i3;@;@;3o;	;@.;o;;iK;i;@;@;4o;	;o;;iK;i;@/;@;@;0;@;iI;o;	;@;o;;iI;i;@;@;7To;;	[I"%/*
- * Media list variation
- * */;
-T;;;[ ;0;@;iO;o;	;o;;iO;i;o;;iQ;i;@;@o;; [I".media-list;
-T;!o;";#[o;$;#[o;%;#[o;&;'I"media-list;
-T;iS;0;(0;)o;;{ ;o;	;o;;i;i;o;;i;i;0;0;iS;0;iS;iS;0;*o;	;o;;iS;i;o;;iS;i;@;@;+i ;[o;,;'[I"padding-left;
-T;	o;-;	o;.	;	I"0;
-T;@;;/;00;iT;o;	;o;;iT;i;o;;iT;i;@;@;+i ;1;2;[ ;0;@;iT;o;	;o;;iT;i;o;;iT;i;@;@;3o;	;@\;o;;iT;i;@;@;4o;	;o;;iT;i;@];@;@o;,;'[I"list-style;
-T;	o;-;	o;.	;	I"	none;
-T;@;;/;00;iU;o;	;o;;iU;i;o;;iU;i;@;@;+i ;1;2;[ ;0;@;iU;o;	;o;;iU;i;o;;iU;i;@;@;3o;	;@m;o;;iU;i;@;@;4o;	;o;;iU;i;@n;@;@;0;@;iS;o;	;@N;o;;iS;i;@;@;7T;0;@:@templateI"@if $enable-flex {
-  .media {
-    display: flex;
-  }
-  .media-body {
-    flex: 1;
-  }
-  .media-middle {
-    align-self: center;
-  }
-  .media-bottom {
-    align-self: flex-end;
-  }
-} @else {
-  .media,
-  .media-body {
-    overflow: hidden;
-  }
-  .media-body {
-    width: 10000px;
-  }
-  .media-left,
-  .media-right,
-  .media-body {
-    display: table-cell;
-    vertical-align: top;
-  }
-  .media-middle {
-    vertical-align: middle;
-  }
-  .media-bottom {
-    vertical-align: bottom;
-  }
-}
-
-
-//
-// Images/elements as the media anchor
-//
-
-.media-object {
-  display: block;
-
-  // Fix collapse in webkit from max-width: 100% and display: table-cell.
-  &.img-thumbnail {
-    max-width: none;
-  }
-}
-
-
-//
-// Alignment
-//
-
-.media-right {
-  padding-left: $media-alignment-padding-x;
-}
-
-.media-left {
-  padding-right: $media-alignment-padding-x;
-}
-
-
-//
-// Headings
-//
-
-.media-heading {
-  margin-top: 0;
-  margin-bottom: $media-heading-margin-bottom;
-}
-
-
-//
-// Media list variation
-//
-
-.media-list {
-  padding-left: 0;
-  list-style: none;
-}
-;
-T;i;o;	;o;;i;i;o;;i;i;@;@;7T
