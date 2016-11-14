@@ -1,7 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require 'pry'
-require File.expand_path("../dummy/config/environment", __FILE__)
+require File.expand_path("../dummy/rails-4/config/environment", __FILE__)
 
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
@@ -12,7 +12,7 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 
 # Load in the Random Data generator defined in the dummy lib folder
-require_relative "../spec/dummy/lib/random_data.rb"
+require_relative "../spec/dummy/rails-4/lib/random_data.rb"
 
 # makes the 'main_app' route helper avalible in tests
 # e.g. expect(response).to redirect_to(main_app.user_session_path)
@@ -33,7 +33,7 @@ end
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('../support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('../../support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
