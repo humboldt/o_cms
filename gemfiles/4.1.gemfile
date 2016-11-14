@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gemspec path: '..'
 
+ENV['OCMS_RAILS_VERSION_MAJOR'] = '4'
+
 gem 'rails', git: 'https://github.com/rails/rails', branch: '4-1-stable'
 
 group :test do

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ENV['OCMS_RAILS_VERSION_MAJOR'] = '5'
+
 gemspec path: '..'
 
 group :test do
@@ -7,6 +9,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: nil
   gem 'sqlite3'
+  gem 'rails-controller-testing'
 end
 
 gem 'trix'

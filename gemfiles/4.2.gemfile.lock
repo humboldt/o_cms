@@ -63,7 +63,7 @@ PATH
       compass-rails
       jquery-rails
       mini_magick
-      rails (>= 4.1.9)
+      rails (>= 4.1.16)
       rails-assets-tether (>= 1.1.0)
       sass-rails
       simple_form
@@ -76,7 +76,7 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (6.0.3)
-    autoprefixer-rails (6.5.2)
+    autoprefixer-rails (6.5.3)
       execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -103,7 +103,7 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    chunky_png (1.3.7)
+    chunky_png (1.3.8)
     codeclimate-test-reporter (1.0.3)
       simplecov
     coderay (1.1.1)
@@ -190,8 +190,6 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     public_suffix (2.0.4)
-    quiet_assets (1.1.0)
-      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -285,7 +283,7 @@ DEPENDENCIES
   binding_of_caller
   cancancan
   capybara
-  codeclimate-test-reporter (~> 1.0.0)
+  codeclimate-test-reporter
   database_cleaner
   devise
   dotenv-rails
@@ -296,7 +294,6 @@ DEPENDENCIES
   pry-doc
   pry-inline
   pry-rails
-  quiet_assets
   rails!
   rb-readline
   rolify
