@@ -5,9 +5,12 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  root to: "welcome#index" 
-  devise_scope :user do 
-    get "/users/sign_out" => "users/sessions#destroy" 
+  root to: "welcome#index"
+  devise_scope :user do
+    get "/users/sign_out" => "users/sessions#destroy"
   end
-  mount OCms::Engine => "/o_cms"
+
+  authenticate :user do
+    mount OCms::Engine => '/o_cms'
+  end
 end
