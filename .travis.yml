@@ -1,16 +1,19 @@
 language: ruby
 rvm:
   - 2.1.5
-  - 2.3.0
   - 2.2.4
+  - 2.3.0
 bundler_args: --jobs=2
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 script:
-  - gem install rack -v '2.0.1'
   - bundle install
+# Rails 4
+#  - bundle exec rake db:create
+#  - bundle exec rake db:schema:load
+# Rails 5
   - bundle exec rails db:create
   - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rspec
@@ -19,6 +22,11 @@ gemfile:
   # - gemfiles/4.2.gemfile
   - gemfiles/5.0.gemfile
 cache: bundler
+# Exclude Ruby 2.1.5 for Rails 5 Test
+matrix:
+  exclude:
+  - rvm: 2.1.5
+    gemfile: gemfiles/5.0.gemfile
 services:
   - postgresql
 addons:
