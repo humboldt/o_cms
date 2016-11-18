@@ -10,5 +10,5 @@ unless ENV['CI']
   end
 
   Capybara.javascript_driver = :chrome
-  Capybara.default_max_wait_time = 10
+  Capybara.default_max_wait_time = 15
 end

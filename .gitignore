@@ -1,6 +1,8 @@
 .bundle/
 log/*.log
 pkg/
+/Gemfile.lock
+
 spec/dummy/db/*.sqlite3
 spec/dummy/db/*.sqlite3-journal
 spec/dummy/log/*.log
@@ -9,12 +11,21 @@ spec/dummy/.sass-cache
 spec/dummy/.cache
 spec/dummy/public/uploads/
 
-test/dummy/db/*.sqlite3
-test/dummy/db/*.sqlite3-journal
-test/dummy/log/*.log
-test/dummy/tmp/
-test/dummy/.sass-cache
-test/dummy/.cache
+spec/dummy/rails-4/db/*.sqlite3
+spec/dummy/rails-4/db/*.sqlite3-journal
+spec/dummy/rails-4/log/*.log
+spec/dummy/rails-4/tmp/
+spec/dummy/rails-4/.sass-cache
+spec/dummy/rails-4/.cache
+spec/dummy/rails-4/public/uploads/
+
+spec/dummy/rails-5/db/*.sqlite3
+spec/dummy/rails-5/db/*.sqlite3-journal
+spec/dummy/rails-5/log/*.log
+spec/dummy/rails-5/tmp/
+spec/dummy/rails-5/.sass-cache
+spec/dummy/rails-5/.cache
+spec/dummy/rails-5/public/uploads/
 
 vendor/bundle
 coverage

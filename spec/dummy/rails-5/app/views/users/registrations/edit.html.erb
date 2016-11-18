@@ -1,0 +1,28 @@
+<h1>Edit your account</h1>
+<div class="row">
+  <div class="col-md-9">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= f.input :email %>
+      <p>
+        <i>(leave blank if you don't want to change it)</i>
+      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :password %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :password_confirmation %>
+        </div>
+      </div>
+      <hr />
+      <p>
+        <i>(we need your current password to confirm your changes)</i>
+      </p>
+      <%= f.input :current_password %>
+      <hr />
+      <input class="btn btn-primary btn-md save_button" type="submit" value="Update" name="commit">
+    <% end %>   
+  </div>
+</div>

@@ -3,7 +3,10 @@ module OCms
     default_scope { order('title ASC') }
 
     has_many :subpages, class_name: OCms::Page, foreign_key: 'parent_id'
-    belongs_to :parent, class_name: OCms::Page, foreign_key: 'parent_id'
+
+    belongs_to_opts = { class_name: OCms::Page, foreign_key: 'parent_id' }
+    belongs_to_opts[:optional] = true if ActiveRecord::VERSION::MAJOR >= 5
+    belongs_to :parent, belongs_to_opts
 
     validates :title, length: { minimum: 8 }, presence: true
     validates :body, length: { minimum: 15 }, presence: true

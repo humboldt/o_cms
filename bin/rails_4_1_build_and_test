@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+BUNDLE_GEMFILE=gemfiles/4.1.gemfile bundle install
+BUNDLE_GEMFILE=gemfiles/4.1.gemfile bundle exec rake db:migrate RAILS_ENV=test
+BUNDLE_GEMFILE=gemfiles/4.1.gemfile bundle exec rspec

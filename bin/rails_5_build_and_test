@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+BUNDLE_GEMFILE=gemfiles/5.0.gemfile bundle install
+BUNDLE_GEMFILE=gemfiles/5.0.gemfile bundle exec rails db:migrate RAILS_ENV=test
+BUNDLE_GEMFILE=gemfiles/5.0.gemfile bundle exec rspec

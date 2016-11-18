@@ -34,7 +34,6 @@ Gem::Specification.new do |s|
   # development dependencies
   s.add_development_dependency "better_errors"
   s.add_development_dependency "binding_of_caller"
-  s.add_development_dependency "quiet_assets"
 
   # test dependencies
   s.add_development_dependency "database_cleaner"
