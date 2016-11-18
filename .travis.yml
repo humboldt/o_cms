@@ -9,13 +9,14 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 script:
+  - gem install rack -v '2.0.1'
   - bundle install
-  - bundle exec rake db:create
-  - bundle exec rake db:schema:load
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rspec
 gemfile:
-  - gemfiles/4.1.gemfile
-  - gemfiles/4.2.gemfile
+  # - gemfiles/4.1.gemfile
+  # - gemfiles/4.2.gemfile
   - gemfiles/5.0.gemfile
 cache: bundler
 services:
