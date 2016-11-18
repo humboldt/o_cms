@@ -1,17 +1,22 @@
 <h1>Sign Up</h1>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => "form-signin"}) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => "form-signin"}) do |f| %>
+  <%= render :partial => 'users/shared/errors' %>
 
-	<%= f.input :email, placeholder: 'Email', label: false %>
+  <%= form_group_tag(@user.errors[:email]) do %>
+	  <%= f.text_field :email, class: 'form-control', placeholder: 'Email', label: false %>
+  <% end %>
   <% if @validatable %>
    <em style="margin-top: 10px; display: inline-block">(<%= @minimum_password_length %> characters minimum)</em>
   <% end %>
-  <%= f.input :password, placeholder: 'Password', label: false %>
-	<%= f.input :password_confirmation, placeholder: 'Password confirmation', label: false %>
+  <%= form_group_tag(@user.errors[:password]) do %>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Password', label: false %>
+  <% end %>
+  <%= form_group_tag(@user.errors[:password_confirmation]) do %>
+  	<%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password confirmation', label: false %>
+  <% end %>
   <div class="form-group">
     <%= f.collection_select(:role_id, roles_for_select, :id, :name , {:prompt => 'Select a role', include_blank: true}, { :class => 'c-select form-control' })  %>
   </div>
-
 	<%= button_tag(type: 'submit', class: "btn btn-lg btn-primary btn-block") do %>
 	   Sign up
 	<% end %>

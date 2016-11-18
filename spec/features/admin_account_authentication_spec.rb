@@ -22,11 +22,13 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
     admin = create(:user, :admin)
 
     login admin
+
     expect(page).to have_css 'h1', text: 'Welcome to Outside CMS'
 
     click_link admin.email
+
     expect(page).to have_current_path '/users/edit'
-    expect(page).to have_css '.email', visible: admin.email
+    expect(page).to have_field('Email', with: admin.email)
 
     fill_in 'Email', with: "newmail@example.com"
     fill_in 'Password', with: "password"
@@ -36,7 +38,7 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
 
     expect(page).to have_current_path '/users/edit'
     expect(page).to have_css 'h1', text: 'Edit your account'
-    expect(page).to have_css '.email', visible: "newmail@example.com"
+    expect(page).to have_field('Email', with: "newmail@example.com")
   end
 
   scenario 'registration edit uses the dashboard template' do
@@ -46,9 +48,10 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
     expect(page).to have_css 'h1', text: 'Welcome to Outside CMS'
 
     click_link admin.email
+
     expect(page).to have_current_path '/users/edit'
     expect(page).to have_css 'h1', text: 'Edit your account'
-    expect(page).to have_css '.email', visible: admin.email
+    expect(page).to have_field('Email', with: admin.email)
     expect(page).to have_css 'header.top'
 
     fill_in 'Email', with: "newmail@example.com"
@@ -58,7 +61,7 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
     click_button 'Update'
 
     expect(page).to have_css 'h1', text: 'Edit your account'
-    expect(page).to have_css '.email', visible: admin.email
+    expect(page).to have_field('Email', with: "newmail@example.com")
     expect(page).to have_css 'header.top'
   end
 
@@ -67,6 +70,7 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
     admin = create(:user, :admin)
 
     visit '/users/sign_in'
+
     expect(page).to have_css 'h1', text: 'Sign In'
 
     click_link 'Forgotten your password?'
@@ -84,6 +88,7 @@ RSpec.feature "admin account authentication,", type: :feature, js: true do
     visit_in_email "Change my password"
 
     expect(page).to have_css 'h1', text: 'Change your password'
+
     fill_in 'Password', with: "new-password"
     fill_in 'Password confirmation', with: "new-password"
     click_button 'Change my password'

@@ -1,16 +1,17 @@
 <h1>Sign In</h1>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => "form-signin"}) do |f| %>
-
-  <%- flash.each do |name, msg| -%>
-  <div class="alert alert-danger">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => "form-signin"}) do |f| %>
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-danger">
       <strong><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></strong>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :email, class: 'form-control', placeholder: 'Email', label: false %>
   </div>
-  <%- end -%>
-
-  <%= devise_error_messages! %>
-
-  <%= f.input :email, placeholder: 'Email', label: false %>
-  <%= f.input :password, placeholder: 'Password', label: false %>
+  <div class="form-group">
+    <%= f.text_field :password, class: 'form-control', placeholder: 'Password', label: false %>
+  </div>
   <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary btn-block") do %>
      Sign in
   <% end %>

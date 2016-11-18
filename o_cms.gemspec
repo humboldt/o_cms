@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   # frontend
   s.add_dependency "sass-rails"
   s.add_dependency "compass-rails"
-  s.add_dependency "simple_form"
   s.add_dependency "jquery-rails"
   s.add_dependency "rails-assets-tether", ">= 1.1.0"
   s.add_dependency "turbolinks"

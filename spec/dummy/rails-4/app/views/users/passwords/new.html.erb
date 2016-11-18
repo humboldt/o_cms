@@ -1,8 +1,10 @@
 <h1>Forgotten your password?</h1>
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "form-signin password-recovery" }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "form-signin password-recovery" }) do |f| %>
+  <%= render :partial => 'users/shared/errors' %>
 
-  <%= f.input :email, placeholder: 'Email', label: false %>
+  <%= form_group_tag(@user.errors[:email]) do %>
+	  <%= f.text_field :email, class: 'form-control', placeholder: 'Email', label: false %>
+  <% end %>
   <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary btn-block") do %>
 	   Send me reset instructions
 	<% end %>
