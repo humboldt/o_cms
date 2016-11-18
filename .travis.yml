@@ -14,12 +14,12 @@ script:
 #  - bundle exec rake db:create
 #  - bundle exec rake db:schema:load
 # Rails 5
-  - bundle exec rails db:create
-  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate RAILS_ENV=test
   - bundle exec rspec
 gemfile:
-  # - gemfiles/4.1.gemfile
-  # - gemfiles/4.2.gemfile
+  - gemfiles/4.1.gemfile
+  - gemfiles/4.2.gemfile
   - gemfiles/5.0.gemfile
 cache: bundler
 # Exclude Ruby 2.1.5 for Rails 5 Test
