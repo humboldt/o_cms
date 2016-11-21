@@ -5,7 +5,7 @@
 
   <div class="list-group">
     <% galleries.each do |gallery| %>
-      <%= link_to gallery_path(gallery), class: 'list-group-item list-group-item-action', remote: true do %>
+      <%= link_to o_cms.gallery_path(gallery), class: 'list-group-item list-group-item-action', remote: true do %>
         <%= gallery.name %>
       <% end %>
     <% end %>
