@@ -150,12 +150,29 @@ module OCms
     end
 
     describe "scopes" do
-      before do
-        @parent_page = Page.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)
-        @subpage = @parent_page.subpages.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)
+      describe "published," do
+        before do
+          @published_page = Page.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, published_at: 2.days.ago)
+          page = create(:page)
+        end
+
+        it "returns the published page only" do
+          expect(Page.published.count).to eq(1)
+          expect(Page.published).to include(@published_page)
+        end
+
+        it "does not return the subpage or parent page" do
+          expect(Page.published.count).to_not eq(2)
+          expect(Page.published).to_not include(page)
+        end
       end
 
       describe "page_parents," do
+        before do
+          @parent_page = Page.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)
+          @subpage = @parent_page.subpages.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)
+        end
+
         it "returns the parent page only" do
           expect(Page.page_parents.count).to eq(1)
           expect(Page.page_parents).to include(@parent_page)
