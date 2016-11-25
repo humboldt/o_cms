@@ -7,10 +7,10 @@ Gem::Specification.new do |s|
   s.name        = "o_cms"
   s.version     = OCms::VERSION
   s.authors     = ["Benjamin Ayres"]
-  s.email       = ["ben@outsidehq.co.uk"]
-  s.homepage    = "http://outsidehq.co.uk"
-  s.summary     = "Simple and adaptable CMS."
-  s.description = "Provide your application with content mangement features and a simple interface you can easily extend."
+  s.email       = ["benjaminayres@hush.com"]
+  s.homepage    = "https://github.com/benjaminayres/o_cms"
+  s.summary     = "Outside CMS - Open source, easy to extend CMS for Rails"
+  s.description = "Easily extend your application with Pages, Post and Image Library, customisable to suit any project."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
