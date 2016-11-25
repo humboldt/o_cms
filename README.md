@@ -1,17 +1,15 @@
 # Outside CMS
 
-[![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms) [![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed) [![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
+[![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms) [![Gem Version](https://badge.fury.io/rb/o_cms.svg)](https://badge.fury.io/rb/o_cms) [![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed) [![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
 
-Open source, easy to extend content management system for Rails
+## Open source, easy to extend content management system for Rails
 
-### Why Outside CMS?
-
-* Easily extend you application with Pages, Post and Image Library
-* Focus on building your unique application features
+* Easily extend your application with Pages, Post and Image Library
 * Built be easy to adapt, extend and customisable to suit any project
+* Supports Rails 4.1 to 5.0
+* Focus on building your unique application features
 * Define your own authorisation around the CMS
 * Designed to be easy to use for your end users
-* Supports Rails 4.1.16 to 5.0
 * Uses the powerful [Trix Editor](https://github.com/basecamp/trix)
 
 ------
@@ -24,7 +22,7 @@ Open source, easy to extend content management system for Rails
 
 Add Outside CMS to your gem file:
 ```rb
-gem 'outside_cms'
+gem 'o_cms'
 ```
 
 Install the migrations:
@@ -49,7 +47,7 @@ In development you may want to use the CMS without defining any authentication.
 # config/routes.rb
 mount OCms::Engine => '/o_cms'
 ```
-By default Outside CMS is configured to use Devise and includes the user email, with edit user and sign out link in the user navigation. If you are using the CMS without devise authentication override the ``` /views/o_cms/partials/_user_navigation.html.erb ``` partial with no content to prevent errors.
+By default Outside CMS is configured to use Devise and includes the user email, with edit user and sign out link in the user navigation. If you are using the CMS without devise authentication override the ``` /views/o_cms/partials/_user_navigation.html.erb ``` partial devise specific links to prevent errors.
 
 #### Devise
 In a production application you'll likely want to protect access to the control panel.
@@ -75,8 +73,8 @@ Define where you would like your images to be stored by adding the below to you 
 By default images are stored in the file directory, to use fog you would add.
 
 ```rb
-# initilizers/o_cms_config.rb
-OCms::Engine.config.file_storage = :fog``
+# initializers/o_cms_config.rb
+OCms::Engine.config.file_storage = :fog
 ```
 ## Customisation
 
@@ -92,7 +90,7 @@ You can customise the Primary and User navigation by creating these partials in 
 If you would like to define a different selection of image sizes to the default, or change the resizing and size options add the below hash to your config file. You will have to include a *Featured* option for the Post and Page featured image to work.
 
 ```rb
-# initilizers/o_cms_config.rb
+# initializers/o_cms_config.rb
 OCms::Engine.config.image_sizes = {
   thumb: { resize: "resize_to_fill", width: 50, height: 50 },
   medium: { resize: "resize_to_fit", width: 200, height: 200 },
@@ -120,8 +118,8 @@ You can easily override these guidelines, if you feel the language is tool simpl
 
 ## License
 
-Outside CMS is released under the MIT License.
+Outside CMS is released under the [MIT License](LICENSE).
 
 ## Author
 
-Benjamin Ayres
+Benjamin Ayres [https://github.com/benjaminayres](https://github.com/benjaminayres)
