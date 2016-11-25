@@ -40,7 +40,7 @@ RSpec.feature "Admin manages categories,", type: :feature, js: true do
     expect(page).to have_css 'h2', text: 'Edit Category'
     expect(page).to have_field('Name', with: 'Adventure Cycling Inspiration')
     expect(page).to have_field('Slug', with: 'adventure-cycling-inspiration')
-    expect(page).to have_css '.category_body div', text: 'Top destinations and travel tips for adventure cycling in the UK. Looking for a new destination? Not sure what to pack? Looking for some differnt terrain? You are in the right place, these are some top adventure cycling destination to get you inspired.'
+    expect(page).to have_css '.category_body', text: 'Top destinations and travel tips for adventure cycling in the UK. Looking for a new destination? Not sure what to pack? Looking for some differnt terrain? You are in the right place, these are some top adventure cycling destination to get you inspired.'
 
     expect(page).to have_css '.alert', text: 'Category was saved successfully.'
   end

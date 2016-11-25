@@ -136,7 +136,7 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
 
     fill_in 'Excerpt', with: "Positive feelings are one of the key components of well being."
     click_button 'Save'
@@ -145,8 +145,8 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: 'Mindset Tweaks To Enhance Your Time In The Saddle')
     expect(page).to have_field('Slug', with: 'mindset-tweaks-to-enhance-your-time-in-the-saddle')
-    expect(page).to have_css '.post_body div', text: 'Positive feelings are one of the key components of well being. Having fun and enjoying oneself, in addition to feeling good, has also been associated with improved health, personal efficiency, and productivity, and a bunch of other good things like hopefulness and creativity. Plus, when you’re happily enjoying yourself, it makes it easier for other people to feel good.'
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to have_css '.post_body', text: 'Positive feelings are one of the key components of well being. Having fun and enjoying oneself, in addition to feeling good, has also been associated with improved health, personal efficiency, and productivity, and a bunch of other good things like hopefulness and creativity. Plus, when you’re happily enjoying yourself, it makes it easier for other people to feel good.'
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
     expect(page).to have_field('Excerpt', with: 'Positive feelings are one of the key components of well being.')
   end
 
@@ -188,8 +188,8 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
 
     expect(page).to have_css 'h2', text: 'Edit Post'
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
 
     fill_in 'Excerpt', with: "Positive feelings are one of the key components of well being."
     click_button 'Save'
@@ -197,9 +197,9 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
   end
 
   scenario 'inserts left aligned image' do
@@ -238,17 +238,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0px 10px 10px 0px; float: left;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0px 10px 10px 0px; float: left;\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0px 10px 10px 0px; float: left;\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0px 10px 10px 0px; float: left;\"]") }
   end
 
   scenario 'inserts right aligned image' do
@@ -287,17 +287,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
   end
 
   scenario 'inserts centerally aligned image' do
@@ -336,17 +336,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
   end
 
   scenario 'inserts thumb image' do
@@ -385,15 +385,15 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
   end
 
   scenario 'inserts medium image' do
@@ -432,15 +432,15 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
   end
 
   scenario 'inserts large image' do
@@ -479,15 +479,15 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
   end
 
   scenario 'inserts featured image' do
@@ -526,15 +526,15 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.featured}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.featured}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.featured}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.featured}\"]") }
   end
 
   scenario 'inserts special image' do
@@ -573,15 +573,15 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.special}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.special}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.special}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.special}\"]") }
   end
 
   scenario 'inserts image linking to a URL' do
@@ -624,17 +624,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
   end
 
   scenario 'inserts image linking to a thumb image' do
@@ -673,17 +673,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.thumb}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.thumb}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.thumb}\"]") }
   end
 
   scenario 'inserts image linking to a medium image' do
@@ -722,17 +722,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.medium}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.medium}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.medium}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.medium}\"]") }
   end
 
   scenario 'inserts image linking to a large image' do
@@ -771,17 +771,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.large}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.large}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.large}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.large}\"]") }
   end
 
   scenario 'inserts image linking to a featured image' do
@@ -820,17 +820,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
   end
 
   scenario 'inserts image linking to a special image' do
@@ -869,17 +869,17 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.thumb}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
   end
 
   scenario 'inserts a centerally aligned medium image linking to a url with new alt text' do
@@ -925,21 +925,21 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"https://my-adventure-picture-blog.co.uk\"]") }
   end
 
   scenario 'inserts a right aligned large image linking to a special image with new alt text' do
@@ -982,21 +982,21 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.large}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"float: right; margin: 0px 0px 10px 10px;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.special}\"]") }
   end
 
   scenario 'inserts a centerally aligned medium image linking to a featured image with new alt text' do
@@ -1039,20 +1039,20 @@ RSpec.feature "Admin adds image to body field,", type: :feature, js: true do
 
     expect(page).to have_css('#libraryModal', visible: false)
     expect(page).to have_css('h4#libraryModalLabel', visible: false, text: 'Library')
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
 
     click_button 'Save'
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
-    expect(page).to within(:css, '.post_body div') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
+    expect(page).to have_css '.post_body', text: post.body
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@src=\"#{image.file.medium}\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@alt=\"My first morning in the mountains\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//img[@style=\"margin: 0 auto; display: block;\"]") }
+    expect(page).to within(:css, '.post_body') { have_xpath(".//a[@href=\"#{image.file.featured}\"]") }
   end
 end

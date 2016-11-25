@@ -65,7 +65,7 @@ RSpec.feature "Admin manages featured image in a post,", type: :feature, js: tru
 
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: post.title)
-    expect(page).to have_css '.post_body div', text: post.body
+    expect(page).to have_css '.post_body', text: post.body
     expect(page).to within(:css, '.featured-card') { have_xpath(".//img[@src=\"#{image.file.featured}\"]") }
 
     expect(page).to have_css '.alert', text: 'Post was saved successfully.'
@@ -112,7 +112,7 @@ RSpec.feature "Admin manages featured image in a post,", type: :feature, js: tru
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_field('Title', with: 'Adventure Cycling what to pack')
-    expect(page).to have_css '.post_body div', text: 'You have spent months dreaming and planning your bike journey. You have poured over maps and shopped for gear. You have been training hard and saving up. There is a frantic joy/dread to those final hours before you set out on a journey. Life never seems so hectic as those last couple of days before a big bike trip. What did you forget? Is that bike box overweight? Are you bringing too much stuff?'
+    expect(page).to have_css '.post_body', text: 'You have spent months dreaming and planning your bike journey. You have poured over maps and shopped for gear. You have been training hard and saving up. There is a frantic joy/dread to those final hours before you set out on a journey. Life never seems so hectic as those last couple of days before a big bike trip. What did you forget? Is that bike box overweight? Are you bringing too much stuff?'
     expect(page).to within(:css, '.featured-card') { have_xpath(".//img[@src=\"#{replacement_image.file.featured}\"]") }
 
     visit '/o_cms/posts'

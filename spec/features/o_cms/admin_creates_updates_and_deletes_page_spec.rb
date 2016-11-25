@@ -36,7 +36,7 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     expect(page).to have_css 'h2', text: 'Edit Page'
     expect(page).to have_field('Title', with: 'About Adventure Cycling Daily')
     expect(page).to have_field('Slug', with: 'about-adventure-cycling-daily')
-    expect(page).to have_css '.page_body div', text: 'Our goal is to deliver a daily source of adventure cycling news and events to keep you planning for your next trip. Our mission is to inspire and empower people to travel by bicycle.'
+    expect(page).to have_css '.page_body', text: 'Our goal is to deliver a daily source of adventure cycling news and events to keep you planning for your next trip. Our mission is to inspire and empower people to travel by bicycle.'
     expect(page).to have_field('Excerpt', with: 'Inspiring and empowering people to travel by bicycle.')
     expect(page).to have_css '.alert', text: 'Page was saved successfully.'
   end
@@ -66,7 +66,7 @@ RSpec.feature "Admin manages pages,", type: :feature, js: true do
     expect(page).to have_css 'h2', text: 'Edit Page'
     expect(page).to have_field('Title', with: 'Epic Tours - Expore the world by bike')
     expect(page).to have_field('Slug', with: 'epic-tours')
-    expect(page).to have_css '.page_body div', text: 'Bicycling across a continent is less about athleticism and more about spirit and perseverance, the capacity to roll with the bumps along the way. Having successfully done it says something about a person’s character.'
+    expect(page).to have_css '.page_body', text: 'Bicycling across a continent is less about athleticism and more about spirit and perseverance, the capacity to roll with the bumps along the way. Having successfully done it says something about a person’s character.'
     expect(page).to have_field('Excerpt', with: 'Someday, I’m going for it — the big one, the moon shot. A 21- to 93-day, self-contained or van-supported adventure by bike.')
 
     visit '/o_cms/pages'
