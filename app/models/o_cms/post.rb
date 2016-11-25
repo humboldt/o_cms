@@ -20,6 +20,8 @@ module OCms
                ['Publish', PUBLISHED_STATUS],
                ['Schedule', SCHEDULED_STATUS]]
 
+    scope :published, -> { where('published_at <= ?', Time.now) }
+
     def create_slug
       self.slug = "#{title.parameterize}" if self.slug.blank? && self.title.present?
     end

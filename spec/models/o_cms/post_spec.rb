@@ -17,6 +17,25 @@ module OCms
       end
     end
 
+    describe "scopes" do
+      describe "published," do
+        before do
+          @published_post = Post.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, published_at: 2.days.ago)
+          post = create(:post)
+        end
+
+        it "returns the published post only" do
+          expect(Post.published.count).to eq(1)
+          expect(Post.published).to include(@published_post)
+        end
+
+        it "does not return the post" do
+          expect(Post.published.count).to_not eq(2)
+          expect(Post.published).to_not include(post)
+        end
+      end
+    end
+
     describe "#create_slug" do
       it "creates the post slug from the post title" do
         post = Post.create(title: RandomData.random_sentence, body: RandomData.random_sentence)

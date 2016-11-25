@@ -23,6 +23,7 @@ module OCms
                ['Publish', PUBLISHED_STATUS],
                ['Schedule', SCHEDULED_STATUS]]
 
+    scope :published, -> { where('published_at <= ?', Time.now) }
     scope :page_parents, -> { where(parent_id: nil) }
     scope :all_except, ->(page) { where.not(id: page) }
 
