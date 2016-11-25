@@ -35,7 +35,7 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
     expect(page).to have_css 'h2', text: 'Edit Post'
     expect(page).to have_field('Title', with: 'Mindset Tweaks To Enhance Your Time In The Saddle')
     expect(page).to have_field('Slug', with: 'mindset-tweaks-to-enhance-your-time-in-the-saddle')
-    expect(page).to have_css '.post_body div', text: 'Positive feelings are one of the key components of well being. Having fun and enjoying oneself, in addition to feeling good, has also been associated with improved health, personal efficiency, and productivity, and a bunch of other good things like hopefulness and creativity. Plus, when you’re happily enjoying yourself, it makes it easier for other people to feel good.'
+    expect(page).to have_css '.post_body', text: 'Positive feelings are one of the key components of well being. Having fun and enjoying oneself, in addition to feeling good, has also been associated with improved health, personal efficiency, and productivity, and a bunch of other good things like hopefulness and creativity. Plus, when you’re happily enjoying yourself, it makes it easier for other people to feel good.'
     expect(page).to have_field('Excerpt', with: 'Positive feelings are one of the key components of well being.')
 
     expect(page).to have_css '.alert', text: 'Post was saved successfully.'
@@ -63,7 +63,7 @@ RSpec.feature "Admin manages posts,", type: :feature, js: true do
 
     expect(page).to have_css '.alert', text: 'Post was updated successfully.'
     expect(page).to have_field('Title', with: 'Adventure Cycling what to pack')
-    expect(page).to have_css '.post_body div', text: 'You have spent months dreaming and planning your bike journey. You have poured over maps and shopped for gear. You have been training hard and saving up. There is a frantic joy/dread to those final hours before you set out on a journey. Life never seems so hectic as those last couple of days before a big bike trip. What did you forget? Is that bike box overweight? Are you bringing too much stuff?'
+    expect(page).to have_css '.post_body', text: 'You have spent months dreaming and planning your bike journey. You have poured over maps and shopped for gear. You have been training hard and saving up. There is a frantic joy/dread to those final hours before you set out on a journey. Life never seems so hectic as those last couple of days before a big bike trip. What did you forget? Is that bike box overweight? Are you bringing too much stuff?'
     expect(page).to have_field('Excerpt', with: 'Packing advice for the first time traveler. Life never seems so hectic as those last couple of days before a big bike trip.')
 
     visit '/o_cms/posts'

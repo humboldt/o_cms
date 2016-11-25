@@ -13,7 +13,7 @@ module OCms
 
     def new
       @page = Page.new
-      @pages = Page.all_except(@page)
+      @pages = Page.all
     end
 
     def create
@@ -24,6 +24,7 @@ module OCms
         redirect_to edit_page_path(@page)
       else
         flash.now[:alert] = "Error creating page. Please try again."
+        @pages = Page.all
         render :new
       end
     end
