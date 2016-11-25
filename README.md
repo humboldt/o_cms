@@ -1,6 +1,6 @@
 # Outside CMS
 
-[![Build Status](https://travis-ci.com/benjaminayres/o_cms.svg?token=SupDfrX15nFZyz6Z1cQz&branch=master)](https://travis-ci.com/benjaminayres/o_cms) [![Gem Version](https://badge.fury.io/rb/o_cms.svg)](https://badge.fury.io/rb/o_cms) [![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed) [![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
+[![Build Status](https://travis-ci.org/benjaminayres/o_cms.svg?branch=master)](https://travis-ci.org/benjaminayres/o_cms) [![Gem Version](https://badge.fury.io/rb/o_cms.svg)](https://badge.fury.io/rb/o_cms) [![Code Climate](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/gpa.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/feed) [![Test Coverage](https://codeclimate.com/repos/582251ca7ec35900650034b0/badges/97c43554c5b2c9a14e5b/coverage.svg)](https://codeclimate.com/repos/582251ca7ec35900650034b0/coverage)
 
 ## Open source, easy to extend content management system for Rails
 
